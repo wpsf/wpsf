@@ -2,7 +2,7 @@
 A Lightweight and easy-to-use WordPress Options Framework. It is a free framework for building theme options. Save your time!
 
 ## Screenshot
-[![WPSF Framework Screenshot](http://codestarframework.com/assets/images/framework/screenshot.png)](http://codestarframework.com/assets/images/framework/screenshot-1.png)
+[![WPSF Framework Screenshot](http://wpsf.github.io/s3/theme-modern.jpg)](http://wpsf.github.io/s3/theme-modern.jpg)
 
 ## [Documentation](https://wpsf.gitbooks.io/docs/)
 Read the documentation for details [documentation](https://wpsf.gitbooks.io/docs/)
@@ -10,57 +10,36 @@ Read the documentation for details [documentation](https://wpsf.gitbooks.io/docs
 ## Installation
 ##### A) Usage as Theme
 * Download zip file from github repository
-* Extract download zip on `themename/cs-framework` folder under your theme directory
+* Extract download zip on `themename/wpsf-framework` folder under your theme directory
 * Add framework include code on your theme `themename/functions.php` file
 
 ```php
-require_once dirname( __FILE__ ) .'/cs-framework/cs-framework.php';
+require_once dirname( __FILE__ ) .'/wpsf-framework/wpsf-framework.php';
 // -(or)-
-require_once get_template_directory() .'/cs-framework/cs-framework.php';
+require_once get_template_directory() .'/wpsf-framework/wpsf-framework.php';
 ```
 
 * Yay! Right now you are ready to configure framework, metaboxes, taxonomies, wp customize, shortcoder
-* Take a look for config files from `themename/cs-framework/config` folder
+* Take a look for config files from `themename/wpsf-framework/config` folder
 * Read for more from [documentation](https://wpsf.gitbooks.io/docs/)
 
 ##### B) Usage as Plugin
 * Download zip file from github repository
-* **Way1** Extract download zip on `wp-content/plugins/cs-framework` folder under your plugin directory
+* **Way1** Extract download zip on `wp-content/plugins/wpsf-framework` folder under your plugin directory
 * **Way2** Upload zip file from `wordpess plugins panel -> add new -> upload plugin`
 * Active WPSF Framework plugin from wordpress plugins panel
 * Yay! Right now you are ready to configure framework, metaboxes, taxonomies, wp customize, shortcoder
-* Take a look for config files from `wp-content/plugins/cs-framework/config` folder also you can manage config files from theme directory. see overriding files method.
+* Take a look for config files from `wp-content/plugins/wpsf-framework/config` folder also you can manage config files from theme directory. see overriding files method.
 * Read for more from [documentation](https://wpsf.gitbooks.io/docs/)
 
-## Enable - Disable Mods
-Add define code on your `themename/functions.php` directly.
-```php
-define( 'CS_ACTIVE_FRAMEWORK',   true  ); // default true
-define( 'CS_ACTIVE_METABOX',     false ); // default true
-define( 'CS_ACTIVE_TAXONOMY',    false ); // default true
-define( 'CS_ACTIVE_SHORTCODE',   false ); // default true
-define( 'CS_ACTIVE_CUSTOMIZE',   false ); // default true
-```
-or take a look for change define base code from `/cs-framework/cs-framework.php` directly.
-
-## Enable Light Theme
-Add the following define code somewhere in your theme or plugin, and light theme will be active.
-
-```php
-define( 'CS_ACTIVE_LIGHT_THEME',  true  ); // default false
-```
-
-### Light Theme Screenshot
-
-[![WPSF Framework Screenshot](http://wpsf.github.io/s3/theme-modern.jpg)](http://wpsf.github.io/s3/theme-modern.jpg)
 
 ## Overriding Files
-You can override an existing file without change `themename/cs-framework` folder. just create one `themename/cs-framework-override` folder on your theme directory. for eg:
+You can override an existing file without change `themename/wpsf-framework` folder. just create one `themename/wpsf-framework-override` folder on your theme directory. for eg:
 
 ```php
-themename/cs-framework-override/config/framework.config.php
-themename/cs-framework-override/functions/constants.php
-themename/cs-framework-override/fields/text/text.php
+themename/wpsf-framework-override/config/framework.config.php
+themename/wpsf-framework-override/functions/constants.php
+themename/wpsf-framework-override/fields/text/text.php
 ```
 
 ## Features
