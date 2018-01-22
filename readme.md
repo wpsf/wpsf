@@ -2,7 +2,7 @@
 A Lightweight and easy-to-use WordPress Options Framework. It is a free framework for building theme options. Save your time!
 
 ## Screenshot
-[![WPSF Framework Screenshot](http://wpsf.github.io/s3/theme-modern.jpg)](http://wpsf.github.io/s3/theme-modern.jpg)
+[![WPSF Framework Screenshot](http://wpsf.github.io/s3/theme-modern.jpg)](https://wpsf.github.io/s3/front-animation.gif)
 
 ## [Documentation](https://wpsf.gitbooks.io/docs/)
 Read the documentation for details [documentation](https://wpsf.gitbooks.io/docs/)
@@ -96,4 +96,7 @@ Read more about GNU [license.txt](http://www.gnu.org/licenses/gpl-3.0.txt)
 * First Version
 
 See [changelog](CHANGELOG.md)
+
+## Contributers
+* @chandrika1892
 
