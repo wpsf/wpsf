@@ -1,0 +1,20 @@
+/*
+ * This file is part of the WPSF package.
+ * This package is Open Source Software. For the full copyright and license
+ * information, please view the LICENSE file which was distributed with this
+ * source code.
+ *
+ * @package    WPSF
+ * @author     Varun Sridharan <varunsridharan23@gmail.com>
+ */
+.wpsf-element-image-size .wpsf-fieldset .wpsf-element {
+  border: none;
+  padding: 0 !important;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+.wpsf-element-image-size .wpsf-fieldset .wpsf-element + .wpsf-element {
+  margin-left: 10px;
+}
+
+

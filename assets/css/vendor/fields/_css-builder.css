@@ -1,0 +1,140 @@
+/*
+ * This file is part of the WPSF package.
+ * This package is Open Source Software. For the full copyright and license
+ * information, please view the LICENSE file which was distributed with this
+ * source code.
+ *
+ * @package    WPSF
+ * @author     Varun Sridharan <varunsridharan23@gmail.com>
+ */
+.wpsf-css-builder-container .wpsf-css-builder-extra-options {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5%;
+  width: 50%;
+}
+.wpsf-css-builder-container .wpsf-css-builder-extra-options .wpsf-element {
+  padding: 10px 0px;
+  display: inline-block;
+  margin-right: 5%;
+  border: none !important;
+  width: 45%;
+}
+.wpsf-css-builder-container .wpsf-css-builder-extra-options .wpsf-element .wpsf-title {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.wpsf-css-builder-container .wpsf-css-builder-extra-options .wpsf-element .wpsf-fieldset {
+  margin-left: 0 !important;
+}
+.wpsf-css-builder-container .wpsf-css-builder-extra-options .wpsf-css-builder-border-radius {
+  margin-top: 10px;
+}
+.wpsf-css-builder-container .wpsf-css-builder-extra-options .wpsf-css-builder-border-radius .wpsf-css-border-radius-caption {
+  margin-bottom: 10px;
+}
+.wpsf-css-builder-container .wpsf-css-builder-extra-options .wpsf-css-builder-border-radius .wpsf-element {
+  width: 20%;
+  margin-right: 2%;
+  text-align: left;
+}
+.wpsf-css-builder-container .wpsf-css-builder-margin {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  background-color: #f2f2f2;
+  padding: 10px;
+  width: 440px;
+  height: 286px;
+  border: 1px dashed #a6a6a6;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.wpsf-css-builder-container .wpsf-css-builder-border {
+  position: relative;
+  top: 5px;
+  margin: 0 auto;
+  padding: 10px 3px;
+  width: 326px;
+  height: 218px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.wpsf-css-builder-container .wpsf-css-builder-padding {
+  position: relative;
+  top: 9px;
+  margin: 0 auto;
+  padding: 10px 3px;
+  width: 209px;
+  height: 142px;
+  border: 1px dashed #9c9c9c;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.wpsf-css-builder-container .wpsf-css-builder-layout-center {
+  position: relative;
+  top: 8px;
+  margin: 0 auto;
+  width: 96px;
+  height: 66px;
+  border: none;
+  left: 0;
+}
+.wpsf-css-builder-container .wpsf-css-checkall {
+  font-size: 16px;
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+  cursor: pointer;
+  color: #eee;
+  background: #ccc;
+  border-radius: 50%;
+}
+.wpsf-css-builder-container .wpsf-css-checkall.checked {
+  color: #00a0d2;
+}
+.wpsf-css-builder-container .wpsf-css-info {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  color: #ccc;
+}
+.wpsf-css-builder-container .wpsf-css-info:hover {
+  cursor: pointer;
+  color: #00a0d2;
+}
+.wpsf-css-builder-container .wpsf-element.wpsf-margin, .wpsf-css-builder-container .wpsf-element.wpsf-border, .wpsf-css-builder-container .wpsf-element.wpsf-padding {
+  position: absolute;
+  text-align: center;
+  line-height: 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.wpsf-css-builder-container .wpsf-element.wpsf-margin-top, .wpsf-css-builder-container .wpsf-element.wpsf-border-top, .wpsf-css-builder-container .wpsf-element.wpsf-padding-top {
+  left: 50%;
+  margin-left: -20px;
+  top: 2px;
+}
+.wpsf-css-builder-container .wpsf-element.wpsf-margin-bottom, .wpsf-css-builder-container .wpsf-element.wpsf-border-bottom, .wpsf-css-builder-container .wpsf-element.wpsf-padding-bottom {
+  left: 50%;
+  margin-left: -20px;
+  bottom: 2px;
+}
+.wpsf-css-builder-container .wpsf-element.wpsf-margin-left, .wpsf-css-builder-container .wpsf-element.wpsf-border-left, .wpsf-css-builder-container .wpsf-element.wpsf-padding-left {
+  top: 50%;
+  margin-top: -15px;
+  left: 4px;
+}
+.wpsf-css-builder-container .wpsf-element.wpsf-margin-right, .wpsf-css-builder-container .wpsf-element.wpsf-border-right, .wpsf-css-builder-container .wpsf-element.wpsf-padding-right {
+  top: 50%;
+  margin-top: -15px;
+  right: 4px;
+}
+.wpsf-css-builder-container .wpsf-element.wpsf-border-top, .wpsf-css-builder-container .wpsf-element.wpsf-padding-top {
+  top: 6px;
+}
+.wpsf-css-builder-container .wpsf-element.wpsf-border-bottom, .wpsf-css-builder-container .wpsf-element.wpsf-padding-top {
+  bottom: 5px;
+}
+
+

@@ -1,0 +1,100 @@
+/*!
+ * This file is part of the WPSF package.
+ * This package is Open Source Software. For the full copyright and license
+ * information, please view the LICENSE file which was distributed with this
+ * source code.
+ *
+ * @package    WPSF
+ * @author     Varun Sridharan <varunsridharan23@gmail.com>
+ */
+@import "compass";
+@import "vendor/dark-theme";
+@import "vendor/simple-theme";
+@import "vendor/wp-metabox";
+@import "vendor/wc-metabox";
+@import "vendor/quick-edit";
+@import "vendor/mixins";
+@import "vendor/base";
+@import "vendor/fields/text";
+@import "vendor/fields/textarea";
+@import "vendor/fields/typography_advanced";
+@import "vendor/fields/wysiwyg";
+@import "vendor/fields/number";
+@import "vendor/fields/select";
+@import "vendor/fields/typography";
+@import "vendor/fields/switcher";
+@import "vendor/fields/image-select";
+@import "vendor/fields/upload";
+@import "vendor/fields/background";
+@import "vendor/fields/color-picker";
+@import "vendor/fields/backup";
+@import "vendor/fields/fieldset";
+@import "vendor/fields/accordion";
+@import "vendor/fields/help";
+@import "vendor/fields/heading";
+@import "vendor/fields/subheading";
+@import "vendor/fields/notice";
+@import "vendor/fields/icon";
+@import "vendor/fields/image";
+@import "vendor/fields/gallery";
+@import "vendor/fields/sorter";
+@import "vendor/fields/css-builder";
+@import "vendor/fields/image-size";
+@import "vendor/fields/color-scheme";
+@import "vendor/fields/tabs";
+@import "wpsf-framework-light";
+@import 'wpsf_cols';
+
+.wpsf-element {
+  .fieldset-horizontal {
+    display: inline-block;
+    padding: 0;
+    margin-right: 5px;
+    border: none;
+    &.hidden {
+      display: none; /* override our inline-block so this doesn't display when dependent */
+    }
+    .wpsf-title {
+      width: 100%;
+      float: none;
+      margin-bottom: 5px;
+    }
+    .wpsf-fieldset {
+      margin: 0;
+    }
+    .wpsf-inner {
+      border: none;
+      background-color: transparent;
+    }
+    h4 {
+      text-align: center;
+    }
+  }
+}
+
+.wpsf-groups {
+  .wpsf-group {
+    .wpsf-element {
+      .fieldset-horizontal {
+        display: inline-block;
+        padding: 0;
+        margin-right: 5px;
+        border: none;
+        &.wpsf-fieldset {
+          margin: 0;
+          /* This may get a little too big in a grouped field, so lets apply the max-width of an open color picker */
+          max-width: 256px;
+        }
+        .wpsf-title {
+          width: 100%;
+          float: none;
+          margin-bottom: 5px;
+        }
+        .wpsf-inner {
+          border: none;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}

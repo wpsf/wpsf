@@ -1,0 +1,46 @@
+/*
+ * This file is part of the WPSF package.
+ * This package is Open Source Software. For the full copyright and license
+ * information, please view the LICENSE file which was distributed with this
+ * source code.
+ *
+ * @package    WPSF
+ * @author     Varun Sridharan <varunsridharan23@gmail.com>
+ */
+
+.wpsf-wc-style .wpsf-element + .wpsf-element {
+  border: none;
+}
+.wpsf-wc-style .wpsf-field-switcher label {
+  width: 62px !important;
+}
+.wpsf-wc-style .wpsf-element {
+  padding: 5px 20px 5px 12px !important;
+  margin: 9px 0;
+}
+.wpsf-wc-style .wpsf-element .wpsf-fieldset {
+  margin-left: 0 !important;
+}
+.wpsf-wc-style .wpsf-element .wpsf-fieldset .wpsf-modules {
+  width: 40%;
+  margin-right: 25px;
+}
+.wpsf-wc-style .wpsf-element .wpsf-fieldset label {
+  float: none;
+  width: auto;
+  margin: 0;
+}
+.wpsf-wc-style .wpsf-element .wpsf-title {
+  width: 150px;
+}
+.wpsf-wc-style .wpsf-element .wpsf-title h4 {
+  vertical-align: middle;
+  font-weight: normal;
+}
+
+.wpsf-wc-metabox-fields legend {
+  float: none;
+  margin: 0px;
+}
+
+
