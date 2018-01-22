@@ -98,5 +98,5 @@ Read more about GNU [license.txt](http://www.gnu.org/licenses/gpl-3.0.txt)
 See [changelog](CHANGELOG.md)
 
 ## Contributers
-* @chandrika1892
+* [@chandrika1892](http://github.com/chandrika1892)
 
