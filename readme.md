@@ -92,7 +92,7 @@ Read more about GNU [license.txt](http://www.gnu.org/licenses/gpl-3.0.txt)
 
 
 ## The Latest Updates
-#### 1.0
+#### 0.5Beta
 * First Version
 
 See [changelog](CHANGELOG.md)
