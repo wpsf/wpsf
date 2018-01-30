@@ -88,7 +88,7 @@
                 return true;
             }
             var control = context.find(this.controller);
-            if ( control.size() === 0 && cfg.log ) {
+            if ( control.length === 0 && cfg.log ) {
                 log("Evaling condition: Could not find controller input " + this.controller);
             }
             var val = this.getControlValue(context, control);
@@ -108,7 +108,7 @@
             return val;
         },
         getControlValue: function (context, control) {
-            if ( ( control.attr("type") == "radio" || control.attr("type") == "checkbox" ) && control.size() > 1 ) {
+            if ( ( control.attr("type") == "radio" || control.attr("type") == "checkbox" ) && control.length > 1 ) {
                 return control.filter(":checked").val();
             }
             if ( control.attr("type") == "checkbox" || control.attr("type") == "radio" ) {
@@ -148,14 +148,14 @@
             };
             var controls = $.map(this.controls, function (elem, idx) {
                 var control = context.find(elem);
-                if ( cfg.log && control.size() === 0 ) {
+                if ( cfg.log && control.length === 0 ) {
                     log("Could not find element:" + elem);
                 }
                 return control;
             });
             if ( result ) {
                 $(controls).each(function () {
-                    if ( cfg.log && $(this).size() === 0 ) {
+                    if ( cfg.log && $(this).length === 0 ) {
                         log("Control selection is empty when showing");
                         log(this);
                     }
@@ -166,7 +166,7 @@
                 });
             } else {
                 $(controls).each(function () {
-                    if ( cfg.log && $(this).size() === 0 ) {
+                    if ( cfg.log && $(this).length === 0 ) {
                         log("Control selection is empty when hiding:");
                         log(this);
                     }
@@ -235,7 +235,7 @@
             var controls = 0;
             var rules = this.walk();
             $(rules).each(function () {
-                if ( context.find(this.controller).size() === 0 ) {
+                if ( context.find(this.controller).length === 0 ) {
                     throw new Error("Rule's controller does not exist:" + this.controller);
                 }
                 if ( this.controls.length === 0 ) {
@@ -336,7 +336,7 @@
             }
 
 
-            if ( control.size() === 0 && cfg.log ) {
+            if ( control.length === 0 && cfg.log ) {
                 log("Evaling condition: Could not find controller input " + this.controller);
             }
 

@@ -144,6 +144,8 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             $final = '';
 
             $output = '';
+
+
             foreach( $fieldss as $meta_id => $sections ) {
                 foreach( $sections as $fields ) {
                     global $wpsf_errors;
@@ -159,7 +161,6 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
                     $wpsf_errors = $this->variation_errors;
 
                     foreach( $fields['fields'] as $field ) {
-
                         if( isset($field['is_variation']) ) {
                             $field['is_variation'] = ( $field['is_variation'] === TRUE ) ? 'default' : $field['is_variation'];
                             if( $field['is_variation'] == $type ) {
@@ -171,9 +172,9 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
 
                                 $field = wp_parse_args($field, $defaults);
                                 $field['error_id'] = '_' . $loop . $field['error_id'];
-                                $value = isset($options[$field['id']]) ? $options[$field['id']] : '';
                                 $WrapClass = $this->show_hide_class($field['show'], $field['hide']);
                                 $field['wrap_class'] = $this->_merge_wrap_class($field['wrap_class'], $WrapClass);
+                                $value = $this->get_field_values($field, $options);
                                 $output .= wpsf_add_element($field, $value, $meta_id . '[' . $loop . ']');
 
                             }
@@ -185,7 +186,7 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
                         'hide' => '',
                     );
                     $fields = wp_parse_args($fields, $defaults);
-                    $WrapClass = $this->show_hide_class($fields['show'], $fields['hide']);
+                    $WrapClass = $this->show_hide_class($fields['show'], $fields['hide'], 'string');
                     $final .= '<div class="wpsf-wc-metabox-fields ' . $WrapClass . '">' . $output . '</div>';
                 }
             }
@@ -240,9 +241,9 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
                     );
                     $field = wp_parse_args($field, $defaults);
                     $field_id = isset($field['id']) ? $field['id'] : "";
-                    $value = isset($values[$field_id]) ? $values[$field_id] : '';
                     $WrapClass = $this->show_hide_class($field['show'], $field['hide']);
                     $field['wrap_class'] = $this->_merge_wrap_class($field['wrap_class'], $WrapClass);
+                    $value = $this->get_field_values($field, $values);
                     $html .= wpsf_add_element($field, $value, $db_key);
                 }
             }
@@ -296,20 +297,18 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
 
         public function handle_options() {
             foreach( $this->options as $page_id => $page ) {
-                $db_id = $page['id'];
+                $sec_id = $this->_get_page_id($page);
+                $page = $this->map_error_id($page, $sec_id);
 
                 if( isset($page['sections']) ) {
                     foreach( $page['sections'] as $section_id => $section ) {
-                        $sec_id = $this->_get_page_id($section);
-                        $section = $this->map_error_id($section, $sec_id);
                         $this->options[$page_id]['sections'][$section_id] = $section;
                     }
                 } else {
-                    $sec_id = $this->_get_page_id($page);
-                    $page = $this->map_error_id($page, $sec_id);
                     $this->options[$page_id] = $page;
                 }
             }
+
 
             foreach( $this->options as $page_id => $page ) {
                 $db_id = $page['id'];
@@ -418,6 +417,7 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             if( $_r == 'array' ) {
                 return $return;
             }
+
             return implode(' ', $return);
         }
 

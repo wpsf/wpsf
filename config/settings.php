@@ -16,90 +16,6 @@
  * Time: 07:57 PM
  */
 
-/*
-$settings_fields = array(
-    'general' => array(
-        'title' => "Basic Fields",
-        'name' => 'basicfields',
-        'fields' => wpsf_basic_fields(),
-    ) ,
-    'options' => array(
-        'title' => 'Fields',
-        'name' => 'Fields',
-        'sections' => array(
-            array(
-                'name' => 'textfield',
-                'title' => 'Text Field',
-                'fields' => _wpsf_textfield('settings'),
-            ),
-            array(
-                'name' => 'textarea',
-                'title' => 'textarea',
-                'fields' => _wpsf_textarea('settings'),
-            ),
-
-            array(
-                'name' => 'radio',
-                'title' => 'radio',
-                'fields' => _wpsf_radios('settings'),
-            ),
-            array(
-                'name' => 'checkboxs',
-                'title' => 'checkboxs',
-                'fields' => _wpsf_checkboxs('settings'),
-            ),
-            array(
-                'name' => 'select',
-                'title' => 'select',
-                'fields' => _wpsf_selects('settings'),
-            ),
-            array(
-                'name' => 'switcher',
-                'title' => 'switcher',
-                'fields' => _wpsf_switcher('settings'),
-            ),
-            array(
-                'name' => 'icon',
-                'title' => 'icon',
-                'fields' => _wpsf_icon('settings'),
-            ),
-            array(
-                'name' => 'upload',
-                'title' => 'upload',
-                'fields' => _wpsf_upload('settings'),
-            ),
-            array(
-                'name' => 'background',
-                'title' => 'background',
-                'fields' => _wpsf_background('settings'),
-            ),
-            array(
-                'name' => 'color_picker',
-                'title' => 'color picker',
-                'fields' => _wpsf_colorpicker('settings'),
-            ),
-            array(
-                'name' => 'image_select',
-                'title' => 'image_select',
-                'fields' => _wpsf_imageselect('settings'),
-            ),
-            array(
-                'name' => 'typography',
-                'title' => 'typography',
-                'fields' => _wpsf_typography('settings'),
-            ),
-
-
-        )
-    ),
-
-);
-
-var_export($settings_fields);
-exit;
-*/
-
-
 // ===============================================================================================
 // -----------------------------------------------------------------------------------------------
 // FRAMEWORK OPTIONS
@@ -164,13 +80,16 @@ $options[] = array(
             'id'    => 'text_1',
             'type'  => 'text',
             'title' => 'Text',
+            'limit' => 10,
         ),
         // end: a field
         array(
-            'id'    => 'textarea_1',
-            'type'  => 'textarea',
-            'title' => 'Textarea',
-            'help'  => 'This option field is useful. You will love it!',
+            'id'         => 'textarea_1',
+            'type'       => 'textarea',
+            'title'      => 'Textarea',
+            'limit'      => 10,
+            'limit_type' => 'word',
+            'help'       => 'This option field is useful. You will love it!',
         ),
         array(
             'id'    => 'upload_1',
@@ -285,156 +204,13 @@ $options[] = array(
     // end: fields
 );
 
+// ------------------------------
+// a seperator                  -
+// ------------------------------
 $options[] = array(
-    'name'   => 'tabs',
-    'title'  => 'Tabs',
-    'icon'   => 'fa fa-bars',
-    'fields' => array(
-        array(
-            'id'        => 'custom_tabs',
-            'type'      => 'tab',
-            'tab_style' => 'left',
-            # 'default', 'box' or 'left'. Optional
-            'sections'  => array(
-                array(
-                    'name'   => 'section1',
-                    'icon'   => 'fa fa-star',
-                    'title'  => 'Section 1',
-                    'icon'   => 'https://i.ytimg.com/vi/eEN8s492ta0/hqdefault.jpg',
-                    'fields' => array(
-                        array(
-                            'id'    => 'text_1',
-                            'type'  => 'text',
-                            'title' => 'Text',
-                        ),
-                    ),
-                ),
-
-                array(
-                    'name'   => 'section2',
-                    'icon'   => 'fa fa-star',
-                    'title'  => 'Section 2',
-                    'fields' => array(
-                        array(
-                            'id'    => 'text_1',
-                            'type'  => 'text',
-                            'title' => 'Text',
-                        ),
-                    ),
-                ),
-
-                array(
-                    'name'   => 'section4',
-                    'icon'   => 'fa fa-star',
-                    'title'  => 'Section 4',
-                    'fields' => array(
-                        array(
-                            'id'    => 'text_1',
-                            'type'  => 'text',
-                            'title' => 'Text',
-                        ),
-                    ),
-                ),
-            ),
-        ),
-
-        array(
-            'title'       => 'box Tab',
-            'id'          => 'custom_tabs2',
-            'type'        => 'tab',
-            'tab_wrapper' => FALSE,
-            'tab_style'   => 'box',
-            # 'default', 'box' or 'left'. Optional
-            'sections'    => array(
-                array(
-                    'name'   => 'section1',
-                    'title'  => 'Section 1',
-                    'icon'   => 'fa fa-star',
-                    'fields' => array(
-                        array(
-                            'id'    => 'text_1',
-                            'type'  => 'text',
-                            'title' => 'Text',
-                        ),
-                    ),
-                ),
-
-                array(
-                    'name'   => 'section2',
-                    'title'  => 'Section 2',
-                    'icon'   => 'fa fa-star',
-                    'fields' => array(
-                        array(
-                            'id'    => 'text_1',
-                            'type'  => 'text',
-                            'title' => 'Text',
-                        ),
-                    ),
-                ),
-
-                array(
-                    'name'   => 'section4',
-                    'title'  => 'Section 4',
-                    'icon'   => 'fa fa-star',
-                    'fields' => array(
-                        array(
-                            'id'    => 'text_1',
-                            'type'  => 'text',
-                            'title' => 'Text',
-                        ),
-                    ),
-                ),
-            ),
-        ),
-
-        array(
-            'title'     => 'left Tab',
-            'id'        => 'custom_tabs_left',
-            'type'      => 'tab',
-            'tab_style' => 'left',
-            # 'default', 'box' or 'left'. Optional
-            'sections'  => array(
-                array(
-                    'name'   => 'section1',
-                    'title'  => 'Section 1',
-                    'icon'   => 'fa fa-star',
-                    'fields' => array(
-                        array(
-                            'id'    => 'text_1',
-                            'type'  => 'text',
-                            'title' => 'Text',
-                        ),
-                    ),
-                ),
-
-                array(
-                    'name'   => 'section2',
-                    'title'  => 'Section 2',
-                    'icon'   => 'fa fa-star',
-                    'fields' => array(
-                        array(
-                            'id'    => 'text_1',
-                            'type'  => 'text',
-                            'title' => 'Text',
-                        ),
-                    ),
-                ),
-
-                array(
-                    'name'   => 'section4',
-                    'title'  => 'Section 4',
-                    'icon'   => 'fa fa-star',
-                    'fields' => array(
-                        array(
-                            'id'    => 'text_1',
-                            'type'  => 'text',
-                            'title' => 'Text',
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    ),
+    'name'  => 'seperator_0',
+    'title' => 'Input / UI Fields',
+    'icon'  => 'fa fa-bookmark',
 );
 
 // ------------------------------
@@ -661,7 +437,11 @@ $options[] = array(
                     'type'    => 'checkbox',
                     'title'   => 'Checkbox Field with Options',
                     'options' => array(
-                        'blue'   => 'Blue',
+                        'blue'   => array(
+                            'label'      => 'Blue',
+                            'disabled'   => TRUE,
+                            'attributes' => array( 'data-help' => 'yes' ),
+                        ),
                         'green'  => 'Green',
                         'yellow' => 'Yellow',
                     ),
@@ -673,7 +453,10 @@ $options[] = array(
                     'title'   => 'Checkbox Field with Group Options',
                     'options' => array(
                         'Group 1' => array(
-                            'blue'   => 'Blue',
+                            'blue'   => array(
+                                'label'    => 'Blue',
+                                'disabled' => TRUE,
+                            ),
                             'green'  => 'Green',
                             'yellow' => 'Yellow',
                         ),
@@ -1437,9 +1220,14 @@ $options[] = array(
                     'type'    => 'radio',
                     'title'   => 'Radio with Default Value',
                     'options' => array(
-                        'yes'     => 'Yes, Please.',
-                        'no'      => 'No, Thank you.',
-                        'nothing' => 'I am not sure, yet!',
+                        'yes'      => 'Yes, Please.',
+                        'no'       => 'No, Thank you.',
+                        'disabled' => array(
+                            'label'      => 'Disabled',
+                            'disabled'   => TRUE,
+                            'attributes' => array( 'data-help' => 'yes' ),
+                        ),
+                        'nothing'  => 'I am not sure, yet!',
                     ),
                     'default' => 'nothing',
                     'help'    => 'Reference site about Lorem Ipsum, a random Lipsum generator.',
@@ -1451,7 +1239,11 @@ $options[] = array(
                     'title'   => 'Radio Field with Group Options',
                     'options' => array(
                         'Group 1' => array(
-                            'blue'   => 'Blue',
+                            'blue'   => array(
+                                'label'      => 'Blue',
+                                'disabled'   => TRUE,
+                                'attributes' => array( 'data-help' => 'yes' ),
+                            ),
                             'green'  => 'Green',
                             'yellow' => 'Yellow',
                         ),
@@ -2611,304 +2403,6 @@ $options[] = array(
             ),
         ),
         // end: icon options
-        // -----------------------------
-        // begin: group options        -
-        // -----------------------------
-        array(
-            'name'   => 'group_options',
-            'title'  => 'Group',
-            'icon'   => 'fa fa-check',
-            'fields' => array(
-
-                array(
-                    'id'              => 'unique_group_2',
-                    'type'            => 'group',
-                    'title'           => 'Group Field with Default',
-                    'button_title'    => 'Add New',
-                    'accordion_title' => 'Add New Field',
-                    'fields'          => array(
-                        array(
-                            'id'    => 'unique_group_2_text',
-                            'type'  => 'text',
-                            'title' => 'Text Field',
-                        ),
-                        array(
-                            'id'    => 'unique_group_2_switcher',
-                            'type'  => 'switcher',
-                            'title' => 'Switcher Field',
-                        ),
-                        array(
-                            'id'    => 'unique_group_2_textarea',
-                            'type'  => 'textarea',
-                            'title' => 'Upload Field',
-                        ),
-                    ),
-                    'default'         => array(
-                        array(
-                            'unique_group_2_text'     => 'Some text',
-                            'unique_group_2_switcher' => TRUE,
-                            'unique_group_2_textarea' => 'Some content',
-                        ),
-                        array(
-                            'unique_group_2_text'     => 'Some text 2',
-                            'unique_group_2_switcher' => TRUE,
-                            'unique_group_2_textarea' => 'Some content 2',
-                        ),
-                    ),
-                ),
-
-
-                array(
-                    'id'              => 'unique_group_subgs',
-                    'type'            => 'group',
-                    'title'           => 'Group Field with Sub Group',
-                    'button_title'    => 'Add New',
-                    'accordion_title' => 'Add New Field',
-                    'fields'          => array(
-                        array(
-                            'id'              => 'unique_group_subg_1',
-                            'type'            => 'group',
-                            'title'           => 'Group Inside A Group',
-                            'button_title'    => 'Add Sub Group',
-                            'accordion_title' => 'Sub Group Level1',
-                            'fields'          => array(
-                                array(
-                                    'id'              => 'unique_group_subg_1_1',
-                                    'type'            => 'group',
-                                    'title'           => 'Group Inside A Group',
-                                    'button_title'    => 'Add Sub Group',
-                                    'accordion_title' => 'Sub Group Level1',
-                                    'fields'          => array(
-                                        array(
-                                            'id'    => 'unique_group_subg_1_1_text',
-                                            'type'  => 'text',
-                                            'title' => 'Text Field',
-                                        ),
-                                        array(
-                                            'id'    => 'unique_group_subg_1_1_switcher',
-                                            'type'  => 'switcher',
-                                            'title' => 'Switcher Field',
-                                        ),
-                                        array(
-                                            'id'    => 'unique_group_subg_1_1_textarea',
-                                            'type'  => 'textarea',
-                                            'title' => 'Upload Field',
-                                        ),
-                                    ),
-                                ),
-
-                                array(
-                                    'id'    => 'unique_group_subg_1_text',
-                                    'type'  => 'text',
-                                    'title' => 'Text Field',
-                                ),
-                                array(
-                                    'id'    => 'unique_group_subg_1_switcher',
-                                    'type'  => 'switcher',
-                                    'title' => 'Switcher Field',
-                                ),
-                                array(
-                                    'id'    => 'unique_group_subg_1_textarea',
-                                    'type'  => 'textarea',
-                                    'title' => 'Upload Field',
-                                ),
-                            ),
-                        ),
-                        array(
-                            'id'    => 'unique_group_2_text',
-                            'type'  => 'text',
-                            'title' => 'Text Field',
-                        ),
-                        array(
-                            'id'    => 'unique_group_2_switcher',
-                            'type'  => 'switcher',
-                            'title' => 'Switcher Field',
-                        ),
-                        array(
-                            'id'    => 'unique_group_2_textarea',
-                            'type'  => 'textarea',
-                            'title' => 'Upload Field',
-                        ),
-                    ),
-
-                ),
-
-                array(
-                    'id'              => 'unique_group_12',
-                    'type'            => 'group',
-                    'title'           => 'Group Field with 1',
-                    'button_title'    => 'Add New1',
-                    'accordion_title' => 'Add New Field1',
-                    'fields'          => array(
-
-                        array(
-                            'id'    => 'unique_group_12_text',
-                            'type'  => 'text',
-                            'title' => 'Text Field',
-                        ),
-                        array(
-                            'id'    => 'unique_group_12_switcher',
-                            'type'  => 'switcher',
-                            'title' => 'Switcher Field',
-                        ),
-                        array(
-                            'id'    => 'unique_group_12_textarea',
-                            'type'  => 'textarea',
-                            'title' => 'Upload Field',
-                        ),
-                    ),
-                    'default'         => array(
-                        array(
-                            'unique_group_12_text'     => 'Some text',
-                            'unique_group_12_switcher' => TRUE,
-                            'unique_group_12_textarea' => 'Some content',
-                        ),
-                        array(
-                            'unique_group_12_text'     => 'Some text 2',
-                            'unique_group_12_switcher' => TRUE,
-                            'unique_group_12_textarea' => 'Some content 2',
-                        ),
-                    ),
-                ),
-                array(
-                    'id'              => 'unique_group_3',
-                    'type'            => 'group',
-                    'title'           => 'Group Field',
-                    'info'            => 'You can use any option field on group',
-                    'button_title'    => 'Add New Something',
-                    'accordion_title' => 'Adding New Thing',
-                    'fields'          => array(
-                        array(
-                            'id'    => 'unique_group_3_text',
-                            'type'  => 'upload',
-                            'title' => 'Text Field',
-                        ),
-                    ),
-                ),
-                array(
-                    'id'              => 'unique_group_4',
-                    'type'            => 'group',
-                    'title'           => 'Group Field',
-                    'desc'            => 'Accordion title using the ID of the field, for eg. "Text Field 2" using as accordion title here.',
-                    'button_title'    => 'Add New',
-                    'accordion_title' => 'unique_group_4_text_2',
-                    'fields'          => array(
-                        array(
-                            'id'    => 'richtxt',
-                            'type'  => 'wysiwyg',
-                            'title' => 'wysiwyg',
-                        ),
-                        array(
-                            'id'    => 'unique_group_4_text_1',
-                            'type'  => 'text',
-                            'title' => 'Text Field 1',
-                        ),
-                        array(
-                            'id'    => 'unique_group_4_text_2',
-                            'type'  => 'text',
-                            'title' => 'Text Field 2',
-                        ),
-                        array(
-                            'id'    => 'unique_group_4_text_3',
-                            'type'  => 'text',
-                            'title' => 'Text Field 3',
-                        ),
-                    ),
-                ),
-            ),
-        ),
-        // end: group options
-
-        // -----------------------------
-        // begin : accordion options
-        // -----------------------------
-        array(
-            'name'   => 'accordion_options',
-            'title'  => 'Accordion',
-            'icon'   => 'fa fa-check',
-            'fields' => array(
-                array(
-                    'id'      => 'css_builder',
-                    'type'    => 'css_builder',
-                    'title'   => 'CSS Builder',
-                    'select2' => TRUE,
-                ),
-                array(
-                    'id'              => 'unique_accordion_1',
-                    'type'            => 'accordion',
-                    'accordion_title' => 'accordion 1',
-                    'fields'          => array(
-                        array(
-                            'type'  => 'text',
-                            'id'    => 'unique_accordion_text_1',
-                            'title' => 'accordion text',
-                        ),
-                    ),
-                ),
-
-                array(
-                    'id'              => 'unique_accordion_2',
-                    'type'            => 'accordion',
-                    'title'           => 'With Title',
-                    'accordion_title' => 'accordion 2',
-                    'fields'          => array(
-                        array(
-                            'type'     => 'text',
-                            'validate' => 'required',
-                            'id'       => 'unique_accordion_text_1',
-                            'title'    => 'accordion text',
-                        ),
-                    ),
-                ),
-
-
-                array(
-                    'id'              => 'unique_accordion_3',
-                    'type'            => 'accordion',
-                    'title'           => 'With FieldSet',
-                    'accordion_title' => 'accordion 3',
-                    'fields'          => array(
-                        array(
-                            'type'     => 'fieldset',
-                            'id'       => 'unique_accordion_fieldset_1',
-                            'title'    => 'Accordion Fieldset',
-                            'validate' => 'required',
-                            'fields'   => array(
-                                array(
-                                    'type'     => 'text',
-                                    'validate' => 'required',
-                                    'id'       => 'unique_accordion_text_1',
-                                    'title'    => 'Fieldset text',
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-
-                array(
-                    'id'              => 'unique_accordion_4',
-                    'type'            => 'accordion',
-                    'title'           => 'With Simple',
-                    'accordion_title' => 'accordion 4',
-                    'fields'          => array(
-                        array(
-                            'type'     => 'fieldset',
-                            'id'       => 'unique_accordion_fieldset_1',
-                            'validate' => 'required',
-                            'fields'   => array(
-                                array(
-                                    'type'     => 'text',
-                                    'validate' => 'required',
-                                    'id'       => 'unique_accordion_text_1',
-                                    'title'    => 'Fieldset text',
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-
-            ),
-        ),
 
 
         // -----------------------------
@@ -3352,67 +2846,7 @@ $options[] = array(
         // -----------------------------
         // begin: sorter options       -
         // -----------------------------
-        array(
-            'name'   => 'fieldset_options',
-            'title'  => 'Fieldset',
-            'icon'   => 'fa fa-check',
-            'fields' => array(
-                array(
-                    'id'     => 'fieldset_1',
-                    'type'   => 'fieldset',
-                    'title'  => 'Fieldset Field',
-                    'fields' => array(
-                        array(
-                            'id'    => 'fieldset_1_text',
-                            'type'  => 'text',
-                            'title' => 'Text Field',
-                        ),
-                        array(
-                            'id'    => 'fieldset_1_upload',
-                            'type'  => 'upload',
-                            'title' => 'Upload Field',
-                        ),
-                        array(
-                            'id'    => 'fieldset_1_textarea',
-                            'type'  => 'textarea',
-                            'title' => 'Textarea Field',
-                        ),
-                    ),
-                ),
-                array(
-                    'id'      => 'fieldset_2',
-                    'type'    => 'fieldset',
-                    'title'   => 'Fieldset Field with Default',
-                    'fields'  => array(
-                        array(
-                            'type'    => 'subheading',
-                            'content' => 'Title of Fieldset',
-                        ),
-                        array(
-                            'id'    => 'fieldset_2_text',
-                            'type'  => 'text',
-                            'title' => 'Text Field',
-                        ),
-                        array(
-                            'id'    => 'fieldset_2_checkbox',
-                            'type'  => 'checkbox',
-                            'title' => 'Checkbox Field',
-                            'label' => 'Are you sure?',
-                        ),
-                        array(
-                            'id'    => 'fieldset_2_textarea',
-                            'type'  => 'textarea',
-                            'title' => 'Upload Field',
-                        ),
-                    ),
-                    'default' => array(
-                        'fieldset_2_text'     => 'Hello',
-                        'fieldset_2_checkbox' => TRUE,
-                        'fieldset_2_textarea' => 'Do stuff',
-                    ),
-                ),
-            ),
-        ),
+
         // end: sorter options
         // -----------------------------
         // begin: others options       -
@@ -3506,6 +2940,944 @@ $options[] = array(
         // end: other options
     ),
 );
+
+
+$options[] = array(
+    'name'     => 'design-fields',
+    'title'    => 'Design Fields',
+    'icon'     => 'fa fa-pencil-square',
+    'sections' => array(
+        array(
+            'name'   => 'css-builder',
+            'title'  => 'CSS Builder',
+            'icon'   => 'fa fa-css3',
+            'fields' => array(
+                array(
+                    'id'      => 'css_builder',
+                    'title'   => 'CSS Builder',
+                    'type'    => 'css_builder',
+                    'select2' => FALSE,
+                    'chosen'  => FALSE,
+                ),
+                array(
+                    'id'      => 'css_builder_select2',
+                    'title'   => 'CSS Builder Select2',
+                    'type'    => 'css_builder',
+                    'select2' => TRUE,
+                    'debug'   => TRUE,
+                ),
+                array(
+                    'id'     => 'css_builder_chosen',
+                    'title'  => 'CSS Builder Chosen',
+                    'type'   => 'css_builder',
+                    'chosen' => TRUE,
+                    'debug'  => TRUE,
+                ),
+                array(
+                    'id'      => 'css_builder_no_title',
+                    'type'    => 'css_builder',
+                    'select2' => FALSE,
+                    'chosen'  => FALSE,
+                ),
+            ),
+
+        ),
+        array(
+            'name'   => 'accordion',
+            'title'  => 'Accordion',
+            'icon'   => 'fa fa-list',
+            'fields' => array(
+                array(
+                    'id'              => 'accordion_1',
+                    'type'            => 'accordion',
+                    'accordion_title' => 'Accordion 1',
+                    'title'           => 'Accordion With Title',
+                    'fields'          => array(
+                        array(
+                            'type'  => 'switcher',
+                            'id'    => 'switcher',
+                            'title' => 'Switcher',
+                        ),
+                        array(
+                            'type'  => 'text',
+                            'id'    => 'text',
+                            'title' => 'Text',
+                        ),
+                    ),
+                ),
+
+                array(
+                    'id'              => 'accordion_2',
+                    'type'            => 'accordion',
+                    'accordion_title' => 'Accordion Level 1',
+                    'title'           => 'Nested Accordion',
+                    'fields'          => array(
+                        array(
+                            'id'              => 'accordion_2_1',
+                            'type'            => 'accordion',
+                            'accordion_title' => 'Accordion Level 2',
+                            'title'           => 'Nested Accordion',
+                            'fields'          => array(
+
+                                array(
+                                    'id'     => 'accordion_2_1_1',
+                                    'type'   => 'accordion',
+                                    'title'  => 'Nested Accordion Level 3',
+                                    'fields' => array(
+                                        array(
+                                            'id'              => 'accordion_2_1_1_1',
+                                            'type'            => 'accordion',
+                                            'accordion_title' => 'Accordion Level 4',
+                                            'fields'          => array(
+                                                array(
+                                                    'type'  => 'switcher',
+                                                    'id'    => 'switcher',
+                                                    'title' => 'Switcher',
+                                                ),
+                                                array(
+                                                    'type'  => 'text',
+                                                    'id'    => 'text',
+                                                    'title' => 'Text',
+                                                ),
+                                            ),
+                                        ),
+                                        array(
+                                            'type'  => 'switcher',
+                                            'id'    => 'switcher',
+                                            'title' => 'Switcher',
+                                        ),
+                                        array(
+                                            'type'  => 'text',
+                                            'id'    => 'text',
+                                            'title' => 'Text',
+                                        ),
+                                    ),
+                                ),
+
+                                array(
+                                    'type'  => 'switcher',
+                                    'id'    => 'switcher',
+                                    'title' => 'Switcher',
+                                ),
+                                array(
+                                    'type'  => 'text',
+                                    'id'    => 'text',
+                                    'title' => 'Text',
+                                ),
+                            ),
+                        ),
+                        array(
+                            'type'  => 'switcher',
+                            'id'    => 'switcher',
+                            'title' => 'Switcher',
+                        ),
+                        array(
+                            'type'  => 'text',
+                            'id'    => 'text',
+                            'title' => 'Text',
+                        ),
+                    ),
+                ),
+
+                array(
+                    'id'              => 'accordion_3',
+                    'type'            => 'accordion',
+                    'accordion_title' => 'Accordion 1',
+                    'title'           => 'Accordion With Field Set',
+                    'fields'          => array(
+                        array(
+                            'id'     => 'fieldset',
+                            'type'   => 'fieldset',
+                            'title'  => 'Fieldset',
+                            'fields' => array(
+                                array(
+                                    'type'  => 'switcher',
+                                    'id'    => 'switcher',
+                                    'title' => 'Switcher',
+                                ),
+                                array(
+                                    'type'  => 'text',
+                                    'id'    => 'text',
+                                    'title' => 'Text',
+                                ),
+                            ),
+                        ),
+
+                        array(
+                            'id'     => 'fieldset_with_title',
+                            'type'   => 'fieldset',
+                            'title'  => 'Fieldset With Title',
+                            'fields' => array(
+                                array(
+                                    'type'    => 'subheading',
+                                    'content' => 'Title of Fieldset',
+                                ),
+                                array(
+                                    'type'  => 'switcher',
+                                    'id'    => 'switcher',
+                                    'title' => 'Switcher',
+                                ),
+                                array(
+                                    'type'  => 'text',
+                                    'id'    => 'text',
+                                    'title' => 'Text',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+
+                array(
+                    'id'              => 'accordion_3',
+                    'type'            => 'accordion',
+                    'accordion_title' => 'Accordion 1',
+                    'title'           => 'Accordion With Group',
+                    'fields'          => array(
+                        array(
+                            'id'              => 'group',
+                            'type'            => 'group',
+                            'title'           => 'Group',
+                            'button_title'    => 'Add More',
+                            'accordion_title' => 'Accordion With Group',
+                            'fields'          => array(
+                                array(
+                                    'type'  => 'switcher',
+                                    'id'    => 'switcher',
+                                    'title' => 'Switcher',
+                                ),
+                                array(
+                                    'type'  => 'text',
+                                    'id'    => 'text',
+                                    'title' => 'Text',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        array(
+            'name'   => 'fieldset_options',
+            'title'  => 'Fieldset',
+            'icon'   => 'fa fa-check',
+            'fields' => array(
+                array(
+                    'id'     => 'fieldset_1',
+                    'type'   => 'fieldset',
+                    'title'  => 'Fieldset Field',
+                    'fields' => array(
+                        array(
+                            'id'    => 'fieldset_1_text',
+                            'type'  => 'text',
+                            'title' => 'Text Field',
+                        ),
+                        array(
+                            'id'    => 'fieldset_1_upload',
+                            'type'  => 'upload',
+                            'title' => 'Upload Field',
+                        ),
+                        array(
+                            'id'    => 'fieldset_1_textarea',
+                            'type'  => 'textarea',
+                            'title' => 'Textarea Field',
+                        ),
+                    ),
+                ),
+                array(
+                    'id'      => 'fieldset_2',
+                    'type'    => 'fieldset',
+                    'title'   => 'Fieldset Field with Default',
+                    'fields'  => array(
+                        array(
+                            'type'    => 'subheading',
+                            'content' => 'Title of Fieldset',
+                        ),
+                        array(
+                            'id'    => 'fieldset_2_text',
+                            'type'  => 'text',
+                            'title' => 'Text Field',
+                        ),
+                        array(
+                            'id'    => 'fieldset_2_checkbox',
+                            'type'  => 'checkbox',
+                            'title' => 'Checkbox Field',
+                            'label' => 'Are you sure?',
+                        ),
+                        array(
+                            'id'    => 'fieldset_2_textarea',
+                            'type'  => 'textarea',
+                            'title' => 'Upload Field',
+                        ),
+                    ),
+                    'default' => array(
+                        'fieldset_2_text'     => 'Hello',
+                        'fieldset_2_checkbox' => TRUE,
+                        'fieldset_2_textarea' => 'Do stuff',
+                    ),
+                ),
+            ),
+        ),
+        array(
+            'name'   => 'tab_layout',
+            'title'  => 'Tab',
+            'icon'   => 'fa fa-book',
+            'fields' => array(
+                array(
+                    'id'        => 'tab_1',
+                    'type'      => 'tab',
+                    'title'     => 'Tab (boxed)',
+                    'tab_style' => 'box',
+                    'sections'  => array(
+                        array(
+                            'name'   => 'section1',
+                            'title'  => 'section 1',
+                            'icon'   => 'fa fa-star',
+                            'fields' => array(
+                                array(
+                                    'type'  => 'switcher',
+                                    'id'    => 'switcher',
+                                    'title' => 'Switcher',
+                                ),
+                                array(
+                                    'type'  => 'text',
+                                    'id'    => 'text',
+                                    'title' => 'Text',
+                                ),
+                            ),
+                        ),
+                        array(
+                            'name'   => 'tab_accordion',
+                            'title'  => 'Tab Accordion',
+                            'icon'   => 'fa fa-list',
+                            'fields' => array(
+                                array(
+                                    'id'              => 'accordion_1',
+                                    'type'            => 'accordion',
+                                    'accordion_title' => 'Accordion 1',
+                                    'title'           => 'Accordion With Title',
+                                    'fields'          => array(
+                                        array(
+                                            'type'  => 'switcher',
+                                            'id'    => 'switcher',
+                                            'title' => 'Switcher',
+                                        ),
+                                        array(
+                                            'type'  => 'text',
+                                            'id'    => 'text',
+                                            'title' => 'Text',
+                                        ),
+                                    ),
+                                ),
+                                array(
+                                    'type'  => 'switcher',
+                                    'id'    => 'switcher',
+                                    'title' => 'Switcher',
+                                ),
+                                array(
+                                    'type'  => 'text',
+                                    'id'    => 'text',
+                                    'title' => 'Text',
+                                ),
+                            ),
+                        ),
+                        array(
+                            'name'   => 'tab_group',
+                            'title'  => 'Tab group',
+                            'icon'   => 'fa fa-object-group',
+                            'fields' => array(
+                                array(
+                                    'id'              => 'group',
+                                    'type'            => 'group',
+                                    'title'           => 'Group',
+                                    'button_title'    => 'Add More',
+                                    'accordion_title' => 'Accordion With Group',
+                                    'fields'          => array(
+                                        array(
+                                            'type'  => 'switcher',
+                                            'id'    => 'switcher',
+                                            'title' => 'Switcher',
+                                        ),
+                                        array(
+                                            'type'  => 'text',
+                                            'id'    => 'text',
+                                            'title' => 'Text',
+                                        ),
+                                    ),
+                                ),
+
+                                array(
+                                    'type'  => 'switcher',
+                                    'id'    => 'switcher',
+                                    'title' => 'Switcher',
+                                ),
+                                array(
+                                    'type'  => 'text',
+                                    'id'    => 'text',
+                                    'title' => 'Text',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+
+                array(
+                    'id'        => 'tab_2',
+                    'type'      => 'tab',
+                    'title'     => 'Tab (left)',
+                    'tab_style' => 'left',
+                    'sections'  => array(
+                        array(
+                            'name'   => 'section1',
+                            'title'  => 'section 1',
+                            'icon'   => 'fa fa-star',
+                            'fields' => array(
+                                array(
+                                    'type'  => 'switcher',
+                                    'id'    => 'switcher',
+                                    'title' => 'Switcher',
+                                ),
+                                array(
+                                    'type'  => 'text',
+                                    'id'    => 'text',
+                                    'title' => 'Text',
+                                ),
+                            ),
+                        ),
+                        array(
+                            'name'   => 'tab_accordion',
+                            'title'  => 'Tab Accordion',
+                            'icon'   => 'fa fa-list',
+                            'fields' => array(
+                                array(
+                                    'id'              => 'accordion_1',
+                                    'type'            => 'accordion',
+                                    'accordion_title' => 'Accordion 1',
+                                    'title'           => 'Accordion With Title',
+                                    'fields'          => array(
+                                        array(
+                                            'type'  => 'switcher',
+                                            'id'    => 'switcher',
+                                            'title' => 'Switcher',
+                                        ),
+                                        array(
+                                            'type'  => 'text',
+                                            'id'    => 'text',
+                                            'title' => 'Text',
+                                        ),
+                                    ),
+                                ),
+                                array(
+                                    'type'  => 'switcher',
+                                    'id'    => 'switcher',
+                                    'title' => 'Switcher',
+                                ),
+                                array(
+                                    'type'  => 'text',
+                                    'id'    => 'text',
+                                    'title' => 'Text',
+                                ),
+                            ),
+                        ),
+                        array(
+                            'name'   => 'tab_group',
+                            'title'  => 'Tab group',
+                            'icon'   => 'fa fa-object-group',
+                            'fields' => array(
+                                array(
+                                    'id'              => 'group',
+                                    'type'            => 'group',
+                                    'title'           => 'Group',
+                                    'button_title'    => 'Add More',
+                                    'accordion_title' => 'Accordion With Group',
+                                    'fields'          => array(
+                                        array(
+                                            'type'  => 'switcher',
+                                            'id'    => 'switcher',
+                                            'title' => 'Switcher',
+                                        ),
+                                        array(
+                                            'type'  => 'text',
+                                            'id'    => 'text',
+                                            'title' => 'Text',
+                                        ),
+                                    ),
+                                ),
+                                array(
+                                    'type'  => 'switcher',
+                                    'id'    => 'switcher',
+                                    'title' => 'Switcher',
+                                ),
+                                array(
+                                    'type'  => 'text',
+                                    'id'    => 'text',
+                                    'title' => 'Text',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+
+                array(
+                    'id'        => 'tab_3',
+                    'type'      => 'tab',
+                    'title'     => 'Tab (default)',
+                    'tab_style' => 'default',
+                    'sections'  => array(
+                        array(
+                            'name'   => 'section1',
+                            'title'  => 'section 1',
+                            'icon'   => 'fa fa-star',
+                            'fields' => array(
+                                array(
+                                    'type'  => 'switcher',
+                                    'id'    => 'switcher',
+                                    'title' => 'Switcher',
+                                ),
+                                array(
+                                    'type'  => 'text',
+                                    'id'    => 'text',
+                                    'title' => 'Text',
+                                ),
+                            ),
+                        ),
+                        array(
+                            'name'   => 'tab_accordion',
+                            'title'  => 'Tab Accordion',
+                            'icon'   => 'fa fa-list',
+                            'fields' => array(
+                                array(
+                                    'id'              => 'accordion_1',
+                                    'type'            => 'accordion',
+                                    'accordion_title' => 'Accordion 1',
+                                    'title'           => 'Accordion With Title',
+                                    'fields'          => array(
+                                        array(
+                                            'type'  => 'switcher',
+                                            'id'    => 'switcher',
+                                            'title' => 'Switcher',
+                                        ),
+                                        array(
+                                            'type'  => 'text',
+                                            'id'    => 'text',
+                                            'title' => 'Text',
+                                        ),
+                                    ),
+                                ),
+                                array(
+                                    'type'  => 'switcher',
+                                    'id'    => 'switcher',
+                                    'title' => 'Switcher',
+                                ),
+                                array(
+                                    'type'  => 'text',
+                                    'id'    => 'text',
+                                    'title' => 'Text',
+                                ),
+                            ),
+                        ),
+                        array(
+                            'name'   => 'tab_group',
+                            'title'  => 'Tab group',
+                            'icon'   => 'fa fa-object-group',
+                            'fields' => array(
+                                array(
+                                    'id'              => 'group',
+                                    'type'            => 'group',
+                                    'title'           => 'Group',
+                                    'button_title'    => 'Add More',
+                                    'accordion_title' => 'Accordion With Group',
+                                    'fields'          => array(
+                                        array(
+                                            'type'  => 'switcher',
+                                            'id'    => 'switcher',
+                                            'title' => 'Switcher',
+                                        ),
+                                        array(
+                                            'type'  => 'text',
+                                            'id'    => 'text',
+                                            'title' => 'Text',
+                                        ),
+                                    ),
+                                ),
+                                array(
+                                    'type'  => 'switcher',
+                                    'id'    => 'switcher',
+                                    'title' => 'Switcher',
+                                ),
+                                array(
+                                    'type'  => 'text',
+                                    'id'    => 'text',
+                                    'title' => 'Text',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        array(
+            'name'   => 'group',
+            'title'  => 'Group',
+            'icon'   => 'fa fa-object-group',
+            'fields' => array(
+                array(
+                    'id'              => 'unique_group_2',
+                    'type'            => 'group',
+                    'title'           => 'Group Field with Default',
+                    'button_title'    => 'Add New',
+                    'accordion_title' => 'Add New Field',
+                    'fields'          => array(
+                        array(
+                            'id'    => 'unique_group_2_text',
+                            'type'  => 'text',
+                            'title' => 'Text Field',
+                        ),
+                        array(
+                            'id'    => 'unique_group_2_switcher',
+                            'type'  => 'switcher',
+                            'title' => 'Switcher Field',
+                        ),
+                        array(
+                            'id'    => 'unique_group_2_textarea',
+                            'type'  => 'textarea',
+                            'title' => 'Upload Field',
+                        ),
+                    ),
+                    'default'         => array(
+                        array(
+                            'unique_group_2_text'     => 'Some text',
+                            'unique_group_2_switcher' => TRUE,
+                            'unique_group_2_textarea' => 'Some content',
+                        ),
+                        array(
+                            'unique_group_2_text'     => 'Some text 2',
+                            'unique_group_2_switcher' => TRUE,
+                            'unique_group_2_textarea' => 'Some content 2',
+                        ),
+                    ),
+                ),
+
+                array(
+                    'id'              => 'nested_groups',
+                    'title'           => 'Nested Groups',
+                    'type'            => 'group',
+                    'button_title'    => 'Add Nested Group',
+                    'accordion_title' => 'Nested Group',
+                    'fields'          => array(
+                        array( 'title' => 'text', 'type' => 'text', 'id' => 'text' ),
+                        array( 'title' => 'switcher', 'type' => 'switcher', 'id' => 'switcher' ),
+                        array(
+                            'type'            => 'group',
+                            'id'              => 'nested_groups_1',
+                            'button_title'    => 'Add',
+                            'accordion_title' => 'Nested Group Level 1',
+                            'fields'          => array(
+                                array( 'title' => 'text', 'type' => 'text', 'id' => 'text' ),
+                                array( 'title' => 'switcher', 'type' => 'switcher', 'id' => 'switcher' ),
+                                array(
+                                    'type'            => 'group',
+                                    'id'              => 'nested_groups_1_1',
+                                    'button_title'    => 'Add',
+                                    'title'           => 'Nested Group With Title',
+                                    'accordion_title' => 'Nested Group Level 2',
+                                    'fields'          => array(
+                                        array( 'title' => 'text', 'type' => 'text', 'id' => 'text' ),
+                                        array( 'title' => 'switcher', 'type' => 'switcher', 'id' => 'switcher' ),
+
+                                        array(
+                                            'type'            => 'group',
+                                            'id'              => 'nested_groups_1_1_1',
+                                            'button_title'    => 'Add',
+                                            'accordion_title' => 'Nested Group Level 3',
+                                            'fields'          => array(
+                                                array( 'title' => 'text', 'type' => 'text', 'id' => 'text' ),
+                                                array(
+                                                    'title' => 'switcher',
+                                                    'type'  => 'switcher',
+                                                    'id'    => 'switcher',
+                                                ),
+
+                                                array(
+                                                    'type'            => 'group',
+                                                    'id'              => 'nested_groups_1_1_1_1',
+                                                    'button_title'    => 'Add',
+                                                    'accordion_title' => 'Nested Group Level 4',
+                                                    'fields'          => array(
+                                                        array( 'title' => 'text', 'type' => 'text', 'id' => 'text' ),
+                                                        array(
+                                                            'title' => 'switcher',
+                                                            'type'  => 'switcher',
+                                                            'id'    => 'switcher',
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+
+                    ),
+                ),
+
+                array(
+                    'id'              => 'nested_gr11oups',
+                    'type'            => 'group',
+                    'button_title'    => 'Add Nested Group',
+                    'accordion_title' => 'Nested Group',
+                    'fields'          => array(
+                        array( 'title' => 'text', 'type' => 'text', 'id' => 'text' ),
+                        array( 'title' => 'switcher', 'type' => 'switcher', 'id' => 'switcher' ),
+                        array(
+                            'type'            => 'group',
+                            'id'              => 'nes33ted_groups_1',
+                            'button_title'    => 'Add',
+                            'accordion_title' => 'Nested Group Level 1',
+                            'fields'          => array(
+                                array( 'title' => 'text', 'type' => 'text', 'id' => 'text' ),
+                                array( 'title' => 'switcher', 'type' => 'switcher', 'id' => 'switcher' ),
+                                array(
+                                    'type'            => 'group',
+                                    'id'              => 'nested_groups_1_1',
+                                    'button_title'    => 'Add',
+                                    'title'           => 'Nested Group With Title',
+                                    'accordion_title' => 'Nested Group Level 2',
+                                    'fields'          => array(
+                                        array( 'title' => 'text', 'type' => 'text', 'id' => 'text' ),
+                                        array( 'title' => 'switcher', 'type' => 'switcher', 'id' => 'switcher' ),
+
+                                        array(
+                                            'type'            => 'group',
+                                            'id'              => 'nested_groups_1_1_1',
+                                            'button_title'    => 'Add',
+                                            'accordion_title' => 'Nested Group Level 3',
+                                            'fields'          => array(
+                                                array( 'title' => 'text', 'type' => 'text', 'id' => 'text' ),
+                                                array(
+                                                    'title' => 'switcher',
+                                                    'type'  => 'switcher',
+                                                    'id'    => 'switcher',
+                                                ),
+
+                                                array(
+                                                    'type'            => 'group',
+                                                    'id'              => 'nested_groups_1_1_1_1',
+                                                    'button_title'    => 'Add',
+                                                    'accordion_title' => 'Nested Group Level 4',
+                                                    'fields'          => array(
+                                                        array( 'title' => 'text', 'type' => 'text', 'id' => 'text' ),
+                                                        array(
+                                                            'title' => 'switcher',
+                                                            'type'  => 'switcher',
+                                                            'id'    => 'switcher',
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+
+                    ),
+                ),
+
+                array(
+                    'id'              => 'unique_group_12',
+                    'type'            => 'group',
+                    'title'           => 'Group Field with 1',
+                    'button_title'    => 'Add New1',
+                    'accordion_title' => 'Add New Field1',
+                    'fields'          => array(
+
+                        array(
+                            'id'    => 'unique_group_12_text',
+                            'type'  => 'text',
+                            'title' => 'Text Field',
+                        ),
+                        array(
+                            'id'    => 'unique_group_12_switcher',
+                            'type'  => 'switcher',
+                            'title' => 'Switcher Field',
+                        ),
+                        array(
+                            'id'    => 'unique_group_12_textarea',
+                            'type'  => 'textarea',
+                            'title' => 'Upload Field',
+                        ),
+                    ),
+                    'default'         => array(
+                        array(
+                            'unique_group_12_text'     => 'Some text',
+                            'unique_group_12_switcher' => TRUE,
+                            'unique_group_12_textarea' => 'Some content',
+                        ),
+                        array(
+                            'unique_group_12_text'     => 'Some text 2',
+                            'unique_group_12_switcher' => TRUE,
+                            'unique_group_12_textarea' => 'Some content 2',
+                        ),
+                    ),
+                ),
+                array(
+                    'id'              => 'unique_group_3',
+                    'type'            => 'group',
+                    'title'           => 'Group Field',
+                    'info'            => 'You can use any option field on group',
+                    'button_title'    => 'Add New Something',
+                    'accordion_title' => 'Adding New Thing',
+                    'fields'          => array(
+                        array(
+                            'id'    => 'unique_group_3_text',
+                            'type'  => 'upload',
+                            'title' => 'Text Field',
+                        ),
+                    ),
+                ),
+                array(
+                    'id'              => 'unique_group_4',
+                    'type'            => 'group',
+                    'title'           => 'Group Field',
+                    'desc'            => 'Accordion title using the ID of the field, for eg. "Text Field 2" using as accordion title here.',
+                    'button_title'    => 'Add New',
+                    'accordion_title' => 'unique_group_4_text_2',
+                    'fields'          => array(
+                        array(
+                            'id'    => 'richtxt',
+                            'type'  => 'wysiwyg',
+                            'title' => 'wysiwyg',
+                        ),
+                        array(
+                            'id'    => 'unique_group_4_text_1',
+                            'type'  => 'text',
+                            'title' => 'Text Field 1',
+                        ),
+                        array(
+                            'id'    => 'unique_group_4_text_2',
+                            'type'  => 'text',
+                            'title' => 'Text Field 2',
+                        ),
+                        array(
+                            'id'    => 'unique_group_4_text_3',
+                            'type'  => 'text',
+                            'title' => 'Text Field 3',
+                        ),
+                    ),
+                ),
+            ),
+        ),
+
+        array(
+            'name'   => 'columns',
+            'title'  => 'Columns',
+            'icon'   => 'fa fa-columns',
+            'fields' => array(
+                array(
+                    'content' => 'Columns With elements',
+                    'type'    => 'subheading',
+                ),
+                array( 'title' => 'text', 'type' => 'text', 'id' => 'text', 'columns' => 4 ),
+                array( 'title' => 'switcher', 'type' => 'switcher', 'id' => 'switcher', 'columns' => 4 ),
+                array( 'title' => 'color_picker', 'type' => 'color_picker', 'id' => 'color_picker', 'columns' => 4 ),
+                array(
+                    'id'              => 'accordion_columns',
+                    'type'            => 'accordion',
+                    'accordion_title' => 'Accordion Columns',
+                    'title'           => 'Accordion With Columns',
+                    'fields'          => array(
+                        array(
+                            'type'    => 'switcher',
+                            'id'      => 'switcher',
+                            'title'   => 'Switcher',
+                            'columns' => 6,
+                        ),
+                        array(
+                            'type'    => 'text',
+                            'id'      => 'text',
+                            'title'   => 'Text',
+                            'columns' => 6,
+                        ),
+                    ),
+                ),
+                array(
+                    'id'     => 'fieldset_columns',
+                    'type'   => 'fieldset',
+                    'title'  => 'Fieldset Columns',
+                    'fields' => array(
+                        array(
+                            'id'      => 'fieldset_1_text',
+                            'type'    => 'text',
+                            'title'   => 'Text Field',
+                            'columns' => 4,
+                        ),
+                        array(
+                            'id'      => 'fieldset_1_upload',
+                            'type'    => 'upload',
+                            'title'   => 'Upload Field',
+                            'columns' => 4,
+                        ),
+                        array(
+                            'id'      => 'fieldset_1_textarea',
+                            'type'    => 'textarea',
+                            'title'   => 'Textarea Field',
+                            'columns' => 4,
+                        ),
+                    ),
+                ),
+
+                array(
+                    'id'        => 'tab_1',
+                    'type'      => 'tab',
+                    'title'     => 'Tab (boxed)',
+                    'tab_style' => 'box',
+                    'sections'  => array(
+                        array(
+                            'name'   => 'section1',
+                            'title'  => 'section 1',
+                            'icon'   => 'fa fa-star',
+                            'fields' => array(
+                                array(
+                                    'type'    => 'switcher',
+                                    'id'      => 'switcher',
+                                    'title'   => 'Switcher',
+                                    'columns' => 6,
+                                ),
+                                array(
+                                    'type'    => 'text',
+                                    'id'      => 'text',
+                                    'title'   => 'Text',
+                                    'columns' => 6,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+
+        array(
+            'name'   => 'spacing',
+            'title'  => 'Spacing',
+            'icon'   => 'fa fa-arrows',
+            'fields' => array(
+                array(
+                    'title' => 'Spacing',
+                    'type'  => 'spacing',
+                    'id'    => 'spacing',
+                ),
+                array(
+                    'title' => 'Date Picker',
+                    'type'  => 'date_picker',
+                    'id'    => 'date_picker',
+                ),
+            ),
+        ),
+    ),
+);
+
+
 // ------------------------------
 // a seperator                  -
 // ------------------------------
@@ -4088,18 +4460,11 @@ $options[] = array(
     ),
 );
 
-
 new WPSFramework_Settings(array(
-    'menu_title'     => 'WPSF Modern',
-    'menu_slug'      => 'wpsf-modern',
-    'is_single_page' => FALSE,
-    'option_name'    => '_wpsf_new_option',
-), $options);
-
-new WPSFramework_Settings(array(
-    'menu_title'     => 'WPSF Simple',
-    'menu_slug'      => 'wpsf-simple',
-    'style'          => 'simple',
-    'is_single_page' => FALSE,
-    'option_name'    => '_wpsf_new_option',
+    'menu_title'       => 'WPSF Modern',
+    'menu_slug'        => 'wpsf-modern',
+    'style'            => 'modern',
+    'is_sticky_header' => FALSE,
+    'is_single_page'   => FALSE,
+    'option_name'      => '_wpsf_new_option',
 ), $options);

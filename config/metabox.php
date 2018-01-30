@@ -39,6 +39,11 @@ $options[] = array(
             // begin: fields
             'fields' => array(
 
+                array(
+                    'title'    => 'Date Picker',
+                    'type'     => 'date_picker',
+                    'id'       => 'date_picker',
+                ),
                 // begin: a field
                 array(
                     'id'    => 'section_1_text',

@@ -84,9 +84,7 @@ class WPSFramework_User_Profile extends WPSFramework_Abstract {
             }
 
             foreach( $option['fields'] as $field ) {
-                $default = isset($field['default']) ? $field['default'] : '';
-                $value = isset($values[$field['id']]) ? $values[$field['id']] : $default;
-
+                $value = $this->get_field_values($field,$values);
                 echo wpsf_add_element($field, $value, $option['id']);
             }
 

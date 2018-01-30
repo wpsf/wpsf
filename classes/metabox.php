@@ -147,10 +147,7 @@ class WPSFramework_Metabox extends WPSFramework_Abstract {
                 echo ( isset ($v ['title']) ) ? '<div class="wpsf-section-title"><h3>' . $v ['title'] . '</h3></div>' : '';
 
                 foreach( $v ['fields'] as $field_key => $field ) {
-
-                    $default = ( isset ($field ['default']) ) ? $field ['default'] : '';
-                    $elem_id = ( isset ($field ['id']) ) ? $field ['id'] : '';
-                    $elem_value = ( is_array($meta_value) && isset ($meta_value [$elem_id]) ) ? $meta_value [$elem_id] : $default;
+                    $elem_value = $this->get_field_values($field,$meta_value);
                     echo wpsf_add_element($field, $elem_value, $unique);
                 }
                 echo '</div>';

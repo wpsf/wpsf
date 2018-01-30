@@ -84,6 +84,7 @@ if( ! function_exists('wpsf_locate_template') ) {
         $plugin_force_override = $dir_plugin . $dir_override;
         $plugin_normal_override = $dir_plugin . $dir_template;
 
+
         if( file_exists($child_force_overide) ) {
             $located = $child_force_overide;
         } else if( file_exists($child_normal_override) ) {

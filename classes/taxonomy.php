@@ -98,9 +98,7 @@ class WPSFramework_Taxonomy extends WPSFramework_Abstract {
                 $tax_value = ( $form_edit ) ? wpsf_get_term_meta($term->term_id, $option ['id'], TRUE) : '';
 
                 foreach( $option ['fields'] as $field ) {
-                    $default = ( isset ($field ['default']) ) ? $field ['default'] : '';
-                    $elem_id = ( isset ($field ['id']) ) ? $field ['id'] : '';
-                    $elem_value = ( is_array($tax_value) && isset ($tax_value [$elem_id]) ) ? $tax_value [$elem_id] : $default;
+                    $elem_value = $this->get_field_values($field,$tax_value);
                     echo wpsf_add_element($field, $elem_value, $option ['id']);
                 }
             }

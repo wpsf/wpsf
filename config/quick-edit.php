@@ -25,6 +25,7 @@ new WPSFramework_Quick_Edit(array(
         'post_type' => 'product',
         'column'    => 'product_type',
         'fields'    => array(
+
             array(
                 'id'    => 'section_4_switcher',
                 'type'  => 'switcher',
