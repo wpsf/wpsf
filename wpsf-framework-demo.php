@@ -22,7 +22,7 @@ if( ! defined('ABSPATH') ) {
  * Plugin URI: http://wpsf.com/
  * Author: WordPress-Settings-Framework
  * Author URI: http://varunsridharan.in/
- * Version: 1.0.2
+ * Version: 0.6Beta
  * Description: A Lightweight and easy-to-use WordPress Options Framework
  * License: GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
