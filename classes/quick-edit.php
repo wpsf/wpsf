@@ -20,6 +20,9 @@ if( ! defined('ABSPATH') ) {
     die ();
 }
 
+/**
+ * Class WPSFramework_Quick_Edit
+ */
 class WPSFramework_Quick_Edit extends WPSFramework_Abstract {
 
     public $options = array();
@@ -29,6 +32,10 @@ class WPSFramework_Quick_Edit extends WPSFramework_Abstract {
     private $added_ids = array();
     private $is_nonce_rendered = FALSE;
 
+    /**
+     * WPSFramework_Quick_Edit constructor.
+     * @param array $options
+     */
     public function __construct($options = array()) {
         $this->options = apply_filters('wpsf_quick_edit_options', $options);
         $this->hook_post_types();
@@ -66,6 +73,10 @@ class WPSFramework_Quick_Edit extends WPSFramework_Abstract {
         }
     }
 
+    /**
+     * @param $column
+     * @param $post_id
+     */
     public function render_hidden_data($column, $post_id) {
 
         if( isset($this->added_ids[$post_id]) || empty($this->only_IDS) ) {
@@ -79,6 +90,10 @@ class WPSFramework_Quick_Edit extends WPSFramework_Abstract {
         $this->added_ids[$post_id] = $post_id;
     }
 
+    /**
+     * @param $column
+     * @param $post_type
+     */
     public function render_quick_edit($column, $post_type) {
         if( ! isset($this->formatted[$post_type][$column]) ) {
             return;
@@ -97,6 +112,11 @@ class WPSFramework_Quick_Edit extends WPSFramework_Abstract {
         echo '</div></fieldset>';
     }
 
+    /**
+     * @param        $option
+     * @param string $db_key
+     * @return bool|string
+     */
     private function render_fields($option, $db_key = '') {
         if( ! isset($option['fields']) ) {
             return TRUE;
@@ -108,6 +128,10 @@ class WPSFramework_Quick_Edit extends WPSFramework_Abstract {
         return $html;
     }
 
+    /**
+     * @param $post_id
+     * @param $post
+     */
     public function save_quick_edit($post_id, $post) {
         if( wp_verify_nonce(wpsf_get_var('wpsf-quick-edit-nonce'), 'wpsf-quick-edit') ) {
             $post_type = wpsf_get_var('post_type');

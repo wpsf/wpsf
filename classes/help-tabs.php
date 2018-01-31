@@ -12,6 +12,10 @@ class WPSFramework_Help_Tabs extends WPSFramework_Abstract {
     private $help_tabs = array();
     private $help_tabs_pages = array();
 
+    /**
+     * WPSFramework_Help_Tabs constructor.
+     * @param array $help_tabs
+     */
     public function __construct($help_tabs = array()) {
         $this->help_tabs = $help_tabs;
         $this->help_tabs_pages = array_keys($help_tabs);
@@ -26,6 +30,9 @@ class WPSFramework_Help_Tabs extends WPSFramework_Abstract {
         }
     }
 
+    /**
+     * @return null|\WPSFramework_Help_Tabs
+     */
     public static function instance() {
         if( self::$_instance === NULL ) {
             self::$_instance = new self;
@@ -60,6 +67,10 @@ class WPSFramework_Help_Tabs extends WPSFramework_Abstract {
         }
     }
 
+    /**
+     * @param $help_sidebar
+     * @return mixed
+     */
     public function handle_data($help_sidebar) {
         if( isset($help_sidebar['content']) || isset($help_sidebar['callback']) ) {
             return $help_sidebar;
@@ -82,6 +93,10 @@ class WPSFramework_Help_Tabs extends WPSFramework_Abstract {
         return $help_sidebar;
     }
 
+    /**
+     * @param array $array
+     * @return array
+     */
     protected function map_field_ids($array = array()) {
         $s = empty($array) ? $this->options : $array;
 

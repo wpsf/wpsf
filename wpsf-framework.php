@@ -35,6 +35,12 @@ if( ! defined('ABSPATH') ) {
 require_once plugin_dir_path(__FILE__) . '/wpsf-framework-path.php';
 
 if( ! function_exists("wpsf_template") ) {
+    /**
+     * @param       $override_location
+     * @param       $template_name
+     * @param array $args
+     * @return bool
+     */
     function wpsf_template($override_location, $template_name, $args = array()) {
         if( file_exists($override_location . '/' . $template_name) ) {
             $path = $override_location . '/' . $template_name;
@@ -46,10 +52,16 @@ if( ! function_exists("wpsf_template") ) {
 
         extract($args);
         include( $path );
+        return TRUE;
     }
 }
 
 if( ! function_exists("wpsf_autoloader") ) {
+    /**
+     * @param      $class
+     * @param bool $check
+     * @return bool
+     */
     function wpsf_autoloader($class, $check = FALSE) {
         if( $class === TRUE && class_exists($class) === TRUE ) {
             return TRUE;
@@ -62,6 +74,7 @@ if( ! function_exists("wpsf_autoloader") ) {
             $path = strtolower(substr(str_replace('_', '-', $class), 13));
             include( 'classes/' . $path . '.php' );
         }
+        return TRUE;
     }
 }
 
@@ -100,6 +113,9 @@ if( ! function_exists('wpsf_framework_widgets') ) {
 }
 
 if( ! function_exists('wpsf_register_settings') ) {
+    /**
+     * @param string $slug
+     */
     function wpsf_register_settings($slug = '') {
         $ex_data = get_option('_wpsf_registered_settings', TRUE);
         if( ! is_array($ex_data) ) {

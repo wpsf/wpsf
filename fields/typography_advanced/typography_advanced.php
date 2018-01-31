@@ -26,6 +26,12 @@
  */
 class WPSFramework_Option_typography_advanced extends WPSFramework_Options {
 
+    /**
+     * WPSFramework_Option_typography_advanced constructor.
+     * @param        $field
+     * @param string $value
+     * @param string $unique
+     */
     public function __construct($field, $value = '', $unique = '') {
         parent::__construct($field, $value, $unique);
     }
@@ -58,7 +64,7 @@ class WPSFramework_Option_typography_advanced extends WPSFramework_Options {
         echo wpsf_add_element(array(
             'pseudo'  => TRUE,
             'type'    => 'typography',
-            'id'      => $this->field['id'].'_typography',
+            'id'      => $this->field['id'] . '_typography',
             'variant' => isset($this->field['variant']) ? $this->field['variant'] : TRUE,
             'chosen'  => isset($this->field['chosen']) ? $this->field['chosen'] : NULL,
             'select2' => isset($this->field['select2']) ? $this->field['select2'] : NULL,
@@ -67,24 +73,24 @@ class WPSFramework_Option_typography_advanced extends WPSFramework_Options {
         echo wpsf_add_element(array(
             'pseudo'     => TRUE,
             'type'       => 'number',
-            'id'      => $this->field['id'].'_size',
+            'id'         => $this->field['id'] . '_size',
             'name'       => $this->element_name('[size]'),
             'value'      => $value['size'],
             'default'    => ( isset($this->field['default']['size']) ) ? $this->field['default']['size'] : '',
             'wrap_class' => 'small-input wpsf-font-size',
-            'attributes' => array('data-font-size' => '')
+            'attributes' => array( 'data-font-size' => '' ),
         ), $value['size'], $this->unique);
 
 
         echo wpsf_add_element(array(
             'pseudo'     => TRUE,
             'type'       => 'number',
-            'id'      => $this->field['id'].'_height',
+            'id'         => $this->field['id'] . '_height',
             'name'       => $this->element_name('[height]'),
             'value'      => $value['height'],
             'default'    => ( isset($this->field['default']['height']) ) ? $this->field['default']['height'] : '',
             'wrap_class' => 'small-input wpsf-font-height',
-            'attributes' => array('data-font-line-height' => '')
+            'attributes' => array( 'data-font-line-height' => '' ),
         ), $value['height'], $this->unique);
 
 
@@ -92,7 +98,7 @@ class WPSFramework_Option_typography_advanced extends WPSFramework_Options {
             'pseudo'     => TRUE,
             'id'         => $this->field['id'] . '_color',
             'type'       => 'color_picker',
-            'id'      => $this->field['id'].'_color',
+            'id'         => $this->field['id'] . '_color',
             'name'       => $this->element_name('[color]'),
             'attributes' => array(
                 'data-atts' => 'bgcolor',

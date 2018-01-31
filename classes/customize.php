@@ -1,4 +1,7 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access pages directly.
+<?php if( ! defined('ABSPATH') ) {
+    die;
+} // Cannot access pages directly.
+
 /**
  *
  * Customize Class
@@ -11,13 +14,20 @@ class WPSFramework_Customize extends WPSFramework_Abstract {
 
     /**
      *
+     * instance
+     * @access private
+     * @var WPSFramework_Customize
+     *
+     */
+    private static $instance = NULL;
+    /**
+     *
      * sections
      * @access public
      * @var array
      *
      */
     public $options = array();
-
     /**
      *
      * panel priority
@@ -26,56 +36,57 @@ class WPSFramework_Customize extends WPSFramework_Abstract {
      *
      */
     public $priority = 1;
-
-    /**
-     *
-     * instance
-     * @access private
-     * @var class
-     *
-     */
-    private static $instance = null;
-    public $unique = null;
+    public $unique = NULL;
 
     // run customize construct
-    public function __construct( $options ,$db_slug) {
+
+    /**
+     * WPSFramework_Customize constructor.
+     * @param $options
+     * @param $db_slug
+     */
+    public function __construct($options, $db_slug) {
         $this->unique = $db_slug;
-        $this->options = apply_filters( 'wpsf_customize_options', $options );
+        $this->options = apply_filters('wpsf_customize_options', $options);
 
-        do_action( 'wpsf_customize_options_config', $this->options );
+        do_action('wpsf_customize_options_config', $this->options);
 
-        if( ! empty( $this->options ) ) {
-            $this->addAction( 'customize_register', 'customize_register' );
-            add_action( 'customize_controls_enqueue_scripts', 'wpsf_load_fields_styles' );
+        if( ! empty($this->options) ) {
+            $this->addAction('customize_register', 'customize_register');
+            add_action('customize_controls_enqueue_scripts', 'wpsf_load_fields_styles');
         }
 
     }
 
     // customize register
-    public function customize_register( $wp_customize ) {
+
+    /**
+     * @param $wp_customize
+     */
+    public function customize_register($wp_customize) {
         // load extra WP_Customize_Control
-        wpsf_locate_template( 'functions/customize.php' );
-        do_action( 'wpsf_customize_register', $wp_customize );
+        wpsf_locate_template('functions/customize.php');
+        do_action('wpsf_customize_register', $wp_customize);
 
         $panel_priority = 1;
 
-        foreach ( $this->options as $value ) {
+        foreach( $this->options as $value ) {
 
             $this->priority = $panel_priority;
 
-            if( isset( $value['sections'] ) ) {
+            if( isset($value['sections']) ) {
 
-                $wp_customize->add_panel( $value['name'], array(
+                $wp_customize->add_panel($value['name'], array(
                     'title'       => $value['title'],
-                    'priority'    => ( isset( $value['priority'] ) ) ? $value['priority'] : $panel_priority,
-                    'description' => ( isset( $value['description'] ) ) ? $value['description'] : '',
+                    'priority'    => ( isset($value['priority']) ) ? $value['priority'] : $panel_priority,
+                    'description' => ( isset($value['description']) ) ? $value['description'] : '',
                 ));
 
-                $this->add_section( $wp_customize, $value, $value['name'] );
+                $this->add_section($wp_customize, $value, $value['name']);
 
             } else {
 
-                $this->add_section( $wp_customize, $value );
+                $this->add_section($wp_customize, $value);
 
             }
 
@@ -86,59 +97,62 @@ class WPSFramework_Customize extends WPSFramework_Abstract {
     }
 
     // add customize section
-    public function add_section( $wp_customize, $value, $panel = false ) {
+
+    /**
+     * @param      $wp_customize
+     * @param      $value
+     * @param bool $panel
+     */
+    public function add_section($wp_customize, $value, $panel = FALSE) {
 
         $section_priority = ( $panel ) ? 1 : $this->priority;
-        $sections         = ( $panel ) ? $value['sections'] : array( 'sections' => $value );
+        $sections = ( $panel ) ? $value['sections'] : array( 'sections' => $value );
 
-        foreach ( $sections as $section ) {
+        foreach( $sections as $section ) {
 
             // add_section
-            $wp_customize->add_section( $section['name'], array(
+            $wp_customize->add_section($section['name'], array(
                 'title'       => $section['title'],
-                'priority'    => ( isset( $section['priority'] ) ) ? $section['priority'] : $section_priority,
-                'description' => ( isset( $section['description'] ) ) ? $section['description'] : '',
+                'priority'    => ( isset($section['priority']) ) ? $section['priority'] : $section_priority,
+                'description' => ( isset($section['description']) ) ? $section['description'] : '',
                 'panel'       => ( $panel ) ? $panel : '',
-            ) );
+            ));
 
             $setting_priority = 1;
 
-            foreach ( $section['settings'] as $setting ) {
+            foreach( $section['settings'] as $setting ) {
 
-                $setting_name = $this->unique . '[' . $setting['name'] .']';
+                $setting_name = $this->unique . '[' . $setting['name'] . ']';
 
                 // add_setting
-                $wp_customize->add_setting( $setting_name,
-                    wp_parse_args( $setting, array(
+                $wp_customize->add_setting($setting_name, wp_parse_args($setting, array(
                             'type'              => 'option',
                             'capability'        => 'edit_theme_options',
                             'sanitize_callback' => 'wpsf_sanitize_clean',
-                        )
-                    )
-                );
+                        )));
 
                 // add_control
-                $control_args = wp_parse_args( $setting['control'], array(
-                    'unique'    => $this->unique,
-                    'section'   => $section['name'],
-                    'settings'  => $setting_name,
-                    'priority'  => $setting_priority,
+                $control_args = wp_parse_args($setting['control'], array(
+                    'unique'   => $this->unique,
+                    'section'  => $section['name'],
+                    'settings' => $setting_name,
+                    'priority' => $setting_priority,
                 ));
 
                 if( $control_args['type'] == 'wpsf_field' ) {
 
-                    $call_class = 'WP_Customize_'. $control_args['type'] .'_Control';
-                    $wp_customize->add_control( new $call_class( $wp_customize, $setting['name'], $control_args ) );
+                    $call_class = 'WP_Customize_' . $control_args['type'] . '_Control';
+                    $wp_customize->add_control(new $call_class($wp_customize, $setting['name'], $control_args));
 
                 } else {
 
                     $wp_controls = array( 'color', 'upload', 'image', 'media' );
-                    $call_class  = 'WP_Customize_'. ucfirst( $control_args['type'] ) .'_Control';
+                    $call_class = 'WP_Customize_' . ucfirst($control_args['type']) . '_Control';
 
-                    if( in_array( $control_args['type'], $wp_controls ) && class_exists( $call_class ) ) {
-                        $wp_customize->add_control( new $call_class( $wp_customize, $setting['name'], $control_args ) );
+                    if( in_array($control_args['type'], $wp_controls) && class_exists($call_class) ) {
+                        $wp_customize->add_control(new $call_class($wp_customize, $setting['name'], $control_args));
                     } else {
-                        $wp_customize->add_control( $setting['name'], $control_args );
+                        $wp_customize->add_control($setting['name'], $control_args);
                     }
 
                 }

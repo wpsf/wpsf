@@ -40,17 +40,17 @@ $options[] = array(
             'fields' => array(
 
                 array(
-                    'title'    => 'Date Picker',
-                    'type'     => 'date_picker',
-                    'id'       => 'date_picker',
+                    'title' => 'Date Picker',
+                    'type'  => 'date_picker',
+                    'id'    => 'date_picker',
                 ),
                 // begin: a field
                 array(
-                    'id'    => 'section_1_text',
-                    'type'  => 'text',
-                    'title' => 'Text Field',
-                    'validate' => 'required',
-                    'dependency'   => array( 'page_template|menu_order', '==|>=', 'template-fullwidth.php|2' ),
+                    'id'         => 'section_1_text',
+                    'type'       => 'text',
+                    'title'      => 'Text Field',
+                    'validate'   => 'required',
+                    'dependency' => array( 'page_template|menu_order', '==|>=', 'template-fullwidth.php|2' ),
                 ),
                 // end: a field
 

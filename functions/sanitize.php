@@ -21,6 +21,11 @@ if( ! defined('ABSPATH') ) {
  *
  */
 if( ! function_exists('wpsf_sanitize_text') ) {
+    /**
+     * @param $value
+     * @param $field
+     * @return string
+     */
     function wpsf_sanitize_text($value, $field) {
         return wp_filter_nohtml_kses($value);
     }
@@ -37,6 +42,10 @@ if( ! function_exists('wpsf_sanitize_text') ) {
  *
  */
 if( ! function_exists('wpsf_sanitize_textarea') ) {
+    /**
+     * @param $value
+     * @return string
+     */
     function wpsf_sanitize_textarea($value) {
         global $allowedposttags;
         return wp_kses($value, $allowedposttags);
@@ -55,6 +64,10 @@ if( ! function_exists('wpsf_sanitize_textarea') ) {
  *
  */
 if( ! function_exists('wpsf_sanitize_checkbox') ) {
+    /**
+     * @param $value
+     * @return bool
+     */
     function wpsf_sanitize_checkbox($value) {
         if( ! empty ($value) && $value == 1 ) {
             $value = TRUE;
@@ -82,6 +95,10 @@ if( ! function_exists('wpsf_sanitize_checkbox') ) {
  *
  */
 if( ! function_exists('wpsf_sanitize_image_select') ) {
+    /**
+     * @param $value
+     * @return array|mixed|string
+     */
     function wpsf_sanitize_image_select($value) {
         if( isset ($value) && is_array($value) ) {
             if( count($value) ) {
@@ -109,6 +126,10 @@ if( ! function_exists('wpsf_sanitize_image_select') ) {
  *
  */
 if( ! function_exists('wpsf_sanitize_group') ) {
+    /**
+     * @param $value
+     * @return string
+     */
     function wpsf_sanitize_group($value) {
         return ( empty ($value) ) ? '' : $value;
     }
@@ -125,6 +146,10 @@ if( ! function_exists('wpsf_sanitize_group') ) {
  *
  */
 if( ! function_exists('wpsf_sanitize_title') ) {
+    /**
+     * @param $value
+     * @return string
+     */
     function wpsf_sanitize_title($value) {
         return sanitize_title($value);
     }
@@ -141,6 +166,10 @@ if( ! function_exists('wpsf_sanitize_title') ) {
  *
  */
 if( ! function_exists('wpsf_sanitize_clean') ) {
+    /**
+     * @param $value
+     * @return mixed
+     */
     function wpsf_sanitize_clean($value) {
         return $value;
     }

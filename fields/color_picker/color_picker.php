@@ -22,6 +22,12 @@ if( ! defined('ABSPATH') ) {
  *
  */
 class WPSFramework_Option_color_picker extends WPSFramework_Options {
+    /**
+     * WPSFramework_Option_color_picker constructor.
+     * @param        $field
+     * @param string $value
+     * @param string $unique
+     */
     public function __construct($field, $value = '', $unique = '') {
         parent::__construct($field, $value, $unique);
     }
@@ -33,6 +39,9 @@ class WPSFramework_Option_color_picker extends WPSFramework_Options {
         echo $this->element_after();
     }
 
+    /**
+     * @return array
+     */
     public function extra_attributes() {
         $atts = array();
 

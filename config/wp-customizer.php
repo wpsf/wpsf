@@ -461,7 +461,7 @@ $options[] = array(
     // end: sections
 );
 
-new WPSFramework_Customize($options,'_wpsf_customizer_demo1');
+new WPSFramework_Customize($options, '_wpsf_customizer_demo1');
 new WPSFramework_Customize(array(
     array(
         'name'     => '1wp_core_fields',
@@ -479,5 +479,5 @@ new WPSFramework_Customize(array(
             ),
 
         ),
-    )
-),'_wpsf_customizer_demo2');
+    ),
+), '_wpsf_customizer_demo2');

@@ -12,6 +12,12 @@
  */
 class WPSFramework_Option_group extends WPSFramework_Options {
 
+    /**
+     * WPSFramework_Option_group constructor.
+     * @param        $field
+     * @param string $value
+     * @param string $unique
+     */
     public function __construct($field, $value = '', $unique = '') {
         parent::__construct($field, $value, $unique);
     }
@@ -88,6 +94,11 @@ class WPSFramework_Option_group extends WPSFramework_Options {
         echo $this->element_after();
     }
 
+    /**
+     * @param string $array
+     * @param bool   $is_array
+     * @return array|bool|mixed|string
+     */
     public function _get_title($array = '', $is_array = FALSE) {
         if( ! is_array($array) && ! empty($array) ) {
             return $array;

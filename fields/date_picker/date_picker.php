@@ -16,6 +16,12 @@
  * Time: 07:48 AM
  */
 class WPSFramework_Option_date_picker extends WPSFramework_Options {
+    /**
+     * WPSFramework_Option_date_picker constructor.
+     * @param        $field
+     * @param string $value
+     * @param string $unique
+     */
     public function __construct($field, $value = '', $unique = '') {
         parent::__construct($field, $value, $unique);
     }
@@ -26,6 +32,9 @@ class WPSFramework_Option_date_picker extends WPSFramework_Options {
         echo $this->element_after();
     }
 
+    /**
+     * @return array
+     */
     public function picker_settings() {
         $s = ( isset($this->field['settings']) ) ? $this->field['settings'] : FALSE;
         if( $s === FALSE ) {

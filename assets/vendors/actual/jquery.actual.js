@@ -6,12 +6,13 @@
                                                                                                   -
  @package    WPSF                                                                                 -
  @author     Varun Sridharan <varunsridharan23@gmail.com>                                         -
- -------------------------------------------------------------------------------------------------*/ ;
-(function ($) {
+ -------------------------------------------------------------------------------------------------*/
+;
+( function ($) {
     $.fn.addBack = $.fn.addBack || $.fn.andSelf;
     $.fn.extend({
         actual: function (method, options) {
-            if (!this[method]) {
+            if ( !this[method] ) {
                 throw '$.actual => The jQuery method "' + method + '" you called does not exist';
             }
             var defaults = {
@@ -22,7 +23,7 @@
             var configs = $.extend(defaults, options);
             var $target = this.eq(0);
             var fix, restore;
-            if (configs.clone === true) {
+            if ( configs.clone === true ) {
                 fix = function () {
                     var style = 'position: absolute !important; top: -1000 !important; ';
                     $target = $target.clone().attr('style', style).appendTo('body');
@@ -37,7 +38,7 @@
                 fix = function () {
                     $hidden = $target.parents().addBack().filter(':hidden');
                     style += 'visibility: hidden !important; display: block !important; ';
-                    if (configs.absolute === true) style += 'position: absolute !important; ';
+                    if ( configs.absolute === true ) style += 'position: absolute !important; ';
                     $hidden.each(function () {
                         var $this = $(this);
                         var thisStyle = $this.attr('style');
@@ -49,7 +50,7 @@
                     $hidden.each(function (i) {
                         var $this = $(this);
                         var _tmp = tmp[i];
-                        if (_tmp === undefined) {
+                        if ( _tmp === undefined ) {
                             $this.removeAttr('style');
                         } else {
                             $this.attr('style', _tmp);
@@ -63,4 +64,4 @@
             return actual;
         }
     });
-})(jQuery);
+} )(jQuery);

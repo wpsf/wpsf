@@ -42,6 +42,10 @@ class WPSFramework_Metabox extends WPSFramework_Abstract {
      */
     public $options = array();
 
+    /**
+     * WPSFramework_Metabox constructor.
+     * @param $options
+     */
     public function __construct($options) {
         $this->options = apply_filters('wpsf_metabox_options', $options);
         $this->posttypes = array();
@@ -52,6 +56,10 @@ class WPSFramework_Metabox extends WPSFramework_Abstract {
         }
     }
 
+    /**
+     * @param array $options
+     * @return \class|\WPSFramework_Metabox
+     */
     public static function instance($options = array()) {
         if( is_null(self::$instance) ) {
             self::$instance = new self ($options);
@@ -59,6 +67,9 @@ class WPSFramework_Metabox extends WPSFramework_Abstract {
         return self::$instance;
     }
 
+    /**
+     * @param $post_type
+     */
     public function add_meta_box($post_type) {
         foreach( $this->options as $value ) {
             add_meta_box($value ['id'], $value ['title'], array(
@@ -80,6 +91,10 @@ class WPSFramework_Metabox extends WPSFramework_Abstract {
     }
 
 
+    /**
+     * @param $post
+     * @param $callback
+     */
     public function render_meta_box_content($post, $callback) {
         global $post, $wpsf_errors, $typenow;
 
@@ -147,7 +162,7 @@ class WPSFramework_Metabox extends WPSFramework_Abstract {
                 echo ( isset ($v ['title']) ) ? '<div class="wpsf-section-title"><h3>' . $v ['title'] . '</h3></div>' : '';
 
                 foreach( $v ['fields'] as $field_key => $field ) {
-                    $elem_value = $this->get_field_values($field,$meta_value);
+                    $elem_value = $this->get_field_values($field, $meta_value);
                     echo wpsf_add_element($field, $elem_value, $unique);
                 }
                 echo '</div>';
@@ -170,6 +185,10 @@ class WPSFramework_Metabox extends WPSFramework_Abstract {
         echo '</div>';
     }
 
+    /**
+     * @param $post_id
+     * @param $post
+     */
     public function save_post($post_id, $post) {
         if( wp_verify_nonce(wpsf_get_var('wpsf-framework-metabox-nonce'), 'wpsf-framework-metabox') ) {
             $errors = array();

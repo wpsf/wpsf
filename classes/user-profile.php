@@ -15,15 +15,21 @@
  * Date: 08-01-2018
  * Time: 09:25 PM
  */
-
 class WPSFramework_User_Profile extends WPSFramework_Abstract {
     private static $_instance = NULL;
     public $options = array();
 
+    /**
+     * WPSFramework_User_Profile constructor.
+     * @param array $options
+     */
     public function __construct($options = array()) {
         $this->init($options);
     }
 
+    /**
+     * @param $options
+     */
     public function init($options) {
         $this->options = $options;
         add_action('load-profile.php', array(
@@ -68,6 +74,9 @@ class WPSFramework_User_Profile extends WPSFramework_Abstract {
         }
     }
 
+    /**
+     * @param null $user_id
+     */
     public function custom_user_profile_fields($user_id = NULL) {
         global $wpsf_errors;
         $user_id = ( is_object($user_id) ) ? $user_id->ID : $user_id;
@@ -84,7 +93,7 @@ class WPSFramework_User_Profile extends WPSFramework_Abstract {
             }
 
             foreach( $option['fields'] as $field ) {
-                $value = $this->get_field_values($field,$values);
+                $value = $this->get_field_values($field, $values);
                 echo wpsf_add_element($field, $value, $option['id']);
             }
 
@@ -95,6 +104,9 @@ class WPSFramework_User_Profile extends WPSFramework_Abstract {
         }
     }
 
+    /**
+     * @param $user_id
+     */
     public function save_customer_meta_fields($user_id) {
         $save_handler = new WPSFramework_Fields_Save_Sanitize;
         foreach( $this->options as $options ) {

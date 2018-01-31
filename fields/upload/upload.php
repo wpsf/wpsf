@@ -22,6 +22,12 @@ if( ! defined('ABSPATH') ) {
  *
  */
 class WPSFramework_Option_upload extends WPSFramework_Options {
+    /**
+     * WPSFramework_Option_upload constructor.
+     * @param        $field
+     * @param string $value
+     * @param string $unique
+     */
     public function __construct($field, $value = '', $unique = '') {
         parent::__construct($field, $value, $unique);
     }

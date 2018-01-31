@@ -16,6 +16,12 @@
  * Time: 08:49 AM
  */
 class WPSFramework_Option_spacing extends WPSFramework_Options {
+    /**
+     * WPSFramework_Option_spacing constructor.
+     * @param array  $field
+     * @param string $value
+     * @param string $unique
+     */
     public function __construct($field = array(), $value = '', $unique = '') {
         parent::__construct($field, $value, $unique);
     }
@@ -93,6 +99,10 @@ class WPSFramework_Option_spacing extends WPSFramework_Options {
         echo $this->element_after();
     }
 
+    /**
+     * @param string $key
+     * @return bool
+     */
     private function get_value($key = '') {
         $fid = $this->field['id'];
 

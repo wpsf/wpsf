@@ -24,6 +24,12 @@ if( ! defined('ABSPATH') ) {
 abstract class WPSFramework_Options extends WPSFramework_Abstract {
     public static $total_cols = 0;
 
+    /**
+     * WPSFramework_Options constructor.
+     * @param array  $field
+     * @param string $value
+     * @param string $unique
+     */
     public function __construct($field = array(), $value = '', $unique = '') {
         $this->field = $field;
         $this->value = $value;
@@ -33,6 +39,9 @@ abstract class WPSFramework_Options extends WPSFramework_Abstract {
         $this->row_after = NULL;
     }
 
+    /**
+     * @return bool|mixed|void
+     */
     public function element_multilang() {
         return ( isset ($this->field ['multilang']) ) ? wpsf_language_defaults() : FALSE;
     }
@@ -47,11 +56,17 @@ abstract class WPSFramework_Options extends WPSFramework_Abstract {
         }
     }
 
+    /**
+     * @return mixed
+     */
     public function element_type() {
         $type = ( isset ($this->field ['attributes'] ['type']) ) ? $this->field ['attributes'] ['type'] : $this->field ['type'];
         return $type;
     }
 
+    /**
+     * @param bool $is_start
+     */
     public function element_wrapper($is_start = TRUE) {
         if( $is_start === TRUE ) {
             $depend = '';
@@ -103,14 +118,20 @@ abstract class WPSFramework_Options extends WPSFramework_Abstract {
     public function element_title() {
         if( isset ($this->field ['title']) ) {
             $field_desc = ( isset ($this->field ['desc']) ) ? '<p class="wpsf-text-desc">' . $this->field ['desc'] . '</p>' : '';
-            echo '<div class="wpsf-title"><h4>' . $this->field ['title'] . '</h4>' . $this->element_desc() . ' ' . $this->element_help(TRUE) . '</div>';
+            echo '<div class="wpsf-title"><h4>' . $this->field ['title'] . '</h4>' . $this->element_desc() . ' ' . $this->element_help() . '</div>';
         }
     }
 
+    /**
+     * @return string
+     */
     public function element_desc() {
         return ( isset($this->field['desc']) ) ? '<p class="wpsf-text-desc">' . $this->field['desc'] . '</p>' : '';
     }
 
+    /**
+     * @return string
+     */
     public function element_help() {
         $defaults = array(
             'icon'     => 'fa fa-question-circle',
@@ -128,19 +149,34 @@ abstract class WPSFramework_Options extends WPSFramework_Abstract {
         return ( ! empty($help['content']) ) ? '<span class="wpsf-help" data-placement="' . $help['position'] . '" data-title="' . $help['content'] . '"><span class="' . $help['icon'] . '"></span></span>' : '';
     }
 
+    /**
+     * @return string
+     */
     public function element_title_before() {
         return ( isset ($this->field ['title']) ) ? '<div class="wpsf-fieldset">' : '';
     }
 
+    /**
+     * @return string
+     */
     public function element_title_after() {
         return ( isset ($this->field ['title']) ) ? '</div>' : '';
     }
 
+    /**
+     * @param string $el_class
+     * @return string
+     */
     public function element_class($el_class = '') {
         $field_class = ( isset ($this->field ['class']) ) ? ' ' . $this->field ['class'] : '';
         return ( $field_class || $el_class ) ? ' class="' . $el_class . $field_class . '"' : '';
     }
 
+    /**
+     * @param array $el_attributes
+     * @param array $extra_more
+     * @return string
+     */
     public function element_attributes($el_attributes = array(), $extra_more = array()) {
         $attributes = ( isset ($this->field ['attributes']) ) ? $this->field ['attributes'] : array();
         $element_id = ( isset ($this->field ['id']) ) ? $this->field ['id'] : '';
@@ -183,10 +219,16 @@ abstract class WPSFramework_Options extends WPSFramework_Abstract {
         return $atts;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function element_before() {
         return ( isset ($this->field ['before']) ) ? $this->field ['before'] : '';
     }
 
+    /**
+     * @return string
+     */
     public function element_after() {
         $out = $this->element_text_limit();
         $out .= $this->element_desc_after();
@@ -198,6 +240,9 @@ abstract class WPSFramework_Options extends WPSFramework_Abstract {
         return $out;
     }
 
+    /**
+     * @return string
+     */
     public function element_text_limit() {
         $return = '';
         if( in_array($this->field['type'], array(
@@ -214,10 +259,16 @@ abstract class WPSFramework_Options extends WPSFramework_Abstract {
         return $return;
     }
 
+    /**
+     * @return string
+     */
     public function element_desc_after() {
         return ( isset ($this->field ['desc_field']) ) ? '<p class="wpsf-text-desc">' . $this->field ['desc_field'] . '</p>' : '';
     }
 
+    /**
+     * @return string
+     */
     public function element_after_multilang() {
         $out = '';
 
@@ -261,12 +312,20 @@ abstract class WPSFramework_Options extends WPSFramework_Abstract {
         return $out;
     }
 
+    /**
+     * @param string $extra_name
+     * @param bool   $multilang
+     * @return string
+     */
     public function element_name($extra_name = '', $multilang = FALSE) {
         $element_id = ( isset ($this->field ['id']) ) ? $this->field ['id'] : '';
         $extra_multilang = ( ! $multilang && is_array($this->multilang) ) ? '[' . $this->multilang ['current'] . ']' : '';
         return ( isset ($this->field ['name']) ) ? $this->field ['name'] . $extra_name : $this->unique . '[' . $element_id . ']' . $extra_multilang . $extra_name;
     }
 
+    /**
+     * @return string
+     */
     public function element_get_error() {
         global $wpsf_errors;
 
@@ -284,6 +343,9 @@ abstract class WPSFramework_Options extends WPSFramework_Abstract {
         return $out;
     }
 
+    /**
+     * @return string
+     */
     public function element_debug() {
         $out = '';
 
@@ -330,6 +392,10 @@ abstract class WPSFramework_Options extends WPSFramework_Abstract {
         return $out;
     }
 
+    /**
+     * @param string $value
+     * @return array|mixed|string
+     */
     public function element_value($value = '') {
         $value = $this->value;
 
@@ -356,6 +422,10 @@ abstract class WPSFramework_Options extends WPSFramework_Abstract {
         return $value;
     }
 
+    /**
+     * @param string $type
+     * @return array
+     */
     public function element_data($type = '') {
         $options = array();
         $query_args = ( isset ($this->field ['query_args']) ) ? $this->field ['query_args'] : array();
@@ -449,10 +519,23 @@ abstract class WPSFramework_Options extends WPSFramework_Abstract {
         return $options;
     }
 
+    /**
+     * @param $key
+     * @param $default
+     * @param $data
+     * @return mixed
+     */
     private function _option_data($key, $default, $data) {
         return ( isset($data->{$key}) && ! empty($data->{$key}) ) ? $data->{$key} : $data->{$default};
     }
 
+    /**
+     * @param string $helper
+     * @param string $current
+     * @param string $type
+     * @param bool   $echo
+     * @return string
+     */
     public function checked($helper = '', $current = '', $type = 'checked', $echo = FALSE) {
         if( is_array($helper) && in_array($current, $helper) ) {
             $result = ' ' . $type . '="' . $type . '"';
@@ -469,6 +552,11 @@ abstract class WPSFramework_Options extends WPSFramework_Abstract {
         return $result;
     }
 
+    /**
+     * @param $option
+     * @param $key
+     * @return array
+     */
     public function element_handle_option($option, $key) {
         if( ! is_array($option) ) {
             $option = array(

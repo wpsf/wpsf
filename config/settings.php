@@ -212,7 +212,6 @@ $options[] = array(
     'title' => 'Input / UI Fields',
     'icon'  => 'fa fa-bookmark',
 );
-
 // ------------------------------
 // a option section with tabs   -
 // ------------------------------
@@ -496,637 +495,189 @@ $options[] = array(
                         'red',
                     ),
                 ),
+                array(
+                    'fields'          => array(
+                        array(
+                            'default' => 'option1',
+                            'options' => array(
+                                'option1' => 'Option1',
+                                'option2' => 'Option2',
+                                'option3' => 'Option3',
+                            ),
+                            'class'   => 'icheck horizontal',
+                            'id'      => 'primary',
+                            'type'    => 'checkbox',
+                            'title'   => 'Default Style',
+                        ),
+                        array(
+                            'default' => 'option2',
+                            'options' => array(
+                                'option1' => 'Option1',
+                                'option2' => 'Option2',
+                                'option3' => 'Option3',
+                            ),
+                            'class'   => 'icheck icheck-primary horizontal',
+                            'id'      => 'primary',
+                            'type'    => 'checkbox',
+                            'title'   => 'Primary Style',
+                        ),
+                        array(
+                            'default' => 'option3',
+                            'options' => array(
+                                'option1' => 'Option1',
+                                'option2' => 'Option2',
+                                'option3' => 'Option3',
+                            ),
+                            'class'   => 'icheck icheck-success horizontal',
+                            'id'      => 'success',
+                            'type'    => 'checkbox',
+                            'title'   => 'Success Style',
+                        ),
+                        array(
+                            'default' => 'option2',
+                            'options' => array(
+                                'option1' => 'Option1',
+                                'option2' => 'Option2',
+                                'option3' => 'Option3',
+                            ),
+                            'class'   => 'icheck icheck-info horizontal',
+                            'id'      => 'info',
+                            'type'    => 'checkbox',
+                            'title'   => 'info Style',
+                        ),
+                        array(
+                            'default' => 'option2',
+                            'options' => array(
+                                'option1' => 'Option1',
+                                'option2' => 'Option2',
+                                'option3' => 'Option3',
+                            ),
+                            'class'   => 'icheck icheck-danger horizontal',
+                            'id'      => 'danger',
+                            'type'    => 'checkbox',
+                            'title'   => 'danger Style',
+                        ),
+                        array(
+                            'default' => 'option2',
+                            'options' => array(
+                                'option1' => 'Option1',
+                                'option2' => 'Option2',
+                                'option3' => 'Option3',
+                            ),
+                            'class'   => 'icheck icheck-danger horizontal',
+                            'id'      => 'danger',
+                            'type'    => 'checkbox',
+                            'title'   => 'danger Style',
+                        ),
+                        array(
+                            'default' => 'option1',
+                            'options' => array(
+                                'option1' => array(
+                                    'label'      => 'Option1',
+                                    'attributes' => array( 'class' => 'icheck icheck-success' ),
+                                ),
+                                'option2' => array(
+                                    'label'      => 'Option2',
+                                    'attributes' => array( 'class' => 'icheck icheck-primary' ),
+                                ),
+                                'option3' => array(
+                                    'label'      => 'Option3',
+                                    'attributes' => array( 'class' => 'icheck icheck-danger' ),
+                                ),
+                            ),
+                            'class'   => 'icheck icheck-warning horizontal',
+                            'id'      => 'multiple_style',
+                            'type'    => 'checkbox',
+                            'title'   => 'Multiple Style',
+                        ),
+                        array(
+                            'default' => 'option1',
+                            'options' => array(
+                                'option1' => array(
+                                    'label'      => 'Option1',
+                                    'attributes' => array( 'class' => 'icheck icheck-success icheck-xs' ),
+                                ),
+                                'option2' => array(
+                                    'label'      => 'Option2',
+                                    'attributes' => array( 'class' => 'icheck icheck-primary ' ),
+                                ),
+                                'option3' => array(
+                                    'label'      => 'Option3',
+                                    'attributes' => array( 'class' => 'icheck icheck-danger icheck-lg' ),
+                                ),
+                            ),
+                            'class'   => 'icheck icheck-warning horizontal',
+                            'id'      => 'multiple_style',
+                            'type'    => 'checkbox',
+                            'title'   => 'Multiple Size',
+                        ),
 
-                array(
-                    'content' => 'iCheck Theme : minimal',
-                    'fields'  => array(
                         array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
+                            'default' => 'option1',
+                            'options' => array(
+                                'option1' => array( 'label' => 'Option1', ),
+                                'option2' => array( 'label' => 'Option2', ),
+                                'option3' => array( 'label' => 'Option3', ),
                             ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With minimal',
+                            'class'   => 'icheck icheck-lg horizontal',
+                            'id'      => 'large_size',
+                            'type'    => 'checkbox',
+                            'title'   => 'Large Size',
                         ),
                         array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
+                            'default' => 'option1',
+                            'options' => array(
+                                'option1' => array( 'label' => 'Option1', ),
+                                'option2' => array( 'label' => 'Option2', ),
+                                'option3' => array( 'label' => 'Option3', ),
                             ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-red',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With minimal-red',
+                            'class'   => 'icheck icheck-sm horizontal',
+                            'id'      => 'small_size',
+                            'type'    => 'checkbox',
+                            'title'   => 'small Size',
                         ),
                         array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
+                            'default' => 'option1',
+                            'options' => array(
+                                'option1' => array( 'label' => 'Option1', ),
+                                'option2' => array( 'label' => 'Option2', ),
+                                'option3' => array( 'label' => 'Option3', ),
                             ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-green',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With minimal-green',
+                            'class'   => 'icheck icheck-rounded horizontal',
+                            'id'      => 'rounded',
+                            'type'    => 'checkbox',
+                            'title'   => 'Rounded Size',
                         ),
                         array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
+                            'default' => 'option1',
+                            'options' => array(
+                                'option1' => array( 'label' => 'Option1', ),
+                                'option2' => array( 'label' => 'Option2', ),
+                                'option3' => array( 'label' => 'Option3', ),
                             ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-blue',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With minimal-blue',
+                            'class'   => 'icheck icheck-lg icheck-rounded horizontal',
+                            'id'      => 'large_rounded',
+                            'type'    => 'checkbox',
+                            'title'   => 'Large Rounded Size',
                         ),
                         array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
+                            'default' => 'option1',
+                            'options' => array(
+                                'option1' => array( 'label' => 'Option1', ),
+                                'option2' => array( 'label' => 'Option2', ),
+                                'option3' => array( 'label' => 'Option3', ),
                             ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-aero',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With minimal-aero',
+                            'class'   => 'icheck icheck-sm icheck-rounded horizontal',
+                            'id'      => 'small_rounded',
+                            'type'    => 'checkbox',
+                            'title'   => 'Small Rounded Size',
                         ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-grey',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With minimal-grey',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-orange',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With minimal-orange',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-yellow',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With minimal-yellow',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-pink',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With minimal-pink',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-purple',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With minimal-purple',
-                        ),
-                    ),
-                    'id'      => 'settings_checkbox_icheck_minimal_accordion',
-                    'type'    => 'accordion',
-                ),
-                array(
-                    'content' => 'iCheck Theme : square',
-                    'fields'  => array(
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With square',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-red',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With square-red',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-green',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With square-green',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-blue',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With square-blue',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-aero',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With square-aero',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-grey',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With square-grey',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-orange',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With square-orange',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-yellow',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With square-yellow',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-pink',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With square-pink',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-purple',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With square-purple',
-                        ),
-                    ),
-                    'id'      => 'settings_checkbox_icheck_square_accordion',
-                    'type'    => 'accordion',
-                ),
-                array(
-                    'content' => 'iCheck Theme : flat',
-                    'fields'  => array(
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With flat',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-red',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With flat-red',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-green',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With flat-green',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-blue',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With flat-blue',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-aero',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With flat-aero',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-grey',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With flat-grey',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-orange',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With flat-orange',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-yellow',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With flat-yellow',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-pink',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With flat-pink',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-purple',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With flat-purple',
-                        ),
-                    ),
-                    'id'      => 'settings_checkbox_icheck_flat_accordion',
-                    'type'    => 'accordion',
-                ),
-                array(
-                    'content' => 'iCheck Theme : line',
-                    'fields'  => array(
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With line',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-red',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With line-red',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-green',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With line-green',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-blue',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With line-blue',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-aero',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With line-aero',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-grey',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With line-grey',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-orange',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With line-orange',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-yellow',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With line-yellow',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-pink',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With line-pink',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-purple',
-                            ),
-                            'id'         => 'settings_checkbox_checkbox',
-                            'type'       => 'checkbox',
-                            'title'      => 'iCheck With line-purple',
-                        ),
-                    ),
-                    'id'      => 'settings_checkbox_icheck_line_accordion',
-                    'type'    => 'accordion',
-                ),
 
-
+                    ),
+                    'id'              => 'styled_checkbox',
+                    'type'            => 'accordion',
+                    'accordion_title' => 'Styled Checkbox',
+                ),
                 array(
                     'id'      => 'unique_checkbox_7',
                     'type'    => 'checkbox',
@@ -1269,632 +820,187 @@ $options[] = array(
 
 
                 array(
-                    'content' => 'iCheck Theme : minimal',
-                    'fields'  => array(
+                    'fields'          => array(
                         array(
-                            'default'    => 'option1',
-                            'options'    => array(
+                            'default' => 'option1',
+                            'options' => array(
                                 'option1' => 'Option1',
                                 'option2' => 'Option2',
                                 'option3' => 'Option3',
                             ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With minimal',
+                            'class'   => 'icheck horizontal',
+                            'id'      => 'primary',
+                            'type'    => 'radio',
+                            'title'   => 'Default Style',
                         ),
                         array(
-                            'default'    => 'option1',
-                            'options'    => array(
+                            'default' => 'option2',
+                            'options' => array(
                                 'option1' => 'Option1',
                                 'option2' => 'Option2',
                                 'option3' => 'Option3',
                             ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-red',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With minimal-red',
+                            'class'   => 'icheck icheck-primary horizontal',
+                            'id'      => 'primary',
+                            'type'    => 'radio',
+                            'title'   => 'Primary Style',
                         ),
                         array(
-                            'default'    => 'option1',
-                            'options'    => array(
+                            'default' => 'option3',
+                            'options' => array(
                                 'option1' => 'Option1',
                                 'option2' => 'Option2',
                                 'option3' => 'Option3',
                             ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-green',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With minimal-green',
+                            'class'   => 'icheck icheck-success horizontal',
+                            'id'      => 'success',
+                            'type'    => 'radio',
+                            'title'   => 'Success Style',
                         ),
                         array(
-                            'default'    => 'option1',
-                            'options'    => array(
+                            'default' => 'option2',
+                            'options' => array(
                                 'option1' => 'Option1',
                                 'option2' => 'Option2',
                                 'option3' => 'Option3',
                             ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-blue',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With minimal-blue',
+                            'class'   => 'icheck icheck-info horizontal',
+                            'id'      => 'info',
+                            'type'    => 'radio',
+                            'title'   => 'info Style',
                         ),
                         array(
-                            'default'    => 'option1',
-                            'options'    => array(
+                            'default' => 'option2',
+                            'options' => array(
                                 'option1' => 'Option1',
                                 'option2' => 'Option2',
                                 'option3' => 'Option3',
                             ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-aero',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With minimal-aero',
+                            'class'   => 'icheck icheck-danger horizontal',
+                            'id'      => 'danger',
+                            'type'    => 'radio',
+                            'title'   => 'danger Style',
                         ),
                         array(
-                            'default'    => 'option1',
-                            'options'    => array(
+                            'default' => 'option2',
+                            'options' => array(
                                 'option1' => 'Option1',
                                 'option2' => 'Option2',
                                 'option3' => 'Option3',
                             ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-grey',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With minimal-grey',
+                            'class'   => 'icheck icheck-danger horizontal',
+                            'id'      => 'danger',
+                            'type'    => 'radio',
+                            'title'   => 'danger Style',
                         ),
                         array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
+                            'default' => 'option1',
+                            'options' => array(
+                                'option1' => array(
+                                    'label'      => 'Option1',
+                                    'attributes' => array( 'class' => 'icheck icheck-success' ),
+                                ),
+                                'option2' => array(
+                                    'label'      => 'Option2',
+                                    'attributes' => array( 'class' => 'icheck icheck-primary' ),
+                                ),
+                                'option3' => array(
+                                    'label'      => 'Option3',
+                                    'attributes' => array( 'class' => 'icheck icheck-danger' ),
+                                ),
                             ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-orange',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With minimal-orange',
+                            'class'   => 'icheck icheck-warning horizontal',
+                            'id'      => 'multiple_style',
+                            'type'    => 'radio',
+                            'title'   => 'Multiple Style',
                         ),
                         array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
+                            'default' => 'option1',
+                            'options' => array(
+                                'option1' => array(
+                                    'label'      => 'Option1',
+                                    'attributes' => array( 'class' => 'icheck icheck-success icheck-xs' ),
+                                ),
+                                'option2' => array(
+                                    'label'      => 'Option2',
+                                    'attributes' => array( 'class' => 'icheck icheck-primary ' ),
+                                ),
+                                'option3' => array(
+                                    'label'      => 'Option3',
+                                    'attributes' => array( 'class' => 'icheck icheck-danger icheck-lg' ),
+                                ),
                             ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-yellow',
+                            'class'   => 'icheck icheck-warning horizontal',
+                            'id'      => 'multiple_style',
+                            'type'    => 'radio',
+                            'title'   => 'Multiple Size',
+                        ),
+
+                        array(
+                            'default' => 'option1',
+                            'options' => array(
+                                'option1' => array( 'label' => 'Option1', ),
+                                'option2' => array( 'label' => 'Option2', ),
+                                'option3' => array( 'label' => 'Option3', ),
                             ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With minimal-yellow',
+                            'class'   => 'icheck icheck-lg horizontal',
+                            'id'      => 'large_size',
+                            'type'    => 'radio',
+                            'title'   => 'Large Size',
                         ),
                         array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
+                            'default' => 'option1',
+                            'options' => array(
+                                'option1' => array( 'label' => 'Option1', ),
+                                'option2' => array( 'label' => 'Option2', ),
+                                'option3' => array( 'label' => 'Option3', ),
                             ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-pink',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With minimal-pink',
+                            'class'   => 'icheck icheck-sm horizontal',
+                            'id'      => 'small_size',
+                            'type'    => 'radio',
+                            'title'   => 'small Size',
                         ),
                         array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
+                            'default' => 'option1',
+                            'options' => array(
+                                'option1' => array( 'label' => 'Option1', ),
+                                'option2' => array( 'label' => 'Option2', ),
+                                'option3' => array( 'label' => 'Option3', ),
                             ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'minimal-purple',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With minimal-purple',
+                            'class'   => 'icheck icheck-rounded horizontal',
+                            'id'      => 'rounded',
+                            'type'    => 'radio',
+                            'title'   => 'Rounded Size',
                         ),
+                        array(
+                            'default' => 'option1',
+                            'options' => array(
+                                'option1' => array( 'label' => 'Option1', ),
+                                'option2' => array( 'label' => 'Option2', ),
+                                'option3' => array( 'label' => 'Option3', ),
+                            ),
+                            'class'   => 'icheck icheck-lg icheck-rounded horizontal',
+                            'id'      => 'large_rounded',
+                            'type'    => 'radio',
+                            'title'   => 'Large Rounded Size',
+                        ),
+                        array(
+                            'default' => 'option1',
+                            'options' => array(
+                                'option1' => array( 'label' => 'Option1', ),
+                                'option2' => array( 'label' => 'Option2', ),
+                                'option3' => array( 'label' => 'Option3', ),
+                            ),
+                            'class'   => 'icheck icheck-sm icheck-rounded horizontal',
+                            'id'      => 'small_rounded',
+                            'type'    => 'radio',
+                            'title'   => 'Small Rounded Size',
+                        ),
+
                     ),
-                    'id'      => 'settings_radio_icheck_minimal_accordion',
-                    'type'    => 'accordion',
-                ),
-                array(
-                    'content' => 'iCheck Theme : square',
-                    'fields'  => array(
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With square',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-red',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With square-red',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-green',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With square-green',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-blue',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With square-blue',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-aero',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With square-aero',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-grey',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With square-grey',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-orange',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With square-orange',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-yellow',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With square-yellow',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-pink',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With square-pink',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'square-purple',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With square-purple',
-                        ),
-                    ),
-                    'id'      => 'settings_radio_icheck_square_accordion',
-                    'type'    => 'accordion',
-                ),
-                array(
-                    'content' => 'iCheck Theme : flat',
-                    'fields'  => array(
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With flat',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-red',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With flat-red',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-green',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With flat-green',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-blue',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With flat-blue',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-aero',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With flat-aero',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-grey',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With flat-grey',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-orange',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With flat-orange',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-yellow',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With flat-yellow',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-pink',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With flat-pink',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'flat-purple',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With flat-purple',
-                        ),
-                    ),
-                    'id'      => 'settings_radio_icheck_flat_accordion',
-                    'type'    => 'accordion',
-                ),
-                array(
-                    'content' => 'iCheck Theme : line',
-                    'fields'  => array(
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With line',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-red',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With line-red',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-green',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With line-green',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-blue',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With line-blue',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-aero',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With line-aero',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-grey',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With line-grey',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-orange',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With line-orange',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-yellow',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With line-yellow',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-pink',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With line-pink',
-                        ),
-                        array(
-                            'default'    => 'option1',
-                            'options'    => array(
-                                'option1' => 'Option1',
-                                'option2' => 'Option2',
-                                'option3' => 'Option3',
-                            ),
-                            'class'      => 'icheck',
-                            'attributes' => array(
-                                'data-theme' => 'line-purple',
-                            ),
-                            'id'         => 'settings_radio_radio',
-                            'type'       => 'radio',
-                            'title'      => 'iCheck With line-purple',
-                        ),
-                    ),
-                    'id'      => 'settings_radios_icheck_line_accordion',
-                    'type'    => 'accordion',
+                    'id'              => 'styled_checkbox',
+                    'type'            => 'accordion',
+                    'accordion_title' => 'Styled Checkbox',
                 ),
 
 

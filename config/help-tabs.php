@@ -441,3 +441,20 @@ new WPSFramework_Help_Tabs(array(
 
     ),
 ));
+
+
+new WPSFramework_Help_Tabs(array(
+    'toplevel_page_wpsf-modern' => array(
+        array(
+            'id'     => 'tab1',
+            'title'  => 'TAB 1',
+            'fields' => array(
+                array(
+                    'type'    => 'content',
+                    'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+                ),
+            ),
+        ),
+
+    ),
+));

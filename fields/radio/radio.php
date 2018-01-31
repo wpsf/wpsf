@@ -22,6 +22,12 @@ if( ! defined('ABSPATH') ) {
  *
  */
 class WPSFramework_Option_radio extends WPSFramework_Options {
+    /**
+     * WPSFramework_Option_radio constructor.
+     * @param        $field
+     * @param string $value
+     * @param string $unique
+     */
     public function __construct($field, $value = '', $unique = '') {
         parent::__construct($field, $value, $unique);
     }
@@ -38,7 +44,7 @@ class WPSFramework_Option_radio extends WPSFramework_Options {
 
                 echo '<ul' . $this->element_class() . '>';
                 foreach( $options as $key => $value ) {
-                    if( is_array($value) && !isset($value['label']) ) {
+                    if( is_array($value) && ! isset($value['label']) ) {
                         $values = $this->element_value();
                         $gid = wpsf_sanitize_title($key);
                         $values = isset($values[$gid]) ? $values[$gid] : $values;
@@ -68,6 +74,14 @@ class WPSFramework_Option_radio extends WPSFramework_Options {
         echo $this->element_after();
     }
 
+    /**
+     * @param string $name
+     * @param string $value
+     * @param string $title
+     * @param array  $chboxval
+     * @param string $attributes
+     * @return string
+     */
     public function _element($name = '', $value = '', $title = '', $chboxval = array(), $attributes = '') {
         return '<label> <input type="radio" name="' . $this->element_name($name) . '" 
         value="' . $value . '"' . $this->element_attributes($value, $attributes) . $this->checked($chboxval, $value) . '/> ' . $title . ' </label>';

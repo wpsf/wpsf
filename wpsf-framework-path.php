@@ -19,7 +19,7 @@ if( ! defined('ABSPATH') ) {
  * @version 1.0.0
  *
  */
-defined('WPSF_VERSION') or define('WPSF_VERSION', '0.6Beta');
+defined('WPSF_VERSION') or define('WPSF_VERSION', '0.7Beta');
 defined('WPSF_OPTION') or define('WPSF_OPTION', '_wpsf_options');
 defined('WPSF_CUSTOMIZE') or define('WPSF_CUSTOMIZE', '_wpsf_customize_options');
 
@@ -31,6 +31,9 @@ defined('WPSF_CUSTOMIZE') or define('WPSF_CUSTOMIZE', '_wpsf_customize_options')
  *
  */
 if( ! function_exists('wpsf_get_path_locate') ) {
+    /**
+     * @return mixed|void
+     */
     function wpsf_get_path_locate() {
         $dirname = wp_normalize_path(dirname(__FILE__));
         $plugin_dir = wp_normalize_path(WP_PLUGIN_DIR);
@@ -69,6 +72,10 @@ defined('WPSF_URI') or define('WPSF_URI', $get_path ['uri']);
  *
  */
 if( ! function_exists('wpsf_locate_template') ) {
+    /**
+     * @param $template_name
+     * @return string
+     */
     function wpsf_locate_template($template_name) {
         $located = '';
         $override = apply_filters('wpsf_framework_override', 'wpsf-framework-override');
@@ -117,6 +124,11 @@ if( ! function_exists('wpsf_locate_template') ) {
  *
  */
 if( ! function_exists('wpsf_get_multilang_option') ) {
+    /**
+     * @param string $option_name
+     * @param string $default
+     * @return mixed|string
+     */
     function wpsf_get_multilang_option($option_name = '', $default = '') {
         $value = wpsf_get_option($option_name, $default);
         $languages = wpsf_language_defaults();
@@ -140,6 +152,11 @@ if( ! function_exists('wpsf_get_multilang_option') ) {
  *
  */
 if( ! function_exists('wpsf_get_multilang_value') ) {
+    /**
+     * @param string $value
+     * @param string $default
+     * @return mixed|string
+     */
     function wpsf_get_multilang_value($value = '', $default = '') {
         $languages = wpsf_language_defaults();
         $default = $languages ['default'];
@@ -162,6 +179,11 @@ if( ! function_exists('wpsf_get_multilang_value') ) {
  *
  */
 if( ! function_exists('wpsf_get_customize_option') ) {
+    /**
+     * @param string $option_name
+     * @param string $default
+     * @return null|string
+     */
     function wpsf_get_customize_option($option_name = '', $default = '') {
         $options = apply_filters('wpsf_get_customize_option', get_option(WPSF_CUSTOMIZE), $option_name, $default);
 
@@ -180,6 +202,10 @@ if( ! function_exists('wpsf_get_customize_option') ) {
  *
  */
 if( ! function_exists('wpsf_set_customize_option') ) {
+    /**
+     * @param string $option_name
+     * @param string $new_value
+     */
     function wpsf_set_customize_option($option_name = '', $new_value = '') {
         $options = apply_filters('wpsf_set_customize_option', get_option(WPSF_CUSTOMIZE), $option_name, $new_value);
 
@@ -197,6 +223,9 @@ if( ! function_exists('wpsf_set_customize_option') ) {
  *
  */
 if( ! function_exists('wpsf_get_all_customize_option') ) {
+    /**
+     * @return mixed|void
+     */
     function wpsf_get_all_customize_option() {
         return get_option(WPSF_CUSTOMIZE);
     }
@@ -209,6 +238,9 @@ if( ! function_exists('wpsf_get_all_customize_option') ) {
  *
  */
 if( ! function_exists('wpsf_is_wpml_activated') ) {
+    /**
+     * @return bool
+     */
     function wpsf_is_wpml_activated() {
         if( class_exists('SitePress') ) {
             return TRUE;
@@ -225,6 +257,9 @@ if( ! function_exists('wpsf_is_wpml_activated') ) {
  *
  */
 if( ! function_exists('wpsf_is_qtranslate_activated') ) {
+    /**
+     * @return bool
+     */
     function wpsf_is_qtranslate_activated() {
         if( function_exists('qtrans_getSortedLanguages') ) {
             return TRUE;
@@ -241,6 +276,9 @@ if( ! function_exists('wpsf_is_qtranslate_activated') ) {
  *
  */
 if( ! function_exists('wpsf_is_polylang_activated') ) {
+    /**
+     * @return bool
+     */
     function wpsf_is_polylang_activated() {
         if( class_exists('Polylang') ) {
             return TRUE;
@@ -257,6 +295,9 @@ if( ! function_exists('wpsf_is_polylang_activated') ) {
  *
  */
 if( ! function_exists('wpsf_language_defaults') ) {
+    /**
+     * @return bool|mixed|void
+     */
     function wpsf_language_defaults() {
         $multilang = array();
         if( wpsf_is_wpml_activated() || wpsf_is_qtranslate_activated() || wpsf_is_polylang_activated() ) {

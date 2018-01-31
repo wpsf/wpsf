@@ -13,6 +13,9 @@ if( ! defined('ABSPATH') ) {
     die ();
 } // Cannot access pages directly.
 
+/**
+ * Class WPSFramework_Settings
+ */
 class WPSFramework_Settings extends WPSFramework_Abstract {
 
     public $unique = WPSF_OPTION;
@@ -33,12 +36,21 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
 
     public $help_tabs = NULL;
 
+    /**
+     * WPSFramework_Settings constructor.
+     * @param array $settings
+     * @param array $options
+     */
     public function __construct($settings = array(), $options = array()) {
         if( ( is_admin() || is_ajax() ) && $this->is_not_ajax() === TRUE ) {
             $this->init_admin($settings, $options);
         }
     }
 
+    /**
+     * @param array $settings
+     * @param array $options
+     */
     public function init_admin($settings = array(), $options = array()) {
         if( ( is_admin() || is_ajax() ) && $this->is_not_ajax() === TRUE ) {
             $this->_set_settings_options($settings, $options);
@@ -58,6 +70,10 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         }
     }
 
+    /**
+     * @param array $settings
+     * @param array $options
+     */
     protected function _set_settings_options($settings = array(), $options = array()) {
         if( ! empty ($settings) ) {
             $defaults = array(
@@ -107,6 +123,10 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         }
     }
 
+    /**
+     * @param array $data
+     * @return mixed|void
+     */
     public function get_cache($data = array()) {
         return get_option($this->unique . '-transient', array());
     }
@@ -123,6 +143,9 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         }
     }
 
+    /**
+     * @return string
+     */
     public function get_md5() {
         $json = json_encode($this->raw_options);
         return md5($this->unique . '_' . $json);
@@ -146,6 +169,9 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         $this->set_cache($this->cache);
     }
 
+    /**
+     * @return array
+     */
     protected function get_sections() {
         if( ! empty($this->sections) ) {
             return $this->sections;
@@ -189,6 +215,9 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         return $sections;
     }
 
+    /**
+     * @param array $data
+     */
     public function set_cache($data = array()) {
         update_option($this->unique . '-transient', $data);
     }
@@ -242,6 +271,9 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         }
     }
 
+    /**
+     * @param $hook
+     */
     public function load_style_script($hook) {
         if( $this->settings_page == $hook ) {
             wpsf_load_fields_styles();
@@ -260,6 +292,10 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         }
     }
 
+    /**
+     * @param $request
+     * @return array|bool|mixed|void
+     */
     public function validate_save($request) {
         $this->on_admin_page_load();
         $add_errors = array();
@@ -328,6 +364,9 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         $this->figure_requested_sections();
     }
 
+    /**
+     * @return array|mixed|void
+     */
     public function get_db_options() {
         if( empty($this->get_option) ) {
             $this->get_option = get_option($this->unique, TRUE);
@@ -362,6 +401,11 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         $this->parent_sectionid = $default['parent_section_id'];
     }
 
+    /**
+     * @param string $section_id
+     * @param string $parent_section_id
+     * @return array|bool
+     */
     public function validate_section_ids($section_id = '', $parent_section_id = '') {
         if( empty($section_id) && empty($parent_section_id) ) {
             return FALSE;
@@ -374,12 +418,24 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         }
     }
 
+    /**
+     * @param string $section_id
+     * @param string $parent_section_id
+     * @param bool   $in_loop
+     * @return array
+     */
     public function validate_sections($section_id = '', $parent_section_id = '', $in_loop = FALSE) {
         $parent_section_id = $this->is_page_section_exists($parent_section_id, $section_id);
         $section_id = $this->is_page_section_exists($parent_section_id, $section_id, TRUE);
         return array( 'section_id' => $section_id, 'parent_section_id' => $parent_section_id );
     }
 
+    /**
+     * @param string $page_id
+     * @param string $section_id
+     * @param bool   $is_section
+     * @return bool|string
+     */
     public function is_page_section_exists($page_id = '', $section_id = '', $is_section = FALSE) {
         if( isset($this->options[$page_id]) ) {
             if( $is_section === FALSE ) {
@@ -394,6 +450,11 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         return $this->get_page_section_id(FALSE, NULL);
     }
 
+    /**
+     * @param bool $is_section
+     * @param null $page
+     * @return bool
+     */
     private function get_page_section_id($is_section = TRUE, $page = NULL) {
         $cs = ( ! is_null($page) && isset($this->options[$page]) ) ? $this->options[$page] : current($this->options);
 
@@ -405,14 +466,26 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         return isset($cs['name']) ? $cs['name'] : FALSE;
     }
 
+    /**
+     * @param bool $type
+     * @return mixed
+     */
     public function current_section($type = FALSE) {
         return ( $type == 'parent' ) ? $this->parent_sectionid : $this->current_section;
     }
 
+    /**
+     * @param string $section_id
+     * @param bool   $parent_id
+     * @return string
+     */
     protected function _sec_id($section_id = '', $parent_id = FALSE) {
         return ( $parent_id === FALSE ) ? $section_id : $parent_id . '/' . $section_id;
     }
 
+    /**
+     * @return bool|mixed
+     */
     public function is_single_page() {
         return isset($this->settings['is_single_page']) ? $this->settings['is_single_page'] : TRUE;
     }
@@ -436,6 +509,9 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         ));
     }
 
+    /**
+     * @return string
+     */
     public function render_html() {
         $main_menu = '';
         $page_html = '';
@@ -603,26 +679,47 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         return $main_menu;
     }
 
+    /**
+     * @return bool
+     */
     public function is_modern() {
         return ( $this->theme() === 'modern' ) ? TRUE : FALSE;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function theme() {
         return isset ($this->settings ['style']) ? $this->settings ['style'] : 'modern';
     }
 
+    /**
+     * @param $data
+     * @return string
+     */
     protected function get_icon($data) {
         return ( isset($data['icon']) && ! empty($data['icon']) ) ? '<i class="wpsf-icon ' . $data['icon'] . '"></i>' : '';
     }
 
+    /**
+     * @return bool
+     */
     public function is_simple() {
         return ( $this->theme() === 'simple' ) ? TRUE : FALSE;
     }
 
+    /**
+     * @param $status
+     * @return string
+     */
     protected function is_page_active($status) {
         return ( $status === TRUE ) ? 'style="display:block";' : '';
     }
 
+    /**
+     * @param $data
+     * @return bool|string
+     */
     protected function render_fields($data) {
         if( isset($data['callback_hook']) ) {
             $this->catch_output();
@@ -638,19 +735,35 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         return FALSE;
     }
 
+    /**
+     * @param $field
+     * @return string
+     */
     public function field_callback($field) {
         $value = $this->get_field_values($field, $this->get_option);
         return wpsf_add_element($field, $value, $this->unique);
     }
 
+    /**
+     * @param $data
+     * @return string
+     */
     protected function get_title($data) {
         return ( isset($data['title']) && ! empty($this->has_nav()) ) ? '<div class="wpsf-section-title"><h3>' . $data['title'] . '</h3></div>' : '';
     }
 
+    /**
+     * @return string
+     */
     public function has_nav() {
         return ( count($this->options) <= 1 ) ? 'wpsf-show-all' : "";
     }
 
+    /**
+     * @param string $section
+     * @param string $parent
+     * @return string
+     */
     public function get_tab_url($section = '', $parent = '') {
         if( $this->is_single_page() !== TRUE ) {
             $data = array( 'wpsf-section-id' => $section, 'wpsf-parent-section-id' => $parent );
@@ -660,6 +773,9 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         return '#';
     }
 
+    /**
+     * @return string
+     */
     public function get_settings_fields() {
         $this->catch_output();
         settings_fields($this->unique);
@@ -668,10 +784,16 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         return $this->catch_output(FALSE);
     }
 
+    /**
+     * @return bool|string
+     */
     public function is_sticky_header() {
         return ( isset($this->settings['is_sticky_header']) && $this->settings['is_sticky_header'] === TRUE ) ? 'wpsf-sticky-header' : FALSE;
     }
 
+    /**
+     * @return string
+     */
     public function get_settings_buttons() {
         $this->catch_output('start');
         if( $this->settings['buttons']['save'] !== FALSE ) {
@@ -692,10 +814,16 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         return $this->catch_output(FALSE);
     }
 
+    /**
+     * @return mixed
+     */
     public function html_nav_bar() {
         return $this->main_menu;
     }
 
+    /**
+     * @return mixed
+     */
     public function html_content() {
         return $this->page_html;
     }

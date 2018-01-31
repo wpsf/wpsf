@@ -47,10 +47,10 @@ if( ! function_exists("wpsf_load_fields_styles") ) {
 if( ! function_exists('wpsf_admin_enqueue_scripts') ) {
     function wpsf_admin_enqueue_scripts() {
         $css_files = array(
-            'wpsf-plugins'         => array( '/assets/css/wpsf-plugins.css', array(), '1.0.0', 'all' ),
-            'wpsf-framework'       => array( '/assets/css/wpsf-framework.css', array(), '1.0.0', 'all', ),
-            'font-awesome'         => array( '/assets/css/font-awesome.css', array(), '4.7.0', 'all', ),
-            'wpsf-framework-rtl'   => array( '/assets/css/wpsf-framework-rtl.css', array(), '1.0.0', 'all', ),
+            'wpsf-plugins'       => array( '/assets/css/wpsf-plugins.css', array(), '1.0.0', 'all' ),
+            'wpsf-framework'     => array( '/assets/css/wpsf-framework.css', array(), '1.0.0', 'all', ),
+            'font-awesome'       => array( '/assets/css/font-awesome.css', array(), '4.7.0', 'all', ),
+            'wpsf-framework-rtl' => array( '/assets/css/wpsf-framework-rtl.css', array(), '1.0.0', 'all', ),
         );
 
         $js_files = array(

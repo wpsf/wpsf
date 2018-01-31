@@ -22,6 +22,12 @@ if( ! defined('ABSPATH') ) {
  *
  */
 class WPSFramework_Option_Sorter extends WPSFramework_Options {
+    /**
+     * WPSFramework_Option_Sorter constructor.
+     * @param        $field
+     * @param string $value
+     * @param string $unique
+     */
     public function __construct($field, $value = '', $unique = '') {
         parent::__construct($field, $value, $unique);
     }
@@ -60,6 +66,9 @@ class WPSFramework_Option_Sorter extends WPSFramework_Options {
         echo $this->element_after();
     }
 
+    /**
+     * @return array|mixed|string
+     */
     public function get_element_values() {
         $defaults = $this->field['default'];
         if( empty($this->element_value()) ) {

@@ -13,19 +13,25 @@ if( ! defined('ABSPATH') ) {
     die ();
 } // Cannot access pages directly.
 
-if(!function_exists('wpsf_add_element')){
-    function wpsf_add_element($field = array(),$value = '',$unique=''){
+if( ! function_exists('wpsf_add_element') ) {
+    /**
+     * @param array  $field
+     * @param string $value
+     * @param string $unique
+     * @return string
+     */
+    function wpsf_add_element($field = array(), $value = '', $unique = '') {
         static $total_columns = 0;
         $output = '';
         $class = 'WPSFramework_Option_' . $field ['type'];
         wpsf_autoloader($class, TRUE);
 
-        if(class_exists($class)){
+        if( class_exists($class) ) {
             ob_start();
-            $element = new $class($field,$value,$unique);
+            $element = new $class($field, $value, $unique);
             $element->final_output();
             $output .= ob_get_clean();
-        }else {
+        } else {
             $output .= '<p>' . esc_html__('This field class is not available!', 'wpsf-framework') . '</p>';
         }
         return $output;
@@ -41,6 +47,12 @@ if(!function_exists('wpsf_add_element')){
  *
  */
 if( ! function_exists('wpsf_add_element') ) {
+    /**
+     * @param array  $field
+     * @param string $value
+     * @param string $unique
+     * @return string
+     */
     function _wpsf_add_element($field = array(), $value = '', $unique = '') {
         static $total_columns = 0;
         $output = '';
@@ -125,6 +137,10 @@ if( ! function_exists('wpsf_add_element') ) {
  *
  */
 if( ! function_exists('wpsf_encode_string') ) {
+    /**
+     * @param $string
+     * @return string
+     */
     function wpsf_encode_string($string) {
         return serialize($string);
     }
@@ -139,6 +155,10 @@ if( ! function_exists('wpsf_encode_string') ) {
  *
  */
 if( ! function_exists('wpsf_decode_string') ) {
+    /**
+     * @param $string
+     * @return mixed
+     */
     function wpsf_decode_string($string) {
         return unserialize($string);
     }
@@ -153,6 +173,9 @@ if( ! function_exists('wpsf_decode_string') ) {
  *
  */
 if( ! function_exists('wpsf_get_google_fonts') ) {
+    /**
+     * @return array|mixed|object
+     */
     function wpsf_get_google_fonts() {
         global $wpsf_google_fonts;
 
@@ -181,6 +204,10 @@ if( ! function_exists('wpsf_get_google_fonts') ) {
  *
  */
 if( ! function_exists('wpsf_get_icon_fonts') ) {
+    /**
+     * @param $file
+     * @return array|mixed|object
+     */
     function wpsf_get_icon_fonts($file) {
         ob_start();
         wpsf_locate_template($file);
@@ -199,6 +226,12 @@ if( ! function_exists('wpsf_get_icon_fonts') ) {
  *
  */
 if( ! function_exists('wpsf_array_search') ) {
+    /**
+     * @param $array
+     * @param $key
+     * @param $value
+     * @return array
+     */
     function wpsf_array_search($array, $key, $value) {
         $results = array();
 
@@ -225,6 +258,11 @@ if( ! function_exists('wpsf_array_search') ) {
  *
  */
 if( ! function_exists('wpsf_get_var') ) {
+    /**
+     * @param        $var
+     * @param string $default
+     * @return string
+     */
     function wpsf_get_var($var, $default = '') {
         if( isset ($_POST [$var]) ) {
             return $_POST [$var];
@@ -247,6 +285,12 @@ if( ! function_exists('wpsf_get_var') ) {
  *
  */
 if( ! function_exists('wpsf_get_vars') ) {
+    /**
+     * @param        $var
+     * @param        $depth
+     * @param string $default
+     * @return string
+     */
     function wpsf_get_vars($var, $depth, $default = '') {
         if( isset ($_POST [$var] [$depth]) ) {
             return $_POST [$var] [$depth];

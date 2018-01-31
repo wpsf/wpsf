@@ -26,6 +26,9 @@ abstract class WPSFramework_Abstract {
     public function __construct() {
     }
 
+    /**
+     * @return bool
+     */
     public function is_not_ajax() {
         if( isset ($_POST) && isset ($_POST['action']) && $_POST['action'] == 'heartbeat' ) {
             return FALSE;
@@ -33,18 +36,39 @@ abstract class WPSFramework_Abstract {
         return TRUE;
     }
 
+    /**
+     * @param     $hook
+     * @param     $function_to_add
+     * @param int $priority
+     * @param int $accepted_args
+     */
     public function addAction($hook, $function_to_add, $priority = 30, $accepted_args = 1) {
         add_action($hook, array( &$this, $function_to_add, ), $priority, $accepted_args);
     }
 
+    /**
+     * @param     $tag
+     * @param     $function_to_add
+     * @param int $priority
+     * @param int $accepted_args
+     */
     public function addFilter($tag, $function_to_add, $priority = 30, $accepted_args = 1) {
         add_action($tag, array( &$this, $function_to_add, ), $priority, $accepted_args);
     }
 
+    /**
+     * @param       $template_name
+     * @param array $args
+     */
     public function load_template($template_name, $args = array()) {
         wpsf_template($this->override_location, $template_name, $args);
     }
 
+    /**
+     * @param $field
+     * @param $values
+     * @return array|bool
+     */
     public function get_field_values($field, $values) {
         $value = ( isset($field['id']) && isset($values[$field['id']]) ) ? $values[$field['id']] : FALSE;
         $value = ( empty($value) && isset($field['default']) ) ? $field['default'] : $value;
@@ -86,6 +110,11 @@ abstract class WPSFramework_Abstract {
         return $value;
     }
 
+    /**
+     * @param array  $array
+     * @param string $parent_id
+     * @return array
+     */
     protected function map_error_id($array = array(), $parent_id = '') {
         $s = empty($array) ? $this->options : $array;
 
@@ -121,6 +150,10 @@ abstract class WPSFramework_Abstract {
         return $s;
     }
 
+    /**
+     * @param string $status
+     * @return string
+     */
     protected function catch_output($status = 'start') {
         $data = '';
         if( $status == 'start' ) {
@@ -133,6 +166,10 @@ abstract class WPSFramework_Abstract {
         return $data;
     }
 
+    /**
+     * @param array $data
+     * @return bool|mixed|string
+     */
     protected function get_cache_key($data = array()) {
         if( empty($data) ) {
             $data = $this->settings;

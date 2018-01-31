@@ -284,7 +284,7 @@
 
     /* Custom */
 
-    var $WPSFRULES = ['input[name=post_format]','select#page_template', 'input#menu_order', 'select#parent_id', 'select#post_status', 'input[name=visibility]'];
+    var $WPSFRULES = ['input[name=post_format]', 'select#page_template', 'input#menu_order', 'select#parent_id', 'select#post_status', 'input[name=visibility]'];
 
     $.extend($.deps, {
         enable: function (selection, ruleset, cfg) {

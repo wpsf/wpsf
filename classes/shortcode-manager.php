@@ -62,6 +62,10 @@ class WPSFramework_Shortcode_Manager extends WPSFramework_Abstract {
 
     // run shortcode construct
 
+    /**
+     * WPSFramework_Shortcode_Manager constructor.
+     * @param $options
+     */
     public function __construct($options) {
 
         $this->settings = array();
@@ -92,6 +96,9 @@ class WPSFramework_Shortcode_Manager extends WPSFramework_Abstract {
         }
     }
 
+    /**
+     * @return array
+     */
     public function get_shortcodes() {
         $shortcodes = array();
 
@@ -112,6 +119,9 @@ class WPSFramework_Shortcode_Manager extends WPSFramework_Abstract {
 
     // shortcode dialog
 
+    /**
+     * @param $editor_id
+     */
     public function media_shortcode_button($editor_id) {
         global $post;
 

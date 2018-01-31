@@ -14,8 +14,14 @@ if( ! defined("ABSPATH") ) {
 }
 
 if( ! class_exists("WPSFramework") ) {
+    /**
+     * Class WPSFramework
+     */
     class WPSFramework {
 
+        /**
+         * @return array
+         */
         private function _defaults() {
             return array(
                 'settings'   => FALSE,
@@ -26,10 +32,17 @@ if( ! class_exists("WPSFramework") ) {
             );
         }
 
+        /**
+         * WPSFramework constructor.
+         * @param array $options
+         */
         public function __construct($options = array()) {
             $this->init($options);
         }
 
+        /**
+         * @param array $options
+         */
         public function init($options = array()) {
             $final = wp_parse_args($options, $this->_defaults());
 
@@ -54,22 +67,37 @@ if( ! class_exists("WPSFramework") ) {
             }
         }
 
+        /**
+         * @param $options
+         */
         public function init_taxonomy($options) {
             $this->taxonomy = new WPSFramework_Taxonomy($options);
         }
 
+        /**
+         * @param $options
+         */
         public function init_customizer($options) {
             $this->customizer = new WPSFramework_Customize($options);
         }
 
+        /**
+         * @param $options
+         */
         public function init_metabox($options) {
             $this->metabox = new WPSFramework_Metabox($options);
         }
 
+        /**
+         * @param $options
+         */
         public function init_settings($options) {
             $this->settings = new WPSFramework_Settings($options['config'], $options['options']);
         }
 
+        /**
+         * @param $options
+         */
         public function init_shortcode($options) {
             $this->shortcodes = new WPSFramework_Shortcode_Manager($options);
         }

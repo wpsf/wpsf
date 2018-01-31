@@ -9,8 +9,17 @@
  - @author     Varun Sridharan <varunsridharan23@gmail.com>                                       -
  -------------------------------------------------------------------------------------------------*/
 
+/**
+ * Class WPSFramework_Option_links
+ */
 class WPSFramework_Option_links extends WPSFramework_Options {
 
+    /**
+     * WPSFramework_Option_links constructor.
+     * @param        $field
+     * @param string $value
+     * @param string $unique
+     */
     public function __construct($field, $value = '', $unique = '') {
         parent::__construct($field, $value, $unique);
         if( ! class_exists("_WP_Editors") ) {
@@ -28,9 +37,10 @@ class WPSFramework_Option_links extends WPSFramework_Options {
     }
 
     public function output() {
-        $default = array( 'url'    => '',
-                          'title'  => '',
-                          'target' => '',
+        $default = array(
+            'url'    => '',
+            'title'  => '',
+            'target' => '',
         );
         $data = empty($this->element_value()) ? array() : $this->element_value();
         $arg = wp_parse_args($data, $default);

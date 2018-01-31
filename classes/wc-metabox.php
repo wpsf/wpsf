@@ -14,6 +14,9 @@ if( ! defined("ABSPATH") ) {
 }
 
 if( ! class_exists("WPSFramework_WC_Metabox") ) {
+    /**
+     * Class WPSFramework_WC_Metabox
+     */
     class WPSFramework_WC_Metabox extends WPSFramework_Abstract {
         private static $_instance = NULL;
 
@@ -39,6 +42,9 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             'default'    => array(),
         );
 
+        /**
+         * @return null|\WPSFramework_WC_Metabox
+         */
         public static function instance() {
             if( self::$_instance === NULL ) {
                 self::$_instance = new self();
@@ -46,6 +52,10 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             return self::$_instance;
         }
 
+        /**
+         * WPSFramework_WC_Metabox constructor.
+         * @param array $options
+         */
         public function __construct($options = array()) {
             $this->default_wc_tabs = apply_filters('wpsf_wc_default_tabs', array(
                 'general'        => 'general_product_data',
@@ -60,6 +70,9 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             $this->init($options);
         }
 
+        /**
+         * @param $options
+         */
         public function init($options) {
             if( ! empty($options) ) {
                 $this->options = apply_filters('wpsf_wc_metabox_options', $options);
@@ -87,30 +100,65 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             }
         }
 
+        /**
+         * @param $loop
+         * @param $variation_data
+         * @param $variation
+         */
         public function wc_variation_options($loop, $variation_data, $variation) {
             echo $this->render_variation_fields('options', $loop, $variation);
         }
 
+        /**
+         * @param $loop
+         * @param $variation_data
+         * @param $variation
+         */
         public function wc_variation_pricing($loop, $variation_data, $variation) {
             echo $this->render_variation_fields('pricing', $loop, $variation);
         }
 
+        /**
+         * @param $loop
+         * @param $variation_data
+         * @param $variation
+         */
         public function wc_variation_inventory($loop, $variation_data, $variation) {
             echo $this->render_variation_fields('inventory', $loop, $variation);
         }
 
+        /**
+         * @param $loop
+         * @param $variation_data
+         * @param $variation
+         */
         public function wc_variation_dimensions($loop, $variation_data, $variation) {
             echo $this->render_variation_fields('dimensions', $loop, $variation);
         }
 
+        /**
+         * @param $loop
+         * @param $variation_data
+         * @param $variation
+         */
         public function wc_variation_tax($loop, $variation_data, $variation) {
             echo $this->render_variation_fields('tax', $loop, $variation);
         }
 
+        /**
+         * @param $loop
+         * @param $variation_data
+         * @param $variation
+         */
         public function wc_variation_download($loop, $variation_data, $variation) {
             echo $this->render_variation_fields('download', $loop, $variation);
         }
 
+        /**
+         * @param $loop
+         * @param $variation_data
+         * @param $variation
+         */
         public function wc_variation_variable_attributes($loop, $variation_data, $variation) {
             echo $this->render_variation_fields('default', $loop, $variation);
         }
@@ -135,6 +183,12 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             echo $this->_render_group_page('shipping');
         }
 
+        /**
+         * @param $type
+         * @param $loop
+         * @param $variation
+         * @return string
+         */
         public function render_variation_fields($type, $loop, $variation) {
             if( empty($this->fields) ) {
                 $this->handle_options();
@@ -194,6 +248,10 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             return $final;
         }
 
+        /**
+         * @param $variation_id
+         * @param $loop
+         */
         public function save_variation_fields($variation_id, $loop) {
             if( empty($this->fields) ) {
                 $this->handle_options();
@@ -219,6 +277,11 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             }
         }
 
+        /**
+         * @param        $option
+         * @param string $db_key
+         * @return string
+         */
         private function render_fields($option, $db_key = '') {
             global $post, $wpsf_errors;
             $html = '';
@@ -250,6 +313,9 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             return $html;
         }
 
+        /**
+         * @param string $key
+         */
         private function _render_group_page($key = '') {
             if( ! isset($this->group_fields[$key]) ) {
                 return;
@@ -263,6 +329,11 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             }
         }
 
+        /**
+         * @param $section
+         * @param $db_id
+         * @param $section_variation
+         */
         private function _handle_fields($section, $db_id, $section_variation) {
             $place = 'default';
             $add_vars = FALSE;
@@ -288,6 +359,10 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             }
         }
 
+        /**
+         * @param $section
+         * @return null|string
+         */
         private function _get_page_id($section) {
             $sec_id = ( isset($section['id']) ) ? $section['id'] : NULL;
             $sec_id = ( $sec_id === NULL && isset($section['name']) ) ? wpsf_sanitize_title($section['name']) : $sec_id;
@@ -375,6 +450,10 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             }
         }
 
+        /**
+         * @param array $tabs
+         * @return array
+         */
         public function add_wc_tabs($tabs = array()) {
             foreach( $this->groups_to_add as $group ) {
                 $defaults = array(
@@ -400,6 +479,11 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             return $tabs;
         }
 
+        /**
+         * @param $data
+         * @param $key
+         * @return array
+         */
         private function __sh_class($data, $key) {
             $return = array();
             if( ! empty($data) ) {
@@ -410,6 +494,12 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             return $return;
         }
 
+        /**
+         * @param string $show
+         * @param string $hide
+         * @param string $_r
+         * @return array|string
+         */
         private function show_hide_class($show = '', $hide = '', $_r = 'array') {
             $return = array();
             $return = array_merge($return, $this->__sh_class($show, 'show_if_'));
@@ -421,6 +511,11 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             return implode(' ', $return);
         }
 
+        /**
+         * @param string $old_classes
+         * @param array  $new_class
+         * @return string
+         */
         private function _merge_wrap_class($old_classes = '', $new_class = array()) {
             if( empty($old_class) ) {
                 return implode(' ', $new_class);
@@ -435,6 +530,13 @@ if( ! class_exists("WPSFramework_WC_Metabox") ) {
             return implode(' ', $ex_class);
         }
 
+        /**
+         * @param string $type
+         * @param string $key
+         * @param string $update_value
+         * @param string $post_id
+         * @return bool|int|mixed
+         */
         private function _post_data($type = 'get', $key = '', $update_value = '', $post_id = '') {
             if( empty($post_id) ) {
                 global $post;

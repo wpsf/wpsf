@@ -29,14 +29,14 @@ new WPSFramework_Quick_Edit(array(
             array(
                 'id'    => 'section_4_switcher',
                 'type'  => 'switcher',
-                'after'    => '<br/><p>This switcher field is from products metabox.</p>',
+                'after' => '<br/><p>This switcher field is from products metabox.</p>',
                 'title' => 'Upload A File ?',
                 'label' => 'Yes, Please do it.',
             ),
             array(
                 'id'      => 'section4_multi_checkbox',
                 'type'    => 'checkbox',
-                'after'    => '<p>This checkbox field is from products metabox.</p>',
+                'after'   => '<p>This checkbox field is from products metabox.</p>',
                 'title'   => 'Checkbox',
                 'options' => array(
                     'option1' => 'Option 1',

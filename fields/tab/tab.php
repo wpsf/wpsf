@@ -17,6 +17,12 @@
  */
 class WPSFramework_Option_tab extends WPSFramework_Options {
 
+    /**
+     * WPSFramework_Option_tab constructor.
+     * @param array  $field
+     * @param string $value
+     * @param string $unique
+     */
     public function __construct($field = array(), $value = '', $unique = '') {
         parent::__construct($field, $value, $unique);
     }
@@ -29,6 +35,9 @@ class WPSFramework_Option_tab extends WPSFramework_Options {
         echo $this->element_after();
     }
 
+    /**
+     * @return string
+     */
     private function tab_style() {
         # 'default', 'box' or 'left'. Optional
         $class = 'wpsf-user-tabs';
@@ -36,9 +45,12 @@ class WPSFramework_Option_tab extends WPSFramework_Options {
         return ( isset($this->field['tab_wrapper']) ) ? $class . ' wpsf-user-tabs-no-wrapper ' : $class;
     }
 
+    /**
+     * @return null|string
+     */
     public function render_tabs() {
         if( ! is_array($this->field['sections']) ) {
-            return;
+            return NULL;
         }
 
         $sections = $this->field['sections'];
@@ -81,7 +93,7 @@ class WPSFramework_Option_tab extends WPSFramework_Options {
                 $field_default = ( isset ($field['default']) ) ? $field['default'] : $this->value;
                 $Uid = $this->_unique();
                 $Uid = ( empty($section['un_array']) ) ? $Uid . '[' . $section['name'] . ']' : $Uid;
-                $value = $this->field_value($section,$field_id);
+                $value = $this->field_value($section, $field_id);
                 $contents .= wpsf_add_element($field, $value, $Uid);
             }
 
@@ -93,6 +105,9 @@ class WPSFramework_Option_tab extends WPSFramework_Options {
         return $navs . $contents;
     }
 
+    /**
+     * @return string
+     */
     private function _unique() {
         if( ! empty($this->field['un_array']) ) {
             return $this->unique;
@@ -100,6 +115,11 @@ class WPSFramework_Option_tab extends WPSFramework_Options {
         return ( isset($this->field['id']) ) ? $this->unique . '[' . $this->field['id'] . ']' : $this->unique;
     }
 
+    /**
+     * @param string $section
+     * @param        $field_id
+     * @return bool|mixed
+     */
     public function field_value($section = '', $field_id) {
         $arr = $this->value;
 

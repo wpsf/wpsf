@@ -16,19 +16,25 @@
  * Time: 05:10 PM
  */
 class WPSFramework_Option_accordion extends WPSFramework_Options {
+    /**
+     * WPSFramework_Option_accordion constructor.
+     * @param        $field
+     * @param string $value
+     * @param string $unique
+     */
     public function __construct($field, $value = '', $unique = '') {
         parent::__construct($field, $value, $unique);
     }
 
-    public function output(){
+    public function output() {
         echo $this->element_before();
         $fields = array_values($this->field['fields']);
-        $acc_title = (isset($this->field['accordion_title'])) ? $this->field['accordion_title'] : __("Accordion",'wpsf-framework');
-        $unique_id = (!empty($this->field['un_array'])) ?  $this->unique : $this->unique.'['.$this->field['id'].']' ;
+        $acc_title = ( isset($this->field['accordion_title']) ) ? $this->field['accordion_title'] : __("Accordion", 'wpsf-framework');
+        $unique_id = ( ! empty($this->field['un_array']) ) ? $this->unique : $this->unique . '[' . $this->field['id'] . ']';
 
         echo '<div class="wpsf-groups wpsf-accordion">';
 
-        echo '<h4 class="wpsf-group-title">'.$acc_title.'</h4>';
+        echo '<h4 class="wpsf-group-title">' . $acc_title . '</h4>';
 
         echo '<div class="wpsf-group-content">';
         foreach( $fields as $field ) {
@@ -46,7 +52,7 @@ class WPSFramework_Option_accordion extends WPSFramework_Options {
 
     public function __output() {
         echo $this->element_before();
-        $icons = array( 'down' => 'fa fa-angle-down', 'up'   => 'fa fa-angle-up', );
+        $icons = array( 'down' => 'fa fa-angle-down', 'up' => 'fa fa-angle-up', );
         $is_open = ( empty($this->value) ) ? FALSE : TRUE;
         $is_open = ( isset($this->field['force_open']) && $this->field['force_open'] === TRUE ) ? TRUE : $is_open;
         $show_icon = ( $is_open === TRUE ) ? 'up' : 'down';
@@ -56,10 +62,10 @@ class WPSFramework_Option_accordion extends WPSFramework_Options {
         $title .= '<span class="accordion"><i class="' . $icons[$show_icon] . '" data-up="' . $icons['up'] . '" data-down="' . $icons['down'] . '"></i> </span>';
 
         $sub_heading = array(
-            'type' => 'subheading',
-            'id' => $this->field ['id'] . '_heading',
+            'type'    => 'subheading',
+            'id'      => $this->field ['id'] . '_heading',
             'content' => $title,
-            'class' => 'wpsf-accordion-heading',
+            'class'   => 'wpsf-accordion-heading',
         );
 
         $unique_id = $this->unique . '[' . $this->field['id'] . ']';

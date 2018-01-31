@@ -23,16 +23,16 @@ new WPSFramework_Taxonomy(array(
         // category, post_tag or your custom taxonomy name
         'fields'   => array(
             array(
-                'id'    => 'section_1_text',
-                'type'  => 'text',
-                'title' => 'Text Field',
+                'id'       => 'section_1_text',
+                'type'     => 'text',
+                'title'    => 'Text Field',
                 'validate' => 'required',
 
             ),
             array(
-                'id'    => 'section_1_textarea',
-                'type'  => 'textarea',
-                'title' => 'Textarea Field',
+                'id'       => 'section_1_textarea',
+                'type'     => 'textarea',
+                'title'    => 'Textarea Field',
                 'validate' => 'required',
             ),
         ),
