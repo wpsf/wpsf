@@ -39,7 +39,6 @@ class WPSFramework_Option_radio extends WPSFramework_Options {
 
             $options = $this->field ['options'];
             $options = ( is_array($options) ) ? $options : array_filter($this->element_data($options));
-
             if( ! empty ($options) ) {
 
                 echo '<ul' . $this->element_class() . '>';
@@ -56,12 +55,12 @@ class WPSFramework_Option_radio extends WPSFramework_Options {
                             $k = $data['id'];
                             $v = $data['value'];
                             $attr = $data['attributes'];
-                            echo '<li>' . $this->_element($rid, $k, $v, $values, $attr) . '</li>';
+                            echo '<li>' . $this->_element($rid, $k, $v, $values, $attr,$data) . '</li>';
                         }
                         echo '</ul></li>';
                     } else {
                         $data = $this->element_handle_option($value, $key);
-                        echo '<li>' . $this->_element('', $data['id'], $data['value'], $this->element_value(), $data['attributes']) . '</li>';
+                        echo '<li>' . $this->_element('', $data['id'], $data['value'], $this->element_value(), $data['attributes'],$data) . '</li>';
                     }
                 }
                 echo '</ul>';
@@ -82,7 +81,15 @@ class WPSFramework_Option_radio extends WPSFramework_Options {
      * @param string $attributes
      * @return string
      */
-    public function _element($name = '', $value = '', $title = '', $chboxval = array(), $attributes = '') {
+    public function _element($name = '', $value = '', $title = '', $chboxval = array(), $attributes = '',$data = array()) {
+        if( isset($this->field['icon_box']) && $this->field['icon_box'] === TRUE ) {
+            $attr = $this->element_attributes($value, $attributes);
+            $is_checked = $this->checked($chboxval, $value);
+            $checkbox = '<input type="radio" name="' . $this->element_name($name) . '" value="' . $value . '" ' . $attr . ' ' . $is_checked . '/>';
+            $icon = '<span class="wpsf-icon-preview wpsf-help" data-title="' . $title . '"><i class="' . $data['icon'] . '"></i></span>';
+            return ' <label class="with-icon-preview">' . $checkbox . ' ' . $icon . '</label > ';
+        }
+
         return '<label> <input type="radio" name="' . $this->element_name($name) . '" 
         value="' . $value . '"' . $this->element_attributes($value, $attributes) . $this->checked($chboxval, $value) . '/> ' . $title . ' </label>';
 

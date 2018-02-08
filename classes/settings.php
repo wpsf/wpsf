@@ -42,7 +42,7 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
      * @param array $options
      */
     public function __construct($settings = array(), $options = array()) {
-        if( ( is_admin() || is_ajax() ) && $this->is_not_ajax() === TRUE ) {
+        if( ( is_admin() || defined('DOING_AJAX') === TRUE ) && $this->is_not_ajax() === TRUE ) {
             $this->init_admin($settings, $options);
         }
     }
@@ -52,7 +52,7 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
      * @param array $options
      */
     public function init_admin($settings = array(), $options = array()) {
-        if( ( is_admin() || is_ajax() ) && $this->is_not_ajax() === TRUE ) {
+        if( ( is_admin() || defined('DOING_AJAX') === TRUE ) && $this->is_not_ajax() === TRUE ) {
             $this->_set_settings_options($settings, $options);
 
             if( ! empty ($this->options) ) {
@@ -128,7 +128,8 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
      * @return mixed|void
      */
     public function get_cache($data = array()) {
-        return get_option($this->unique . '-transient', array());
+        $cache = get_option($this->unique . '-transient', array());
+        return ( is_array($cache) ) ? $cache : array();
     }
 
     public function register_settings() {
@@ -153,6 +154,8 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
 
     protected function set_defaults() {
         $defaults = array();
+        $this->get_db_options();
+
         foreach( $this->get_sections() as $section ) {
             foreach( $section['fields'] as $field_key => $field ) {
                 if( isset($field['default']) && ! isset($this->get_option[$field['id']]) ) {
@@ -165,8 +168,21 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         if( ! empty($defaults) ) {
             update_option($this->unique, $this->get_option);
         }
+
         $this->cache['md5'] = $this->get_md5();
         $this->set_cache($this->cache);
+    }
+
+    /**
+     * @return array|mixed|void
+     */
+    public function get_db_options() {
+        if( empty($this->get_option) ) {
+            $this->get_option = get_option($this->unique, TRUE);
+
+            $this->get_option = ( empty($this->get_option) || $this->get_option === TRUE ) ? array() : $this->get_option;
+        }
+        return $this->get_option;
     }
 
     /**
@@ -220,6 +236,7 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
      */
     public function set_cache($data = array()) {
         update_option($this->unique . '-transient', $data);
+        $this->cache = $data;
     }
 
     public function on_options_update() {
@@ -362,17 +379,6 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
         $this->get_sections();
         $this->get_db_options();
         $this->figure_requested_sections();
-    }
-
-    /**
-     * @return array|mixed|void
-     */
-    public function get_db_options() {
-        if( empty($this->get_option) ) {
-            $this->get_option = get_option($this->unique, TRUE);
-            $this->get_option = empty($this->get_option) ? array() : $this->get_option;
-        }
-        return $this->get_option;
     }
 
     public function figure_requested_sections() {
@@ -713,7 +719,7 @@ class WPSFramework_Settings extends WPSFramework_Abstract {
      * @return string
      */
     protected function is_page_active($status) {
-        return ( $status === TRUE ) ? 'style="display:block";' : '';
+        return ( $status === TRUE ) ? 'style="display:block;"' : '';
     }
 
     /**

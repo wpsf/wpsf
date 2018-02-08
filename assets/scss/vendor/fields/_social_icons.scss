@@ -1,0 +1,33 @@
+.wpsf-field-social_icons {
+  .wpsf-social-icons-fields {
+
+    .wpsf-field-fieldset {
+
+      width: 100%;
+      .wpsf-element {
+        padding-top: 0;
+        padding-left: 0;
+        padding-bottom: 0;
+        display: inline-block;
+        border: none;
+      }
+
+      padding-bottom: 15px !important;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #eee;
+
+      &:first-child {
+        margin-top: 15px !important;
+        border-top: 1px solid #eee;
+        padding-top: 15px !important;
+      }
+      &:last-child {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+        border-bottom: none;
+      }
+
+    }
+
+  }
+}

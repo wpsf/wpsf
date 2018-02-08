@@ -1,0 +1,292 @@
+/*!
+ * This file is part of the WPSF package.
+ * This package is Open Source Software. For the full copyright and license
+ * information, please view the LICENSE file which was distributed with this
+ * source code.
+ *
+ * @package    WPSF
+ * @author     Varun Sridharan <varunsridharan23@gmail.com>
+ */
+
+.wpsf-framework {
+  position: relative;
+  margin-top: 20px;
+  margin-right: 20px;
+
+  &.wpsf-user-profile {
+    .wpsf-element {
+      padding: 20px 0;
+
+      .wpsf-fieldset {
+        margin-left: 215px;
+      }
+      .wpsf-title {
+        max-width: 200px;
+        width: auto;
+      }
+    }
+  }
+
+  label {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+  }
+
+  .wpsf-settings-error {
+    margin: 0 0 15px 0;
+  }
+
+  .wpsf-header {
+    position: relative;
+    background-color: #050505;
+    padding: 25px;
+    border-radius: 2px 2px 0 0;
+    &.wpsf-sticky-header.sticky {
+      position: fixed;
+      margin-top: 0;
+      top: 32px;
+      z-index: 9999;
+      box-sizing: border-box;
+    }
+    h1 {
+      color: #fff;
+      float: left;
+      font-size: 1.5em;
+      line-height: 26px;
+      font-weight: 400;
+      margin: 0;
+
+      small {
+        font-size: 11px;
+        color: #555;
+        font-weight: 500;
+      }
+    }
+
+    fieldset {
+      float: right;
+
+      input {
+        margin: 0 2px;
+        line-height: 26px;
+      }
+    }
+  }
+
+  .wpsf-body {
+    position: relative;
+    background-color: #fff;
+  }
+
+  .wpsf-nav {
+    display: block;
+    position: relative;
+    z-index: 10;
+    float: left;
+    width: 225px;
+
+    ul {
+      clear: left;
+      margin: 0;
+      list-style-type: none;
+
+      li {
+        margin-bottom: 0;
+
+        a {
+          font-size: 13px;
+          position: relative;
+          display: block;
+          padding: 15px;
+          text-decoration: none;
+          color: #999;
+          background-color: #222;
+          border-bottom: 1px solid #2f2f2f;
+          transition: all 0.2s ease-out;
+
+          &:hover {
+            color: #fff;
+          }
+
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+
+        .wpsf-section-active {
+          color: #fff;
+          background-color: #111;
+
+          &:after {
+            content: " ";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            height: 0;
+            width: 0;
+            pointer-events: none;
+            border: solid transparent;
+            border-right-color: #fff;
+            border-width: 4px;
+            margin-top: -4px;
+          }
+        }
+
+        .wpsf-arrow:after {
+          content: "\f054";
+          display: inline-block;
+          font-family: "FontAwesome";
+          font-size: 9px;
+          line-height: 1;
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          margin-top: -4px;
+          transform: rotate(0);
+          transition: transform 0.2s;
+        }
+
+        &.wpsf-tab-active .wpsf-arrow:after {
+          transform: rotate(90deg);
+        }
+      }
+
+      ul {
+        display: none;
+        position: relative;
+        border-bottom: 1px solid #2f2f2f;
+        position: relative;
+
+        li {
+
+          a {
+            font-size: 12px;
+            padding: 13px 15px 13px 25px;
+            background-color: #191919;
+            border-bottom: 1px solid #222;
+          }
+
+          .wpsf-section-active {
+            background-color: #101010;
+          }
+
+          &:last-child a {
+            border-bottom: 0;
+          }
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 15px;
+          z-index: 1;
+          width: 1px;
+          height: 100%;
+          background-color: rgba(#222, 0.75);
+        }
+      }
+    }
+
+    .wpsf-icon {
+      width: 20px;
+      margin-right: 5px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .wpsf-seperator {
+      color: #fff;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 30px 15px 15px 15px;
+      border-bottom: 1px dashed #2f2f2f;
+    }
+  }
+
+  .wpsf-nav-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 9;
+    width: 225px;
+    background-color: #222;
+  }
+
+  .wpsf-content {
+    position: relative;
+    margin-left: 225px;
+
+    .wpsf-sections {
+      float: left;
+      width: 100%;
+    }
+
+    .wpsf-section-title {
+      display: none;
+      padding: 20px 30px;
+      background-color: #5bc0de;
+
+      h3 {
+        color: #fff;
+        margin: 0;
+        padding: 0 !important;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 0 rgba(68, 167, 197, .5);
+      }
+    }
+
+    .wpsf-section {
+      display: none;
+    }
+
+  }
+
+  .wpsf-footer {
+    padding: 20px;
+    color: #555;
+    text-align: right;
+    font-size: 11px;
+    background-color: #050505;
+    border-radius: 0 0 2px 2px;
+  }
+
+  .wpsf-show-all {
+    .wpsf-nav-background,
+    .wpsf-nav {
+      display: none;
+    }
+
+    .wpsf-content {
+      margin-left: 0;
+    }
+
+    .wpsf-section-title,
+    .wpsf-section {
+      display: block !important;
+    }
+  }
+
+  .wpsf-expand-all {
+    position: absolute;
+    right: 40px;
+    bottom: 5px;
+    z-index: 1;
+    color: #555;
+    font-size: 11px;
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}

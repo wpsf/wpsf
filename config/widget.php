@@ -37,6 +37,10 @@ class wpsf_sample_1 extends WPSFramework_Widget {
                 'type'     => 'text',
                 'validate' => 'required',
                 'title'    => __("Title"),
+            ),array(
+                'id'       => 'image',
+                'type'     => 'upload',
+                'title'    => __("Upload"),
             ),
         );
     }

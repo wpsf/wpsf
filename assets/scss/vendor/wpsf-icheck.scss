@@ -1,0 +1,214 @@
+@mixin input-checkbox-color($check-background,$check-border-color,$border-color) {
+  &:checked {
+    background-color: $check-background;
+    border-color: $check-border-color;
+    &:after {
+      border-color: $border-color;
+    }
+  }
+}
+
+@mixin input-radio-color($check-background,$check-border-color) {
+  &:checked {
+    border: 1px solid $check-border-color;
+    &:before {
+      background-color: $check-border-color;
+    }
+  }
+}
+
+@mixin wpsf_global_attributes() {
+  &:disabled {
+    opacity: 0.65;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.075), 0 0px 2px rgb(56, 167, 255);
+  }
+
+}
+
+@mixin wpsf_global_status($extraName) {
+  &.icheck {
+    &-primary #{$extraName}, &-success #{$extraName}, &-info #{$extraName}, &-warning #{$extraName}, &-danger #{$extraName} {
+      background-color: #FFFFFF;
+      border: 1px solid #d7d7d7;
+    }
+    &-sm #{$extraName} {
+      width: 12px;
+      height: 12px;
+    }
+    &-lg #{$extraName} {
+      width: 19px;
+      height: 19px;
+    }
+    &-rounded #{$extraName} {
+      border-radius: 50%;
+    }
+  }
+}
+
+@mixin wpsf_global_icheck() {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  background-clip: border-box;
+  appearance: none;
+  margin: -0.15px 0.6px 0 0;
+  vertical-align: text-bottom;
+  border-radius: 3px;
+
+}
+
+@mixin wpsf_checkbox_colors($extraName) {
+  &.icheck {
+    &-primary #{$extraName} {
+      @include input-checkbox-color(#337ab7, #337ab7, #fff);
+    }
+    &-success #{$extraName} {
+      @include input-checkbox-color(#5cb85c, #5cb85c, #fff);
+    }
+    &-info #{$extraName} {
+      @include input-checkbox-color(#5bc0de, #5bc0de, #fff);
+    }
+    &-warning #{$extraName} {
+      @include input-checkbox-color(#f0ad4e, #f0ad4e, #fff);
+    }
+    &-danger #{$extraName} {
+      @include input-checkbox-color(#cf3b3a, #cf3b3a, #fff);
+    }
+    &-sm #{$extraName} {
+      &:checked:after {
+        top: 2px;
+        left: 1px;
+        height: 3px;
+        width: 6px;
+      }
+    }
+    &-lg #{$extraName} {
+      &:checked:after {
+        top: 3px;
+        left: 3px;
+        height: 5px;
+        width: 10px;
+      }
+    }
+  }
+}
+
+@mixin wpsf_radio_colors($extraName) {
+  &.icheck {
+    &-primary #{$extraName} {
+      @include input-radio-color(#337ab7, #337ab7);
+    }
+    &-success #{$extraName} {
+      @include input-radio-color(#5cb85c, #5cb85c);
+    }
+    &-info #{$extraName} {
+      @include input-radio-color(#5bc0de, #5bc0de);
+    }
+    &-warning #{$extraName} {
+      @include input-radio-color(#f0ad4e, #f0ad4e);
+    }
+    &-danger #{$extraName} {
+      @include input-radio-color(#cf3b3a, #cf3b3a);
+    }
+    &-sm #{$extraName} {
+      &:checked:before {
+        height: 6px;
+        width: 6px;
+        border-radius: 50%;
+        margin: 2px 0 0 2px;
+      }
+    }
+    &-lg #{$extraName} {
+      &:checked:before {
+        height: 11px;
+        width: 11px;
+        border-radius: 50%;
+        margin: 3px 0 0 3px;
+      }
+    }
+  }
+}
+
+@mixin wpsf_checkbox_icheck() {
+  transition: background-color .25s;
+  @include input-checkbox-color(#fff, #d7d7d7, #414141);
+  &:checked {
+    &:before {
+      content: none;
+    }
+    &:after {
+      content: '';
+      display: block;
+      height: 4px;
+      width: 7px;
+      border: 0 solid #333;
+      border-width: 0 0 2px 2px;
+      transform: rotate(-45deg);
+      position: absolute;
+      top: 3px;
+      left: 3px;
+    }
+  }
+}
+
+@mixin wpsf_radio_icheck() {
+  @include input-radio-color(#fff, #555555);
+  &:checked {
+    &:before {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      margin: 3px 0 0 3px;
+    }
+  }
+  &:before {
+    content: '';
+    display: block;
+    height: 0px;
+    width: 0px;
+    transition: width .25s, height .25s;
+  }
+}
+
+@mixin wpsf_final_output() {
+  input[type="radio"].icheck, input[type="checkbox"].icheck {
+    @include wpsf_global_icheck();
+    @include wpsf_global_attributes();
+    @include wpsf_global_status(' ');
+  }
+  input[type="checkbox"].icheck {
+    @include wpsf_checkbox_icheck();
+    @include wpsf_checkbox_colors('')
+  }
+  input[type="radio"].icheck {
+    @include wpsf_radio_icheck();
+    @include wpsf_radio_colors('');
+  }
+}
+
+div.icheck, ul.icheck {
+  input[type="radio"], input[type="checkbox"] {
+    @include wpsf_global_icheck();
+    @include wpsf_global_attributes();
+  }
+  @include wpsf_global_status('input[type="radio"]');
+  @include wpsf_global_status('input[type="checkbox"]');
+
+  input[type="checkbox"] {
+    @include wpsf_checkbox_icheck();
+
+  }
+  @include wpsf_checkbox_colors('input[type="checkbox"]');
+
+  input[type="radio"] {
+    @include wpsf_radio_icheck();
+  }
+  @include wpsf_radio_colors('input[type="radio"]');
+
+  @include wpsf_final_output();
+}
+
+@include wpsf_final_output();

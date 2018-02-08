@@ -28,7 +28,6 @@ if( ! function_exists('wpsf_get_error_message') ) {
     }
 }
 
-
 /**
  *
  * Email validate
@@ -50,6 +49,16 @@ if( ! function_exists('wpsf_validate_email') ) {
     }
 
     add_filter('wpsf_validate_email', 'wpsf_validate_email', 10, 2);
+}
+
+if( ! function_exists('wpsf_validate_website') ) {
+    function wpsf_validate_website($value, $field) {
+        if( filter_var($value, FILTER_VALIDATE_URL) === FALSE ) {
+            return ecs_html__("Please Enter A Valid URL", 'wpsf-framework');
+        }
+    }
+
+    add_filter('wpsf_validate_website', 'wpsf_validate_website');
 }
 
 /**

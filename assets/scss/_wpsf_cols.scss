@@ -1,0 +1,114 @@
+/*
+@gutter: 1.98 * 2;
+@one: (100% / 12 - @gutter);
+
+.columns (@columns) when (@columns > 0) {
+	.wpsf-column-@{columns} {
+		width: @one * @columns + @gutter * (@columns - 1);
+	}
+	.columns(@columns - 1);
+}
+
+.columns (12);
+ */
+
+.wpsf-row {
+
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+
+  :after {
+    clear: both;
+  }
+
+  .wpsf-column {
+    float: left;
+    border: none;
+    &:last-of-type {
+      margin-right: 0;
+    }
+    * {
+      max-width: 100%;
+    }
+  }
+}
+
+.wpsf-element.wpsf-row {
+  padding: 0;
+  .wpsf-element {
+    padding-left: 1.98%;
+    padding-right: 1.98%;
+
+  }
+}
+
+.wpsf-column-12 {
+  width: 96.04%;
+}
+
+.wpsf-column-11 {
+  width: 87.70666666666668%;
+}
+
+.wpsf-column-10 {
+  width: 79.37333333333333%;
+}
+
+.wpsf-column-9 {
+  width: 71.04%;
+}
+
+.wpsf-column-8 {
+  width: 62.70666666666667%;
+}
+
+.wpsf-column-7 {
+  width: 54.373333333333335%;
+}
+
+.wpsf-column-6 {
+  width: 46.040000000000006%;
+}
+
+.wpsf-column-5 {
+  width: 37.70666666666667%;
+}
+
+.wpsf-column-4 {
+  width: 29.373333333333335%;
+}
+
+.wpsf-column-3 {
+  width: 21.04%;
+}
+
+.wpsf-column-2 {
+  width: 12.706666666666667%;
+}
+
+.wpsf-column-1 {
+  width: 4.373333333333334%;
+}
+
+.wpsf-column {
+  .wpsf-title {
+
+  }
+
+  .wpsf-fieldset {
+    position: relative;
+    width: 70%;
+    float: left;
+    margin-left: 5%;
+  }
+}
+
+.wpsf-field-accordion {
+  .wpsf-field-fieldset {
+    .wpsf-row {
+      padding: 0;
+    }
+  }
+}

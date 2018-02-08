@@ -1,0 +1,56 @@
+/*!
+ * This file is part of the WPSF package.
+ * This package is Open Source Software. For the full copyright and license
+ * information, please view the LICENSE file which was distributed with this
+ * source code.
+ *
+ * @package    WPSF
+ * @author     Varun Sridharan <varunsridharan23@gmail.com>
+ */
+
+.wpsf-field-image {
+
+  input {
+    display: none;
+  }
+
+  .wpsf-preview {
+    display: inline-block;
+    position: relative;
+    padding: 4px;
+    min-width: 44px;
+    min-height: 22px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .08);
+
+    img {
+      max-height: 90px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .wpsf-remove {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    background-color: #e14d43;
+    opacity: 0.8;
+    border-radius: 2px;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

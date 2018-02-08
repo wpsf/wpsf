@@ -1,0 +1,1 @@
+//@codekit-append ./I10n/*.js

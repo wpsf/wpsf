@@ -12,47 +12,6 @@
 if( ! defined('ABSPATH') ) {
     die ();
 } // Cannot access pages directly.
-/**
- *
- * Get icons from admin ajax
- *
- * @since 1.0.0
- * @version 1.0.0
- *
- */
-if( ! function_exists('wpsf_get_icons') ) {
-    function wpsf_get_icons() {
-        do_action('wpsf_add_icons_before');
-
-        $jsons = apply_filters('wpsf_add_icons_json', glob(WPSF_DIR . '/fields/icon/*.json'));
-
-        if( ! empty ($jsons) ) {
-
-            foreach( $jsons as $path ) {
-
-                $object = wpsf_get_icon_fonts('fields/icon/' . basename($path));
-
-                if( is_object($object) ) {
-
-                    echo ( count($jsons) >= 2 ) ? '<h4 class="wpsf-icon-title">' . $object->name . '</h4>' : '';
-
-                    foreach( $object->icons as $icon ) {
-                        echo '<a class="wpsf-icon-tooltip" data-wpsf-icon="' . $icon . '" data-title="' . $icon . '"><span class="wpsf-icon wpsf-selector"><i class="' . $icon . '"></i></span></a>';
-                    }
-                } else {
-                    echo '<h4 class="wpsf-icon-title">' . esc_html__('Error! Can not load json file.', 'wpsf-framework') . '</h4>';
-                }
-            }
-        }
-
-        do_action('wpsf_add_icons');
-        do_action('wpsf_add_icons_after');
-
-        die ();
-    }
-
-    add_action('wp_ajax_wpsf-get-icons', 'wpsf_get_icons');
-}
 
 /**
  *

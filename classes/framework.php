@@ -46,7 +46,7 @@ if( ! class_exists("WPSFramework") ) {
         public function init($options = array()) {
             $final = wp_parse_args($options, $this->_defaults());
 
-            if( $final['settings'] !== FALSE && ( is_admin() || is_ajax() ) ) {
+            if( $final['settings'] !== FALSE && ( is_admin() || defined( 'DOING_AJAX' ) === TRUE ) ) {
                 $this->init_settings($final['settings']);
             }
 
@@ -58,7 +58,7 @@ if( ! class_exists("WPSFramework") ) {
                 $this->init_customizer($final['customizer']);
             }
 
-            if( $final['taxonomy'] !== FALSE && ( is_admin() || is_ajax() ) ) {
+            if( $final['taxonomy'] !== FALSE && ( is_admin() || defined( 'DOING_AJAX' ) === TRUE ) ) {
                 $this->init_taxonomy($final['taxonomy']);
             }
 

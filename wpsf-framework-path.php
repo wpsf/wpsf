@@ -19,7 +19,7 @@ if( ! defined('ABSPATH') ) {
  * @version 1.0.0
  *
  */
-defined('WPSF_VERSION') or define('WPSF_VERSION', '0.7Beta');
+defined('WPSF_VERSION') or define('WPSF_VERSION', '0.8Beta');
 defined('WPSF_OPTION') or define('WPSF_OPTION', '_wpsf_options');
 defined('WPSF_CUSTOMIZE') or define('WPSF_CUSTOMIZE', '_wpsf_customize_options');
 
@@ -32,7 +32,7 @@ defined('WPSF_CUSTOMIZE') or define('WPSF_CUSTOMIZE', '_wpsf_customize_options')
  */
 if( ! function_exists('wpsf_get_path_locate') ) {
     /**
-     * @return mixed|void
+     * @return mixed
      */
     function wpsf_get_path_locate() {
         $dirname = wp_normalize_path(dirname(__FILE__));
@@ -169,65 +169,6 @@ if( ! function_exists('wpsf_get_multilang_value') ) {
         }
 
         return $value;
-    }
-}
-
-/**
- * Get customize option
- * @since 1.0.0
- * @version 1.0.0
- *
- */
-if( ! function_exists('wpsf_get_customize_option') ) {
-    /**
-     * @param string $option_name
-     * @param string $default
-     * @return null|string
-     */
-    function wpsf_get_customize_option($option_name = '', $default = '') {
-        $options = apply_filters('wpsf_get_customize_option', get_option(WPSF_CUSTOMIZE), $option_name, $default);
-
-        if( ! empty ($option_name) && ! empty ($options [$option_name]) ) {
-            return $options [$option_name];
-        } else {
-            return ( ! empty ($default) ) ? $default : NULL;
-        }
-    }
-}
-
-/**
- * Set customize option
- * @since 1.0.0
- * @version 1.0.0
- *
- */
-if( ! function_exists('wpsf_set_customize_option') ) {
-    /**
-     * @param string $option_name
-     * @param string $new_value
-     */
-    function wpsf_set_customize_option($option_name = '', $new_value = '') {
-        $options = apply_filters('wpsf_set_customize_option', get_option(WPSF_CUSTOMIZE), $option_name, $new_value);
-
-        if( ! empty ($option_name) ) {
-            $options [$option_name] = $new_value;
-            update_option(WPSF_CUSTOMIZE, $options);
-        }
-    }
-}
-
-/**
- * Get all customize option
- * @since 1.0.0
- * @version 1.0.0
- *
- */
-if( ! function_exists('wpsf_get_all_customize_option') ) {
-    /**
-     * @return mixed|void
-     */
-    function wpsf_get_all_customize_option() {
-        return get_option(WPSF_CUSTOMIZE);
     }
 }
 

@@ -44,7 +44,6 @@ class WPSFramework_Option_checkbox extends WPSFramework_Options {
 
                 echo '<ul' . $this->element_class() . '>';
                 foreach( $options as $key => $value ) {
-
                     if( is_array($value) && ! isset($value['label']) ) {
                         $values = $this->element_value();
                         $gid = wpsf_sanitize_title($key);
@@ -55,12 +54,12 @@ class WPSFramework_Option_checkbox extends WPSFramework_Options {
                             $i = $data['id'];
                             $v = $data['value'];
                             $attr = $data['attributes'];
-                            echo '<li>' . $this->_element('[' . $gid . '][]', $i, $v, $values, $attr) . '</li>';
+                            echo '<li>' . $this->_element('[' . $gid . '][]', $i, $v, $values, $attr,$data) . '</li>';
                         }
                         echo '</ul></li>';
                     } else {
                         $data = $this->element_handle_option($value, $key);
-                        echo '<li>' . $this->_element('[]', $data['id'], $data['value'], $this->element_value(), $data['attributes']) . '</li>';
+                        echo '<li>' . $this->_element('[]', $data['id'], $data['value'], $this->element_value(), $data['attributes'],$data) . '</li>';
                     }
                 }
                 echo '</ul>';
@@ -81,8 +80,15 @@ class WPSFramework_Option_checkbox extends WPSFramework_Options {
      * @param string $attributes
      * @return string
      */
-    public function _element($name = '', $value = '', $title = '', $chboxval = array(), $attributes = '') {
-        return '<label> <input type="checkbox"name="' . $this->element_name($name) . '" value="' . $value . '"' . $this->element_attributes($value, $attributes) . $this->checked($chboxval, $value) . '/> ' . $title . ' </label>';
+    public function _element($name = '', $value = '', $title = '', $chboxval = array(), $attributes = '',$data = array()) {
+        if( isset($this->field['icon_box']) && $this->field['icon_box'] === TRUE ) {
+            $attr = $this->element_attributes($value,$attributes);
+            $is_checked = $this->checked($chboxval, $value);
+            $checkbox = '<input type="checkbox" name="' . $this->element_name($name) . '" value="'.$value.'" '.$attr.' '.$is_checked.'/>';
+            $icon = '<span class="wpsf-icon-preview wpsf-help" data-title="' . $title . '"><i class="'.$data['icon'].'"></i></span>';
+            return ' <label class="with-icon-preview">'.$checkbox.' '. $icon.'</label > ';
+        }
+        return '<label > <input type = "checkbox"name = "' . $this->element_name($name) . '" value = "' . $value . '"' . $this->element_attributes($value, $attributes) . $this->checked($chboxval, $value) . ' /> ' . $title . ' </label > ';
 
     }
 }

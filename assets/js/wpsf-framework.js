@@ -11,6 +11,7 @@
 ;( function ($, window, document, undefined) {
     'use strict';
 
+
     $.WPSF_HELPER = {
         COLOR_PICKER: {
             parse: function ($value) {
@@ -312,6 +313,18 @@
 
             return $final_data;
         },
+        ELM_ARGS_TYPE: function ($args) {
+            $.each($args, function ($code, $value) {
+                if ( $value == '1' ) {
+                    $args[$code] = true;
+                } else if ( $value == '0' ) {
+                    $args[$code] = false;
+                }
+
+            });
+            return $args;
+
+        }
     };
     $.WPSF_DEPENDENCY = function (el, param) {
         var base = this;
@@ -393,7 +406,34 @@
     };
     $.fn.WPSF_SELECT2 = function () {
         return this.each(function () {
-            $(this).select2();
+            var $settings = {};
+            if ( $(this).attr("data-has-settings") === 'yes' ) {
+                var $parent = $(this).parent();
+                var $request_param = JSON.parse($parent.find('.wpsf-element-settings').html());
+                $settings = {
+                    ajax: {
+                        url: ajaxurl,
+                        data: function ($term) {
+                            $request_param['s'] = $term['term'];
+                            return $request_param;
+                        },
+                        method: 'post',
+                        processResults: function (data, params) {
+                            var terms = [];
+                            if ( data ) {
+                                data = JSON.parse(data);
+                                jQuery.each(data, function (id, text) {
+                                    terms.push({id: id, text: text});
+                                });
+                            }
+                            return {
+                                results: terms
+                            };
+                        }
+                    }
+                }
+            }
+            $(this).select2($settings);
         });
     };
     $.fn.WPSF_IMAGE_SELECT = function () {
@@ -1067,6 +1107,31 @@
             });
         });
     };
+    $.fn.WPSF_ANIMATE_CSS = function () {
+        return this.each(function () {
+            var $parent = $(this);
+            $parent.find("select").on('change', function () {
+                var $val = $(this).val();
+                var $h3 = $parent.find('.animation-preview h3');
+                $h3.removeClass();
+                $h3.addClass($val + ' animated ').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                    $(this).removeClass();
+                });
+            })
+        })
+    };
+    $.fn.WPSF_DATE_PICKER = function () {
+        return this.each(function () {
+            var $input = $(this).find('input.wpsf-datepicker');
+            var $INPUTID = $input.data('datepicker-id');
+            var $settings = {};
+            if ( typeof window[$INPUTID] == 'object' ) {
+                $settings = window[$INPUTID];
+            }
+            $settings = $.WPSF_HELPER.ELM_ARGS_TYPE($settings);
+            $input.flatpickr($settings);
+        });
+    };
     /*$.fn.WPSF_DATE_PICKER = function () {
         return this.each(function () {
 
@@ -1244,7 +1309,8 @@
                             type: 'POST',
                             url: ajaxurl,
                             data: {
-                                action: 'wpsf-get-icons'
+                                action: 'wpsf-ajax',
+                                "wpsf-action": "wpsf-get-icons",
                             },
                             success: function (content) {
                                 $load.html(content);
@@ -1641,7 +1707,8 @@
             $('.wpsf-field-typography_advanced', $this).WPSF_ADVANCED_TYPOGRAPHY();
             $('.wpsf-field-typography', $this).WPSF_TYPOGRAPHY();
             $('.wpsf-help', $this).WPSF_TOOLTIP();
-
+            $('.wpsf-field-animate_css', $this).WPSF_ANIMATE_CSS();
+            $('.wpsf-field-date_picker', $this).WPSF_DATE_PICKER();
         },
 
         widget_reload: function () {

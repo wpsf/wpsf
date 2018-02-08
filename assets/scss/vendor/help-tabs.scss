@@ -1,0 +1,26 @@
+.wpsf-framework.wpsf-help-tabs {
+  margin-right: 0;
+  margin-top: 0;
+  padding-top: 15px;
+
+  > .wpsf-element {
+    padding: 0;
+    margin-bottom: 15px;
+    border: none;
+    &.wpsf-field-heading, &.wpsf-field-subheading, &.wpsf-field-content {
+      background: none !important;
+    }
+
+    &.wpsf-field-tab {
+      .wpsf-user-tabs-panel {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    .wpsf-element {
+      padding: 15px 20px;
+    }
+  }
+}

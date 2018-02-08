@@ -1,0 +1,85 @@
+/*!
+ * This file is part of the WPSF package.
+ * This package is Open Source Software. For the full copyright and license
+ * information, please view the LICENSE file which was distributed with this
+ * source code.
+ *
+ * @package    WPSF
+ * @author     Varun Sridharan <varunsridharan23@gmail.com>
+ */
+
+div#screen-meta-links + div.wpsf-framework {
+  margin-top: 40px;
+}
+
+@import "vendor/dark-theme";
+@import "vendor/simple-theme";
+@import "vendor/wp-metabox";
+@import "vendor/wc-metabox";
+@import "vendor/quick-edit";
+@import "vendor/mixins";
+@import "vendor/base";
+@import "vendor/fields/text";
+@import "vendor/fields/textarea";
+@import "vendor/fields/typography_advanced";
+@import "vendor/fields/wysiwyg";
+@import "vendor/fields/number";
+@import "vendor/fields/select";
+@import "vendor/fields/typography";
+@import "vendor/fields/switcher";
+@import "vendor/fields/image-select";
+@import "vendor/fields/upload";
+@import "vendor/fields/background";
+@import "vendor/fields/color-picker";
+@import "vendor/fields/backup";
+@import "vendor/fields/fieldset";
+@import "vendor/fields/accordion";
+@import "vendor/fields/help";
+@import "vendor/fields/heading";
+@import "vendor/fields/subheading";
+@import "vendor/fields/notice";
+@import "vendor/fields/icon";
+@import "vendor/fields/image";
+@import "vendor/fields/gallery";
+@import "vendor/fields/sorter";
+@import "vendor/fields/css-builder";
+@import "vendor/fields/image-size";
+@import "vendor/fields/color-scheme";
+@import "vendor/fields/tabs";
+@import "vendor/fields/spacing";
+@import "vendor/fields/datepicker";
+@import "vendor/fields/social_icons";
+
+.wpsf-field-animate_css {
+  .animation-preview {
+    padding: 10px 0;
+    display: inline-block;
+    margin: 0 10px;
+    h3 {
+      margin: 0;
+    }
+  }
+}
+
+@import "wpsf-framework-light";
+@import 'wpsf_cols';
+@import "vendor/horizontal";
+@import "vendor/help-tabs";
+@import "vendor/wpsf-icheck";
+
+.wpsf-element {
+
+  .text-limiter {
+    margin-top: -2px;
+  }
+  .text-limiter > span {
+    background-color: #f7f7f7;
+    border: 1px solid #e5e5e5;
+    margin-left: 1px;
+    display: inline-block;
+    padding: 0 5px;
+    font-size: 12px;
+  }
+
+}
+

@@ -16,6 +16,33 @@
  * Time: 07:57 PM
  */
 
+function render_wpsf_icons($max = 25) {
+    $icons = json_decode(file_get_contents(WPSF_DIR . '/fields/icon/01-font-awesome.json'), TRUE);
+    $icons = ( isset($icons['icons']) ) ? $icons['icons'] : array();
+    $_max = count($icons);
+
+    $e = 0;
+    while( $e <= $max ) {
+        $rand = ( mt_rand(0, $_max) ) - 1;
+        if( ! isset($icons[$rand]) ) {
+            continue;
+        }
+        $i = $icons[$rand];
+        $slug = str_replace('fa fa-', '', $i);
+        $return[$slug] = array(
+            'label' => $slug,
+            'icon'  => $i,
+            'title' => $slug,
+        );
+
+        $e++;
+
+    }
+
+    return $return;
+}
+
+
 // ===============================================================================================
 // -----------------------------------------------------------------------------------------------
 // FRAMEWORK OPTIONS
@@ -31,6 +58,12 @@ $options[] = array(
     'icon'   => 'fa fa-star',
     // begin: fields
     'fields' => array(
+        array(
+            'id'    => 'animate_css',
+            'type'  => 'animate_css',
+            'title' => 'Animate CSS',
+
+        ),
         array(
             'id'      => 'content_font',
             'type'    => 'typography_advanced',
@@ -215,6 +248,339 @@ $options[] = array(
 // ------------------------------
 // a option section with tabs   -
 // ------------------------------
+$_icons_options = array(
+    'envelope-o'           => array(
+        'label' => 'envelope-o',
+        'icon'  => 'fa fa-envelope-o',
+        'title' => 'envelope-o',
+    ),
+    'strikethrough'        => array(
+        'label' => 'strikethrough',
+        'icon'  => 'fa fa-strikethrough',
+        'title' => 'strikethrough',
+    ),
+    'info-circle'          => array(
+        'label' => 'info-circle',
+        'icon'  => 'fa fa-info-circle',
+        'title' => 'info-circle',
+    ),
+    'behance-square'       => array(
+        'label' => 'behance-square',
+        'icon'  => 'fa fa-behance-square',
+        'title' => 'behance-square',
+    ),
+    'glide-g'              => array(
+        'label' => 'glide-g',
+        'icon'  => 'fa fa-glide-g',
+        'title' => 'glide-g',
+    ),
+    'sitemap'              => array(
+        'label' => 'sitemap',
+        'icon'  => 'fa fa-sitemap',
+        'title' => 'sitemap',
+    ),
+    'youtube'              => array(
+        'label' => 'youtube',
+        'icon'  => 'fa fa-youtube',
+        'title' => 'youtube',
+    ),
+    'laptop'               => array(
+        'label' => 'laptop',
+        'icon'  => 'fa fa-laptop',
+        'title' => 'laptop',
+    ),
+    'suitcase'             => array(
+        'label' => 'suitcase',
+        'icon'  => 'fa fa-suitcase',
+        'title' => 'suitcase',
+    ),
+    'clipboard'            => array(
+        'label' => 'clipboard',
+        'icon'  => 'fa fa-clipboard',
+        'title' => 'clipboard',
+    ),
+    'search'               => array(
+        'label' => 'search',
+        'icon'  => 'fa fa-search',
+        'title' => 'search',
+    ),
+    'envelope'             => array(
+        'label' => 'envelope',
+        'icon'  => 'fa fa-envelope',
+        'title' => 'envelope',
+    ),
+    'bell-slash'           => array(
+        'label' => 'bell-slash',
+        'icon'  => 'fa fa-bell-slash',
+        'title' => 'bell-slash',
+    ),
+    'paper-plane-o'        => array(
+        'label' => 'paper-plane-o',
+        'icon'  => 'fa fa-paper-plane-o',
+        'title' => 'paper-plane-o',
+    ),
+    'qrcode'               => array(
+        'label' => 'qrcode',
+        'icon'  => 'fa fa-qrcode',
+        'title' => 'qrcode',
+    ),
+    'simplybuilt'          => array(
+        'label' => 'simplybuilt',
+        'icon'  => 'fa fa-simplybuilt',
+        'title' => 'simplybuilt',
+    ),
+    'file-text-o'          => array(
+        'label' => 'file-text-o',
+        'icon'  => 'fa fa-file-text-o',
+        'title' => 'file-text-o',
+    ),
+    'filter'               => array(
+        'label' => 'filter',
+        'icon'  => 'fa fa-filter',
+        'title' => 'filter',
+    ),
+    'weibo'                => array(
+        'label' => 'weibo',
+        'icon'  => 'fa fa-weibo',
+        'title' => 'weibo',
+    ),
+    'fighter-jet'          => array(
+        'label' => 'fighter-jet',
+        'icon'  => 'fa fa-fighter-jet',
+        'title' => 'fighter-jet',
+    ),
+    'times'                => array(
+        'label' => 'times',
+        'icon'  => 'fa fa-times',
+        'title' => 'times',
+    ),
+    'chevron-circle-left'  => array(
+        'label' => 'chevron-circle-left',
+        'icon'  => 'fa fa-chevron-circle-left',
+        'title' => 'chevron-circle-left',
+    ),
+    'pause'                => array(
+        'label' => 'pause',
+        'icon'  => 'fa fa-pause',
+        'title' => 'pause',
+    ),
+    'spinner'              => array(
+        'label' => 'spinner',
+        'icon'  => 'fa fa-spinner',
+        'title' => 'spinner',
+    ),
+    'rebel'                => array(
+        'label' => 'rebel',
+        'icon'  => 'fa fa-rebel',
+        'title' => 'rebel',
+    ),
+    'line-chart'           => array(
+        'label' => 'line-chart',
+        'icon'  => 'fa fa-line-chart',
+        'title' => 'line-chart',
+    ),
+    'text-height'          => array(
+        'label' => 'text-height',
+        'icon'  => 'fa fa-text-height',
+        'title' => 'text-height',
+    ),
+    'steam-square'         => array(
+        'label' => 'steam-square',
+        'icon'  => 'fa fa-steam-square',
+        'title' => 'steam-square',
+    ),
+    'facebook'             => array(
+        'label' => 'facebook',
+        'icon'  => 'fa fa-facebook',
+        'title' => 'facebook',
+    ),
+    'gamepad'              => array(
+        'label' => 'gamepad',
+        'icon'  => 'fa fa-gamepad',
+        'title' => 'gamepad',
+    ),
+    'hacker-news'          => array(
+        'label' => 'hacker-news',
+        'icon'  => 'fa fa-hacker-news',
+        'title' => 'hacker-news',
+    ),
+    'bold'                 => array(
+        'label' => 'bold',
+        'icon'  => 'fa fa-bold',
+        'title' => 'bold',
+    ),
+    'firefox'              => array(
+        'label' => 'firefox',
+        'icon'  => 'fa fa-firefox',
+        'title' => 'firefox',
+    ),
+    'sign-in'              => array(
+        'label' => 'sign-in',
+        'icon'  => 'fa fa-sign-in',
+        'title' => 'sign-in',
+    ),
+    'retweet'              => array(
+        'label' => 'retweet',
+        'icon'  => 'fa fa-retweet',
+        'title' => 'retweet',
+    ),
+    'shopping-basket'      => array(
+        'label' => 'shopping-basket',
+        'icon'  => 'fa fa-shopping-basket',
+        'title' => 'shopping-basket',
+    ),
+    'certificate'          => array(
+        'label' => 'certificate',
+        'icon'  => 'fa fa-certificate',
+        'title' => 'certificate',
+    ),
+    'paypal'               => array(
+        'label' => 'paypal',
+        'icon'  => 'fa fa-paypal',
+        'title' => 'paypal',
+    ),
+    'modx'                 => array(
+        'label' => 'modx',
+        'icon'  => 'fa fa-modx',
+        'title' => 'modx',
+    ),
+    'google-plus-official' => array(
+        'label' => 'google-plus-official',
+        'icon'  => 'fa fa-google-plus-official',
+        'title' => 'google-plus-official',
+    ),
+    'get-pocket'           => array(
+        'label' => 'get-pocket',
+        'icon'  => 'fa fa-get-pocket',
+        'title' => 'get-pocket',
+    ),
+    'heart'                => array(
+        'label' => 'heart',
+        'icon'  => 'fa fa-heart',
+        'title' => 'heart',
+    ),
+    'shirtsinbulk'         => array(
+        'label' => 'shirtsinbulk',
+        'icon'  => 'fa fa-shirtsinbulk',
+        'title' => 'shirtsinbulk',
+    ),
+    'long-arrow-down'      => array(
+        'label' => 'long-arrow-down',
+        'icon'  => 'fa fa-long-arrow-down',
+        'title' => 'long-arrow-down',
+    ),
+    'commenting'           => array(
+        'label' => 'commenting',
+        'icon'  => 'fa fa-commenting',
+        'title' => 'commenting',
+    ),
+    'deaf'                 => array(
+        'label' => 'deaf',
+        'icon'  => 'fa fa-deaf',
+        'title' => 'deaf',
+    ),
+    'home'                 => array(
+        'label' => 'home',
+        'icon'  => 'fa fa-home',
+        'title' => 'home',
+    ),
+    'thermometer-quarter'  => array(
+        'label' => 'thermometer-quarter',
+        'icon'  => 'fa fa-thermometer-quarter',
+        'title' => 'thermometer-quarter',
+    ),
+    'linux'                => array(
+        'label' => 'linux',
+        'icon'  => 'fa fa-linux',
+        'title' => 'linux',
+    ),
+    'cc'                   => array( 'label' => 'cc', 'icon' => 'fa fa-cc', 'title' => 'cc', ),
+    'beer'                 => array(
+        'label' => 'beer',
+        'icon'  => 'fa fa-beer',
+        'title' => 'beer',
+    ),
+    'phone'                => array(
+        'label' => 'phone',
+        'icon'  => 'fa fa-phone',
+        'title' => 'phone',
+    ),
+    'linode'               => array(
+        'label' => 'linode',
+        'icon'  => 'fa fa-linode',
+        'title' => 'linode',
+    ),
+    'quote-right'          => array(
+        'label' => 'quote-right',
+        'icon'  => 'fa fa-quote-right',
+        'title' => 'quote-right',
+    ),
+    'font-awesome'         => array(
+        'label' => 'font-awesome',
+        'icon'  => 'fa fa-font-awesome',
+        'title' => 'font-awesome',
+    ),
+    'ship'                 => array(
+        'label' => 'ship',
+        'icon'  => 'fa fa-ship',
+        'title' => 'ship',
+    ),
+    'file-code-o'          => array(
+        'label' => 'file-code-o',
+        'icon'  => 'fa fa-file-code-o',
+        'title' => 'file-code-o',
+    ),
+);
+$_icons_mini = array(
+    'wheelchair-alt'      => array(
+        'label' => 'wheelchair-alt',
+        'icon'  => 'fa fa-wheelchair-alt',
+        'title' => 'wheelchair-alt',
+    ),
+    'folder-o'            => array(
+        'label' => 'folder-o',
+        'icon'  => 'fa fa-folder-o',
+        'title' => 'folder-o',
+    ),
+    'venus-double'        => array(
+        'label' => 'venus-double',
+        'icon'  => 'fa fa-venus-double',
+        'title' => 'venus-double',
+    ),
+    'vimeo-square'        => array(
+        'label' => 'vimeo-square',
+        'icon'  => 'fa fa-vimeo-square',
+        'title' => 'vimeo-square',
+    ),
+    'h-square'            => array(
+        'label' => 'h-square',
+        'icon'  => 'fa fa-h-square',
+        'title' => 'h-square',
+    ),
+    'thermometer-quarter' => array(
+        'label' => 'thermometer-quarter',
+        'icon'  => 'fa fa-thermometer-quarter',
+        'title' => 'thermometer-quarter',
+    ),
+    'id-badge'            => array(
+        'label' => 'id-badge',
+        'icon'  => 'fa fa-id-badge',
+        'title' => 'id-badge',
+    ),
+    'wheelchair'          => array(
+        'label' => 'wheelchair',
+        'icon'  => 'fa fa-wheelchair',
+        'title' => 'wheelchair',
+    ),
+    'safari'              => array(
+        'label' => 'safari',
+        'icon'  => 'fa fa-safari',
+        'title' => 'safari',
+    ),
+    'krw'                 => array( 'label' => 'krw', 'icon' => 'fa fa-krw', 'title' => 'krw', ),
+);
+
+
 $options[] = array(
     'name'     => 'options',
     'title'    => 'Options',
@@ -1245,8 +1611,8 @@ $options[] = array(
                 ),
 
                 array(
-                    'content' => 'Select With Chosen',
-                    'fields'  => array(
+                    'accordion_title' => 'Select With Chosen',
+                    'fields'          => array(
                         array(
                             'id'             => 'unique_select_12',
                             'type'           => 'select',
@@ -1307,12 +1673,58 @@ $options[] = array(
                             'info'       => 'and much more select options for you!',
                         ),
                     ),
-                    'id'      => 'unique_select_chosen_011',
-                    'type'    => 'accordion',
+                    'id'              => 'unique_select_chosen_011',
+                    'type'            => 'accordion',
                 ),
                 array(
-                    'content' => 'Select With Select2',
-                    'fields'  => array(
+                    'accordion_title' => 'Select With Select2',
+                    'fields'          => array(
+                        array(
+                            'id'             => 'select2_ajax_pagae1s',
+                            'type'           => 'select',
+                            'title'          => 'Select with select2 with Pages Ajax',
+                            'settings'       => array( 'is_ajax' => TRUE, 'preload' => 2 ),
+                            'query_args'     => array( 'posts_per_page' => 2 ),
+                            'options'        => 'pages',
+                            'class'          => 'select2',
+                            'default_option' => 'Select a page',
+                        ),
+
+                        array(
+                            'id'             => 'select2_multiple_ajax_pages',
+                            'type'           => 'select',
+                            'multiple'       => TRUE,
+                            'title'          => 'Select with select2 with Pages Multiple Ajax',
+                            'settings'       => array( 'is_ajax' => TRUE, 'preload' => 2 ),
+                            'query_args'     => array( 'posts_per_page' => 2 ),
+                            'options'        => 'pages',
+                            'class'          => 'select2',
+                            'default_option' => 'Select a page',
+                        ),
+
+                        array(
+                            'id'             => 'select2_ajax_categories',
+                            'type'           => 'select',
+                            'title'          => 'Select with select2 with Categories Ajax',
+                            'settings'       => array( 'is_ajax' => TRUE ),
+                            'query_args'     => array( 'hide_empty' => FALSE, ),
+                            'options'        => 'categories',
+                            'class'          => 'select2',
+                            'default_option' => 'Select a Category',
+                        ),
+
+                        array(
+                            'id'             => 'select2_ajax_categories_multiple',
+                            'type'           => 'select',
+                            'multiple'       => TRUE,
+                            'title'          => 'Select with select2 with Categories Multiple Ajax',
+                            'settings'       => array( 'is_ajax' => TRUE ),
+                            'query_args'     => array( 'hide_empty' => FALSE, ),
+                            'options'        => 'categories',
+                            'class'          => 'select2',
+                            'default_option' => 'Select a Category',
+                        ),
+
                         array(
                             'id'             => 'unique_select_112',
                             'type'           => 'select',
@@ -1373,8 +1785,8 @@ $options[] = array(
                             'info'       => 'and much more select options for you!',
                         ),
                     ),
-                    'id'      => 'unique_select_select2_011',
-                    'type'    => 'accordion',
+                    'id'              => 'unique_select_select2_011',
+                    'type'            => 'accordion',
                 ),
 
             ),
@@ -1505,6 +1917,77 @@ $options[] = array(
                     'type'  => 'icon',
                     'title' => 'Icon Field with After-text',
                     'after' => '<p class="cs-text-muted">Lets write some description for this icon field.</i>',
+                ),
+
+                array(
+                    'id'          => 'social_icon',
+                    'type'        => 'social_icons',
+                    'title'       => 'Social Icons',
+                    'disabled'    => '',
+                    'extra_icons' => array(
+                        'Facebook' => 'fa fa-facebook-square',
+                    ),
+                    /*'options'     => array(
+                        'plus' => 'fa fa-plus',
+                    ),*/
+
+
+                    'extra_fields' => array(
+                        array(
+                            'title' => 'Color',
+                            'id'    => 'icon_color',
+                            'type'  => 'color_picker',
+                        ),
+                        array(
+                            'title' => 'hover color',
+                            'id'    => 'hover_color',
+                            'type'  => 'color_picker',
+                        ),
+                    ),
+                    'icon_type'    => 'checkbox',
+
+                ),
+
+                array(
+                    'id'       => 'icons_checkbox',
+                    'type'     => 'checkbox',
+                    'title'    => 'Icon With Checkbox',
+                    'class'    => 'horizontal',
+                    'icon_box' => TRUE,
+                    'options'  => $_icons_options,
+                ),
+
+                array(
+                    'id'       => 'icons_checkbox_group',
+                    'type'     => 'checkbox',
+                    'title'    => 'Icons With Checkbox Group',
+                    'class'    => 'horizontal',
+                    'icon_box' => TRUE,
+                    'options'  => array(
+                        'Admin Side Icons'    => $_icons_mini,
+                        'Frontend Side Icons' => $_icons_mini,
+                    ),
+                ),
+
+                array(
+                    'id'       => 'icons_radio',
+                    'type'     => 'radio',
+                    'title'    => 'Icon With radio',
+                    'class'    => 'horizontal',
+                    'icon_box' => TRUE,
+                    'options'  => $_icons_options,
+                ),
+
+                array(
+                    'id'       => 'icons_radio_group',
+                    'type'     => 'radio',
+                    'title'    => 'Icons With Radio Group',
+                    'class'    => 'horizontal',
+                    'icon_box' => TRUE,
+                    'options'  => array(
+                        'Admin Side Icons'    => $_icons_mini,
+                        'Frontend Side Icons' => $_icons_mini,
+                    ),
                 ),
             ),
         ),
@@ -2973,11 +3456,66 @@ $options[] = array(
                     'type'  => 'spacing',
                     'id'    => 'spacing',
                 ),
+            ),
+        ),
+
+        array(
+            'name'   => 'datepickers',
+            'title'  => 'DatePicker',
+            'icon'   => 'fa fa-calendar',
+            'fields' => array(
+
                 array(
                     'title' => 'Date Picker',
                     'type'  => 'date_picker',
-                    'id'    => 'date_picker',
+                    'id'    => 'date-picker',
                 ),
+
+                array(
+                    'title'    => 'Date & Time Picker',
+                    'type'     => 'date_picker',
+                    'id'       => 'date-picker3',
+                    'settings' => array(
+                        'enableTime' => TRUE,
+                        'dateFormat' => 'Y-m-d H:i',
+                    ),
+                ),
+
+                array(
+                    'title'    => 'Date Range',
+                    'type'     => 'date_picker',
+                    'id'       => 'date-picker4',
+                    'settings' => array(
+                        'mode' => 'range',
+                    ),
+                ),
+
+
+                array(
+                    'title'    => 'Inline Date Picker',
+                    'type'     => 'date_picker',
+                    'id'       => 'date-picker2',
+                    'settings' => array(
+                        'inline' => TRUE,
+                    ),
+                ),
+
+                array(
+                    'type'    => 'content',
+                    'content' => 'More information about datepicker & docs can be found @ <a href="https://chmln.github.io/flatpickr">https://chmln.github.io/flatpickr</a>',
+                ),
+                array(
+                    'type'    => 'subheading',
+                    'content' => 'Theme Options',
+                ),
+
+                array(
+                    'title' => 'Dark Theme',
+                    'type'  => 'date_picker',
+                    'id'    => 'date-picker-dark',
+                    'theme' => 'dark',
+                ),
+
             ),
         ),
     ),
@@ -3571,6 +4109,6 @@ new WPSFramework_Settings(array(
     'menu_slug'        => 'wpsf-modern',
     'style'            => 'modern',
     'is_sticky_header' => FALSE,
-    'is_single_page'   => FALSE,
+    'is_single_page'   => TRUE,
     'option_name'      => '_wpsf_new_option',
 ), $options);

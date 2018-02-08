@@ -15,3 +15,5 @@
 //@codekit-append ../vendors/bootstrap/bootstrap-transition.min.js
 //@codekit-append ../vendors/bootstrap/tooltip/tooltip.min.js
 //@codekit-append ../vendors/bootstrap/popover/popover.min.js
+//@codekit-append ../vendors/flatpickr/flatpickr.min.js
+//@codekit-append ../vendors/flatpickr/flatpicker-final.min.js

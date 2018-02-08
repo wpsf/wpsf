@@ -79,13 +79,14 @@ class WPSFramework_Shortcode_Manager extends WPSFramework_Abstract {
             }
 
             $defaults = array(
-                'button_title' => __("Add Shortcode"),
-                'button_class' => 'button button-primary',
-                'auto_select'  => 'yes',
+                'button_title'      => __("Add Shortcode"),
+                'button_class'      => 'button button-primary',
+                'auto_select'       => 'yes',
+                'exclude_posttypes' => array(),
             );
 
             $this->settings = wp_parse_args($this->settings, $defaults);
-
+            $this->exclude_post_types = array_merge($this->settings['exclude_posttypes'], $this->exclude_post_types);
 
             $this->shortcodes = $this->get_shortcodes();
             $this->addAction("admin_enqueue_scripts", 'load_style_script');
