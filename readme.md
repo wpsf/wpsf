@@ -7,6 +7,14 @@ A Lightweight and easy-to-use WordPress Options Framework. It is a free framewor
 ## [Documentation](https://wpsf.gitbooks.io/docs/)
 Read the documentation for details [documentation](https://wpsf.gitbooks.io/docs/)
 
+## Note
+The Framework still in development stage.
+
+Documentation is still in-progress.
+
+The Framework based on some [CodeStar Framework](https://github.com/Codestar/codestar-framework). The fields configs desgin also based on CodeStar Framework. 
+
+
 ## Installation
 ##### A) Usage as Theme
 * Download zip file from github repository
